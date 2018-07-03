@@ -34,8 +34,8 @@ class LandingPage extends React.Component {
         return (
       <View>
       <Text style={styles.heading}>Do you want to go to university?</Text>
-              <View>
-                  <Swiper
+        <View>
+          <Swiper
             ref={swiper => {
               this.swiper = swiper;
             }}
