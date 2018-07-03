@@ -3,7 +3,7 @@ import { Text, View, TextInput, StyleSheet, Image } from "react-native";
 import Swiper from "react-native-deck-swiper";
 
 class LandingPage extends React.Component {
-	constructor(props) {
+    constructor(props) {
     super(props);
     this.state = {
       cards: [""],
@@ -29,13 +29,13 @@ class LandingPage extends React.Component {
     });
   };
 
-	render() {
+    render() {
     const { navigate } = this.props.navigation;
-		return (
+        return (
       <View>
       <Text style={styles.heading}>Do you want to go to university?</Text>
-			  <View>
-				  <Swiper
+              <View>
+                  <Swiper
             ref={swiper => {
               this.swiper = swiper;
             }}
@@ -110,9 +110,9 @@ class LandingPage extends React.Component {
             }}
            />
         </View>
-			</View>
-			);
-	}
+            </View>
+            );
+    }
 }
 
 

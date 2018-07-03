@@ -11,7 +11,7 @@ class FilteredData extends React.Component {
       swipeDirection: "",
       isSwipingBack: false,
       cardIndex: 0,
-			modalVisible: false,
+            modalVisible: false,
     };
   }
 
@@ -32,9 +32,9 @@ class FilteredData extends React.Component {
     });
   };
 
-	setModalVisible(visible) {
-		this.setState({ modalVisible: visible });
-	}
+    setModalVisible(visible) {
+        this.setState({ modalVisible: visible });
+    }
 
   handleFilters(name) {
     const { navigate } = this.props.navigation;
@@ -47,11 +47,11 @@ class FilteredData extends React.Component {
     // save data to state.
   }
 
-	render() {
-		const { navigate } = this.props.navigation;
+    render() {
+        const { navigate } = this.props.navigation;
 
-		return (
-			 <View style={{marginTop: 22}}>
+        return (
+             <View style={{marginTop: 22}}>
         <Modal
           animationType="slide"
           transparent={true}
@@ -171,8 +171,8 @@ class FilteredData extends React.Component {
            />
         </View>
       </View>
-			);
-	}
+            );
+    }
 }
 
 const styles = StyleSheet.create({

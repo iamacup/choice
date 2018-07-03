@@ -27,7 +27,8 @@
     "ios": "react-native-scripts ios",
     "test": "yarn jest && flow && eslint .",
     "jest": "node node_modules/jest/bin/jest.js",
-    "precommit": "yarn test"
+    "precommit": "yarn test",
+    "lint": "yarn eslint --fix ./src"
   },
   "jest": {
     "preset": "jest-expo",

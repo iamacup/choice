@@ -8,31 +8,31 @@ import BlankPage from "./container/BlankPageContainer";
 import Sidebar from "./container/SidebarContainer";
 
 const Drawer = DrawerNavigator(
-	{
-		Home: { screen: Home },
-	},
-	{
-		initialRouteName: "Home",
-		contentComponent: props => <Sidebar {...props} />,
-	}
+    {
+        Home: { screen: Home },
+    },
+    {
+        initialRouteName: "Home",
+        contentComponent: props => <Sidebar {...props} />,
+    }
 );
 
 const App = StackNavigator(
-	{
-		Login: { screen: Login },
-		BlankPage: { screen: BlankPage },
-		Drawer: { screen: Drawer },
-	},
-	{
-		initialRouteName: "Login",
-		headerMode: "none",
-	}
+    {
+        Login: { screen: Login },
+        BlankPage: { screen: BlankPage },
+        Drawer: { screen: Drawer },
+    },
+    {
+        initialRouteName: "Login",
+        headerMode: "none",
+    }
 );
 
 export default () => (
-	<Root>
-		<App />
-	</Root>
+    <Root>
+        <App />
+    </Root>
 );
 */
 
