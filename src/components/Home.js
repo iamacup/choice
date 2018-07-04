@@ -1,8 +1,10 @@
 
 import React from 'react';
+
 import {
   Text, View, TextInput, StyleSheet, Image
 } from 'react-native';
+
 import Swiper from 'react-native-deck-swiper';
 
 class LandingPage extends React.Component {

@@ -1,41 +1,55 @@
 
-## React Native Seed v1.0.0
+Choice
+-------
 
-### A [React Native](https://facebook.github.io/react-native/docs/getting-started.html) Starter Kit with [NativeBase](https://nativebase.io/) + [React Navigation](https://reactnavigation.org/) + [Redux](https://github.com/reactjs/redux) Apps (iOS & Android)
+<div align="center">
 
-*Brought to you by [GeekyAnts](https://geekyants.com/)*
+  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
+</div>
 
-## Get Started
+### Powered by 
+
+ * [React Native](https://facebook.github.io/react-native/docs/getting-started.html) - For cross platform, native application creation
+ * [React Navigation](https://reactnavigation.org/) - For easy, stylish navigation
+ * [Native Base](https://docs.nativebase.io/) - Reusable components
+ * [Redux](https://github.com/reactjs/redux) - For consistent state management
+ * [(Native) eCharts](https://github.com/somonus/react-native-echarts) - For advanced data visualisation
+ * [Create React Native App](https://github.com/react-community/create-react-native-app) - For easy bootstrap and testing
+ * + Others - see package.json :)
+
+Get Started
+-------
 
 ### 1. System Requirements
 
-* Globally installed [node](https://nodejs.org/en/)
+ * Globally installed [node](https://nodejs.org/en/)
+ * Globally installed [react-native CLI](https://facebook.github.io/react-native/docs/getting-started.html)
+ * OPTIONAL - YARN installed globally
+ * OPTIONAL - xCode installed (iOS only - needed if you want to run iOS emulator locally)
+ * OPTIONAL - Android Studio (Needed if you want to run Android emulator locally - other software may be needed depending on OS such as virtual box et al.)
 
-* Globally installed [react-native CLI](https://facebook.github.io/react-native/docs/getting-started.html)
+### 2. Mobile Requirements
 
+ * For testing - install the Expo app from the Play or App store.
 
 ### 2. Installation
 
 On the command prompt run the following commands
 
-```sh
-$ git clone https://github.com/GeekyAnts/react-native-boilerplate-redux-flow.git
-
-$ cd react-native-boilerplate-redux-flow/
-
-$ npm install
-  or
-  yarn
+```
+npm install
+OR
+yarn install
 ```
 
 ### Run on iOS
 
  * Opt #1:
  	* Run `npm start` in your terminal
-	* Scan the QR code in your Expo app
+	* use the s key in the console to send a code to your Expo app on your phone
  * Opt #2:
-	* Run `npm run ios` in your terminal
+	* Run `npm run ios` in your terminal to start an emulator
 
 ### Run on Android
 
@@ -43,7 +57,56 @@ $ npm install
 	* Run `npm start` in your terminal
 	* Scan the QR code in your Expo app
   * Opt #2:
-	* Run `npm run android` in your terminal
+	* Run `npm run android` in your terminal to start and emulator
 
+Structure
+-------
 
-For apps with more advance designs, please visit **[NativeBase Market](https://market.nativebase.io/)**.
+### File Structure
+
+```
+./src
+|____boot - startup boilerplate et al.
+|____containers - anything connected to redux
+|____components - anything not connected to redux
+|____theme - style items including native-base custom styles
+|____scripts - custom scripts / fragments
+|____redux - global redux stuff
+```
+
+### Project boot sequence / entry point
+
+Instead of leaving it for people to work out - the entry point is as follows:
+
+```
+./App.js - This is what NPM / Yarn will run and is the [CRNA](https://github.com/react-community/create-react-native-app) entry point
+./src/boot/index.js - Intermediate file
+./src/boot/setup.js - Performs global app setup and async load of resources to prevent massive bundle size / slow initial load + hydrate the redux store as needed
+./src/boot/navigation.js - Defines the various navigation structures
+```
+
+Coding Style
+-------
+
+### Container Structure
+
+It is assumed that a container is connected to the redux store, otherwise it should be a component. It is possible for a container to not define any reducers or actions but instead of the global reducers or actions that are located in ./src/redux
+
+ * It should define a **screen** or **screens** that are located in a sub folder called **screens** which perform data display through props
+ * It may define a **reducer** and **action** set, if it does, they should be located along side the containers's index.js file
+ * It may define a specific **style file**, if it does, the index.js file should be in the same place as the container's index.js file in a folder called styles
+
+### Component Structure
+
+* the same as a container but with no reducers and actions
+
+Contact
+-------
+
+If you have a specific feature request or find a bug, [please open a GitHub issue](https://github.com/iamacup/choice/issues/new). We encourage you to fork these docs for local reference and happily accept pull requests with improvements.
+
+Conduct
+-------
+
+Please note that this project is released with a [Contributor Code of Conduct](https://github.com/iamacup/choice/blob/master/CONDUCT.md). By participating in discussions about this project, you agree to abide by these terms.
+
