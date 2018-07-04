@@ -16,7 +16,7 @@ Choice
  * [Redux](https://github.com/reactjs/redux) - For consistent state management
  * [(Native) eCharts](https://github.com/somonus/react-native-echarts) - For advanced data visualisation
  * [Create React Native App](https://github.com/react-community/create-react-native-app) - For easy bootstrap and testing
- * + Others - see package.json :)
+ * And others - see package.json :)
 
 Get Started
 -------
@@ -33,7 +33,7 @@ Get Started
 
  * For testing - install the Expo app from the Play or App store.
 
-### 2. Installation
+### 3. Installation
 
 On the command prompt run the following commands
 
