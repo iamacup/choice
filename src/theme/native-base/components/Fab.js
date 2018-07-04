@@ -10,11 +10,15 @@ export default (variables = variable) => {
       justifyContent: 'center',
       'NativeBase.Icon': {
         alignSelf: 'center',
+        fontSize: 20,
+        marginLeft: 0,
+        marginRight: 0,
       },
       'NativeBase.IconNB': {
         alignSelf: 'center',
         fontSize: 20,
-        lineHeight: platform === 'ios' ? 24 : undefined,
+        marginLeft: 0,
+        marginRight: 0,
       },
     },
   };

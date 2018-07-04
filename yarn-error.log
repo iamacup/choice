@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn test
+  /usr/local/bin/node /usr/local/bin/yarn lint
 
 PATH: 
-  /usr/local/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/Users/iamacup/Desktop/repos/choice/node_modules/.bin:/Applications/Sourcetree.app/Contents/Resources/git_local/libexec/git-core:/Applications/Sourcetree.app/Contents/Resources/bin:/Applications/Sourcetree.app/Contents/Resources/git_local/bin:/Applications/Sourcetree.app/Contents/Resources/git_local/gitflow:/Applications/Sourcetree.app/Contents/Resources/git_local/git-lfs:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local
+  /Users/iamacup/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands
 
 Yarn version: 
   1.5.1
@@ -53,7 +53,6 @@ npm manifest:
       "ios": "react-native-scripts ios",
       "test": "yarn jest && flow && eslint .",
       "jest": "node node_modules/jest/bin/jest.js",
-      "precommit": "yarn test",
       "lint": "yarn eslint --fix ./src"
     },
     "jest": {
@@ -9181,7 +9180,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c yarn jest && flow && eslint .
+  Arguments: -c yarn eslint --fix ./src
   Directory: /Users/iamacup/Desktop/repos/choice
   Output:
   

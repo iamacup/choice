@@ -12,7 +12,8 @@ export default (variables = variable) => {
     'NativeBase.Button': {
       alignSelf: 'center',
       borderRadius: 0,
-      paddingHorizontal: 20,
+      paddingTop: 3,
+      paddingBottom: 3,
       height: 30,
       backgroundColor: 'transparent',
       borderWidth: 1,
@@ -22,23 +23,31 @@ export default (variables = variable) => {
       '.active': {
         backgroundColor: variables.segmentActiveBackgroundColor,
         'NativeBase.Text': {
-          color: variables.segmentActiveTextColor,
+          color: variables.segmentActiveTextColor
         },
+        'NativeBase.Icon': {
+          color: variables.segmentActiveTextColor
+        }
       },
       '.first': {
         borderTopLeftRadius: platform === 'ios' ? 5 : undefined,
         borderBottomLeftRadius: platform === 'ios' ? 5 : undefined,
-        borderLeftWidth: 1,
+        borderLeftWidth: 1
       },
       '.last': {
         borderTopRightRadius: platform === 'ios' ? 5 : undefined,
-        borderBottomRightRadius: platform === 'ios' ? 5 : undefined,
+        borderBottomRightRadius: platform === 'ios' ? 5 : undefined
       },
       'NativeBase.Text': {
         color: variables.segmentTextColor,
-        fontSize: 14,
+        fontSize: 14
       },
-    },
+      'NativeBase.Icon': {
+        fontSize: 22,
+        paddingTop: 0,
+        color: variables.segmentTextColor
+      }
+    }
   };
 
   return segmentTheme;
