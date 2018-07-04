@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn eslint --fix ./src
+  /usr/local/bin/node /usr/local/bin/yarn lint
 
 PATH: 
   /Users/iamacup/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands
@@ -19,14 +19,19 @@ npm manifest:
     "version": "1.1.0",
     "private": true,
     "devDependencies": {
-      "babel-eslint": "8.2.5",
-      "eslint": "^4.0.0",
+      "babel-eslint": "^8.2.5",
+      "eslint": "^4.19.1",
+      "eslint-config-airbnb": "^17.0.0",
+      "eslint-config-standard": "^11.0.0",
       "eslint-plugin-flowtype": "2.49.3",
-      "eslint-plugin-import": "2.13.0",
-      "eslint-plugin-jsx-a11y": "^6.0.2",
+      "eslint-plugin-import": "^2.13.0",
+      "eslint-plugin-jsx-a11y": "^6.0.3",
+      "eslint-plugin-node": "^6.0.1",
       "eslint-plugin-prettier": "2.6.1",
-      "eslint-plugin-react": "7.10.0",
+      "eslint-plugin-promise": "^3.8.0",
+      "eslint-plugin-react": "^7.10.0",
       "eslint-plugin-react-native": "3.2.1",
+      "eslint-plugin-standard": "^3.1.0",
       "flow-bin": "0.75.0",
       "flow-typed": "2.4.0",
       "husky": "0.14.3",
@@ -43,7 +48,8 @@ npm manifest:
       "ios": "react-native-scripts ios",
       "test": "yarn jest && flow && eslint .",
       "jest": "node node_modules/jest/bin/jest.js",
-      "precommit": "yarn test"
+      "precommit": "yarn test",
+      "lint": "yarn eslint --fix ./src"
     },
     "jest": {
       "preset": "jest-expo",
@@ -9107,8 +9113,8 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c /Users/iamacup/Desktop/repos/react-native-boilerplate-redux-flow-master/node_modules/.bin/eslint --fix ./src
-  Directory: /Users/iamacup/Desktop/repos/react-native-boilerplate-redux-flow-master
+  Arguments: -c yarn eslint --fix ./src
+  Directory: /Users/iamacup/Desktop/repos/choice
   Output:
   
       at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)

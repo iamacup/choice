@@ -1,4 +1,4 @@
-/*// @flow
+/* // @flow
 import React from "react";
 import { StackNavigator, DrawerNavigator } from "react-navigation";
 import { Root } from "native-base";
@@ -36,20 +36,20 @@ export default () => (
 );
 */
 
-import { createStackNavigator } from "react-navigation";
+import { createStackNavigator } from 'react-navigation';
 
-import Home from "./components/Home";
-import UniDecision from "./components/UniDecision";
+import Home from './components/Home';
+import UniDecision from './components/UniDecision';
 
-import CourseChoice from "./components/CourseChoice";
-import CourseSelection from "./components/CourseSelection";
-import CourseCards from "./components/CourseCards";
+import CourseChoice from './components/CourseChoice';
+import CourseSelection from './components/CourseSelection';
+import CourseCards from './components/CourseCards';
 
-import UniChoice from "./components/UniChoice";
-import UniSelection from "./components/UniSelector";
-import UniCards from "./components/UniCards";
+import UniChoice from './components/UniChoice';
+import UniSelection from './components/UniSelector';
+import UniCards from './components/UniCards';
 
-import FilteredData from "./components/FilteredData";
+import FilteredData from './components/FilteredData';
 
 const App = createStackNavigator({
   Home: { screen: Home },

@@ -1,27 +1,33 @@
-import React from "react";
-import { Text, View, TextInput, StyleSheet, Image } from "react-native";
-import Swiper from "react-native-deck-swiper";
+
+import React from 'react';
+import {
+  Text, View, TextInput, StyleSheet, Image
+} from 'react-native';
+import Swiper from 'react-native-deck-swiper';
 
 class LandingPage extends React.Component {
-    constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
-      cards: [""],
+      cards: [''],
       swipedAllCards: false,
       cardIndex: 0,
     };
   }
 
-  renderCard = (card, index) => {
-    return (
-      <View style={styles.card}>
-        <View style={{ justifyContent: "center", alignItems: "center", flexDirection: "column", flex: 1}}>
-          {/*<Image source={require('../theme/images/CourseCards/image.png')} style={styles.image} />*/}
-            <Text key={index} style={styles.text}>{card}</Text>
-        </View>
+  renderCard = (card, index) => (
+    <View style={styles.card}>
+      <View style={{
+        justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 1
+      }}
+      >
+        {/* <Image source={require('../theme/images/CourseCards/image.png')} style={styles.image} /> */}
+        <Text key={index} style={styles.text}>
+          {card}
+        </Text>
       </View>
-    );
-  };
+    </View>
+  );
 
   onSwipedAllCards = () => {
     this.setState({
@@ -29,20 +35,22 @@ class LandingPage extends React.Component {
     });
   };
 
-    render() {
+  render() {
     const { navigate } = this.props.navigation;
-        return (
+    return (
       <View>
-      <Text style={styles.heading}>Do you want to go to university?</Text>
+        <Text style={styles.heading}>
+Do you want to go to university?
+        </Text>
         <View>
           <Swiper
-            ref={swiper => {
+            ref={(swiper) => {
               this.swiper = swiper;
             }}
             cards={this.state.cards}
-            onSwipedRight={(cardIndex) => navigate("UniDecision", { decision: "yes"})}
-            onSwipedBottom={(cardIndex) => navigate("UniDecision", { decision: "no"})}
-            onSwipedLeft={(cardIndex) => navigate("UniDecision", { decision: "no"})}
+            onSwipedRight={cardIndex => navigate('UniDecision', { decision: 'yes' })}
+            onSwipedBottom={cardIndex => navigate('UniDecision', { decision: 'no' })}
+            onSwipedLeft={cardIndex => navigate('UniDecision', { decision: 'no' })}
             cardIndex={this.state.cardIndex}
             renderCard={this.renderCard}
             onSwipedAll={this.onSwipedAllCards}
@@ -51,68 +59,68 @@ class LandingPage extends React.Component {
             stackSeparation={15}
             overlayLabels={{
               left: {
-                title: "No",
+                title: 'No',
                 style: {
                   label: {
-                    backgroundColor: "black",
-                    borderColor: "black",
-                    color: "white",
+                    backgroundColor: 'black',
+                    borderColor: 'black',
+                    color: 'white',
                     borderWidth: 1,
                     fontSize: 30,
                   },
                   wrapper: {
-                    flexDirection: "column",
-                    alignItems: "flex-end",
-                    justifyContent: "flex-start",
+                    flexDirection: 'column',
+                    alignItems: 'flex-end',
+                    justifyContent: 'flex-start',
                     marginTop: -40,
                     marginLeft: 0
                   }
                 }
               },
               right: {
-                title: "Yes",
+                title: 'Yes',
                 style: {
                   label: {
-                    backgroundColor: "black",
-                    borderColor: "black",
-                    color: "white",
+                    backgroundColor: 'black',
+                    borderColor: 'black',
+                    color: 'white',
                     borderWidth: 1,
                     fontSize: 30,
                   },
                   wrapper: {
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    justifyContent: "flex-start",
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    justifyContent: 'flex-start',
                     marginTop: -40,
                     marginLeft: 0
                   }
                 }
               },
-               bottom: {
+              bottom: {
                 title: "Don't Know",
                 style: {
                   label: {
-                    backgroundColor: "black",
-                    borderColor: "black",
-                    color: "white",
+                    backgroundColor: 'black',
+                    borderColor: 'black',
+                    color: 'white',
                     borderWidth: 1,
                     fontSize: 30,
                   },
                   wrapper: {
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    justifyContent: "flex-start",
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    justifyContent: 'flex-start',
                     marginTop: -40,
                     marginLeft: 0
                   }
                 }
               },
             }}
-           />
+          />
         </View>
-            </View>
-            );
-    }
+      </View>
+    );
+  }
 }
 
 
@@ -122,36 +130,36 @@ const styles = StyleSheet.create({
     height: 250,
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: "#E8E8E8",
-    justifyContent: "center",
-    backgroundColor: "#fff",
+    borderColor: '#E8E8E8',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
   },
   heading: {
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 30,
-    color: "#909090",
+    color: '#909090',
     marginLeft: 30,
     marginRight: 30,
     marginTop: 40,
   },
   text: {
-    textAlign: "center",
+    textAlign: 'center',
     margin: 10,
     fontSize: 30,
-    backgroundColor: "transparent"
+    backgroundColor: 'transparent'
   },
   done: {
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 30,
-    color: "white",
-    backgroundColor: "transparent"
+    color: 'white',
+    backgroundColor: 'transparent'
   },
   box: {
     borderWidth: 2,
     borderRadius: 10,
-    borderColor: "#000",
+    borderColor: '#000',
     width: 250,
-    alignSelf: "center",
+    alignSelf: 'center',
     height: 175
   },
   image: {
