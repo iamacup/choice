@@ -59,6 +59,15 @@ yarn install
   * Opt #2:
 	* Run `npm run android` in your terminal to start and emulator
 
+Other Commands
+-------
+
+```
+yarn eject - eject from CRNA 
+yarn test - run tests & lint the src folder
+yarn lint - lint the src folder
+```
+
 Structure
 -------
 

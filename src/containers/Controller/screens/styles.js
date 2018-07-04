@@ -1,20 +1,26 @@
 import { StyleSheet } from 'react-native';
 
 const styles: any = StyleSheet.create({
-  container: {
-    backgroundColor: '#FBFAFA',
+  titleView: {
+    marginTop: 25,
+    marginBottom: 15
   },
-  row: {
-    flex: 1,
-    alignItems: 'center',
+  titleText: {
+    fontSize: 28,
+    textAlign: 'center',
   },
-  text: {
-    fontSize: 20,
-    marginBottom: 15,
-    alignItems: 'center',
+  card: {
+    height: 250,
+    borderWidth: 2,
+    borderColor: '#E8E8E8',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
   },
-  mt: {
-    marginTop: 18,
+  cardText: {
+    textAlign: 'center',
+    margin: 10,
+    fontSize: 30,
+    backgroundColor: 'transparent'
   },
 });
 
