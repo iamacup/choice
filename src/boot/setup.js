@@ -4,7 +4,7 @@ import { StyleProvider } from 'native-base';
 import { Provider } from 'react-redux';
 
 import configureStore from '../redux/configureStore';
-import Navigation from '../boot/navigation.js';
+import Navigation from './navigation.js';
 import getTheme from '../theme/native-base/components';
 import variables from '../theme/native-base/variables/material';
 
