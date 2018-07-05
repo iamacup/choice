@@ -1,3 +1,4 @@
+
 import color from 'color';
 
 import { Platform, Dimensions, PixelRatio } from 'react-native';
@@ -7,6 +8,10 @@ const deviceWidth = Dimensions.get('window').width;
 const platform = Platform.OS;
 const platformStyle = 'material';
 const isIphoneX =  platform === 'ios' && (deviceHeight === 812 || deviceWidth === 812);
+
+// STUFF I ADDED / EDITED IN THIS FILE DEFINED HERE
+const headerBackground = '#1b1b1b';
+const headerBorder = color(headerBackground).darken(0.3).hex();
 
 export default {
   platformStyle,
@@ -143,14 +148,14 @@ export default {
 
   // Header
   toolbarBtnColor: '#fff',
-  toolbarDefaultBg: '#3F51B5',
+  toolbarDefaultBg: headerBackground,
   toolbarHeight: 56,
   toolbarSearchIconSize: 23,
   toolbarInputColor: '#fff',
   searchBarHeight: platform === 'ios' ? 30 : 40,
   searchBarInputHeight: platform === 'ios' ? 40 : 50,
   toolbarBtnTextColor: '#fff',
-  toolbarDefaultBorder: '#3F51B5',
+  toolbarDefaultBorder: headerBorder,
   iosStatusbar: 'light-content',
   get statusBarColor() {
     return color(this.toolbarDefaultBg)

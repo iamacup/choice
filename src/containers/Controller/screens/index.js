@@ -33,6 +33,7 @@ export interface State {}
 // PRIMARY CLASS
 
 const currentProps = {
+  questionText: 'Do you want to go to University?',
   directions: {
     top: {
       text: 'Don\'t know',
@@ -49,12 +50,31 @@ const currentProps = {
 renderCard = (card, index) => {
   // if this is the top card, we worry about arrows
   if (index === 0) {
-  // we create a 3 x 3 grid, and place indicators in the (row x column) 1x2, 2x1, 2x3 and 3x2 based on what swipe directions are available
+    //we pull this out of the layout for easy access - the layout is quite verbose!!
+    const cardContent = (
+        <View style={styles.cardContent}>
+          
+          <View style={{flex: 2, justifyContent: 'center'}}> 
+            <Text style={styles.titleText}>{currentProps.questionText}</Text>
+          </View>
+
+          <View style={{flex: 3, justifyContent: 'center'}}> 
+            <Image
+              style={styles.iconImage}
+              source={require('../../../theme/images/CourseCards/MortarboardIcon.png')}
+              resizeMode='contain'
+            />
+          </View>
+          
+        </View>
+      );
+
+    // we create a 3 x 3 grid, and place indicators in the (row x column) 1x2, 2x1, 2x3 and 3x2 based on what swipe directions are available
     return (
-      <View style={{flex:1}}>
-        <View style={styles.cardRow1}>
-          <View style={styles.cardCol1} />
-          <View style={styles.cardCol2}>
+      <View style={styles.cardInner}>
+        <View style={styles.cardRowTopBottom}>
+          <View style={styles.cardColLeftRight} />
+          <View style={styles.cardColContent}>
             <View style={styles.cardHorizontalIndicator}>
               {currentProps.directions.top
                 ? (
@@ -66,10 +86,10 @@ renderCard = (card, index) => {
                 ) : null}
             </View>
           </View>
-          <View style={styles.cardCol3} />
+          <View style={styles.cardColLeftRight} />
         </View>
-        <View style={styles.cardRow2}>
-          <View style={styles.cardCol1}>
+        <View style={styles.cardRowContent}>
+          <View style={styles.cardColLeftRight}>
             <View style={styles.cardVerticalIndicator}>
               {currentProps.directions.left
                 ? (
@@ -81,8 +101,10 @@ renderCard = (card, index) => {
                 ) : null}
             </View>
           </View>
-          <View style={styles.cardCol2} />
-          <View style={styles.cardCol3}>
+          <View style={styles.cardColContent}>
+            {cardContent}
+          </View>
+          <View style={styles.cardColLeftRight}>
             <View style={styles.cardVerticalIndicator}>
               {currentProps.directions.right
                 ? (
@@ -95,9 +117,9 @@ renderCard = (card, index) => {
             </View>
           </View>
         </View>
-        <View style={styles.cardRow3}>
-          <View style={styles.cardCol1} />
-          <View style={styles.cardCol2}>
+        <View style={styles.cardRowTopBottom}>
+          <View style={styles.cardColLeftRight} />
+          <View style={styles.cardColContent}>
             <View style={styles.cardHorizontalIndicator}>
               {currentProps.directions.bottom
                 ? (
@@ -109,7 +131,7 @@ renderCard = (card, index) => {
                 ) : null}
             </View>
           </View>
-          <View style={styles.cardCol3} />
+          <View style={styles.cardColLeftRight} /> 
         </View>
       </View>
     );
@@ -117,7 +139,7 @@ renderCard = (card, index) => {
 
   // if its not the top card, return empty
   return (
-    <View style={{flex: 1}}>
+    <View style={styles.cardInner}>
       <Text>Other card</Text>
     </View>
   );
@@ -144,103 +166,92 @@ export default HomeScreen = ({ navigation }) => (
       <Right />
     </Header>
 
-    <View style={{flex: 1}}>
-      <View style={styles.titleView}>
-        <Text style={styles.titleText}>
-          Do you want to go to university?
-        </Text>
+    <View style={styles.contentView}>
+      <View style={styles.swiperTopView} />
+      <View style={styles.swiperOuterView}>
+        <View style={styles.swiperLeftRightView} />
+        <View style={styles.swiperInnerView}>
+          <Swiper
+            ref={swiper => { this.swiper = swiper }}
+            infinite
+            cards={['', '', '', '']}
+            backgroundColor={'transparent'}
+            cardStyle={styles.cardOuter}
+            renderCard={renderCard}
+            onSwipedRight={(cardIndex) => { console.log('swipeRight'); }}
+            onSwipedBottom={(cardIndex) => { console.log('swipeBottom'); }}
+            onSwipedLeft={(cardIndex) => { console.log('swipeLeft'); }}
+            onSwipedTop={(cardIndex) => { console.log('swipeTop'); }}
+            cardIndex={0}
+            stackSize={3}
+            showSecondCard
+            stackSeparation={15}
+            overlayLabels={{
+              left: {
+                title: 'No',
+                style: {
+                  label: {
+                    backgroundColor: 'black',
+                    borderColor: 'black',
+                    color: 'white',
+                    borderWidth: 1,
+                    fontSize: 30,
+                  },
+                  wrapper: {
+                    flexDirection: 'column',
+                    alignItems: 'flex-end',
+                    justifyContent: 'flex-start',
+                    marginTop: -40,
+                    marginLeft: 0
+                  }
+                }
+              },
+              right: {
+                title: 'Yes',
+                style: {
+                  label: {
+                    backgroundColor: 'black',
+                    borderColor: 'black',
+                    color: 'white',
+                    borderWidth: 1,
+                    fontSize: 30,
+                  },
+                  wrapper: {
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    justifyContent: 'flex-start',
+                    marginTop: -40,
+                    marginLeft: 0
+                  }
+                }
+              },
+              top: {
+                title: "Don't Know",
+                style: {
+                  label: {
+                    backgroundColor: 'black',
+                    borderColor: 'black',
+                    color: 'white',
+                    borderWidth: 1,
+                    fontSize: 30,
+                  },
+                  wrapper: {
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    justifyContent: 'flex-start',
+                    marginTop: -40,
+                    marginLeft: 0
+                  }
+                }
+              },
+            }}
+          />
+        </View>
+        <View style={styles.swiperLeftRightView} />
       </View>
-
-      <View style={{flex: 1}}>
-        <Swiper
-          ref={swiper => { this.swiper = swiper }}
-          infinite
-          cards={['hello1', 'hello2', 'hello3', 'hello4', 'hello5', 'hello6']}
-          backgroundColor={'#fff'}
-          cardStyle={{
-            top: 0,
-            left: 0,
-            bottom: 0,
-            right: 0,
-            width: 'auto',
-            height: 'auto',
-            backgroundColor: 'purple',
-          }}
-          renderCard={renderCard}
-          onSwipedRight={(cardIndex) => { console.log('swipeRight'); }}
-          onSwipedBottom={(cardIndex) => { console.log('swipeBottom'); }}
-          onSwipedLeft={(cardIndex) => { console.log('swipeLeft'); }}
-          onSwipedTop={(cardIndex) => { console.log('swipeTop'); }}
-          cardIndex={0}
-          stackSize={3}
-          showSecondCard
-          stackSeparation={15}
-          overlayLabels={{
-            left: {
-              title: 'No',
-              style: {
-                label: {
-                  backgroundColor: 'black',
-                  borderColor: 'black',
-                  color: 'white',
-                  borderWidth: 1,
-                  fontSize: 30,
-                },
-                wrapper: {
-                  flexDirection: 'column',
-                  alignItems: 'flex-end',
-                  justifyContent: 'flex-start',
-                  marginTop: -40,
-                  marginLeft: 0
-                }
-              }
-            },
-            right: {
-              title: 'Yes',
-              style: {
-                label: {
-                  backgroundColor: 'black',
-                  borderColor: 'black',
-                  color: 'white',
-                  borderWidth: 1,
-                  fontSize: 30,
-                },
-                wrapper: {
-                  flexDirection: 'column',
-                  alignItems: 'flex-start',
-                  justifyContent: 'flex-start',
-                  marginTop: -40,
-                  marginLeft: 0
-                }
-              }
-            },
-            top: {
-              title: "Don't Know",
-              style: {
-                label: {
-                  backgroundColor: 'black',
-                  borderColor: 'black',
-                  color: 'white',
-                  borderWidth: 1,
-                  fontSize: 30,
-                },
-                wrapper: {
-                  flexDirection: 'column',
-                  alignItems: 'flex-start',
-                  justifyContent: 'flex-start',
-                  marginTop: -40,
-                  marginLeft: 0
-                }
-              }
-            },
-          }}
-
-
-
-        />
-      </View>
-
+      <View style={styles.swiperBottomView} />
     </View>
+
   </Container>
 );
 
