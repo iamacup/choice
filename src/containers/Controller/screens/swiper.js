@@ -53,6 +53,12 @@ export default class HomeScreen extends React.Component<Props, State> {
     return false;
   }
 
+  componentDidUpdate(prevProps) {
+    if(this.props.drawData.id != prevProps.drawData.id) {
+      this.swiper.swipeBack(() => {this.swiper.jumpToCardIndex(0);});
+    }
+  }
+
   renderCard(card, index) {
     const { questionText, options } = this.props.drawData;
 
@@ -147,13 +153,10 @@ export default class HomeScreen extends React.Component<Props, State> {
       );
     }
 
-    // if its not the top card, return empty
+    // if its not the top card, return empty - we could put an icon or something here
+    // but i am not sure what conditions need to be true for this to actually render? maybe a slow phone?
     return (
-      <View style={styles.cardInner}>
-        <Text>
-        Other card
-        </Text>
-      </View>
+      <View style={styles.cardInner} />
     );
   }
 
@@ -168,11 +171,17 @@ export default class HomeScreen extends React.Component<Props, State> {
   }
 
   render() {
+    //we 'trick' the swiper here - basically we have two cards, we then render the current drawData onto the first
+    // and an empty card onto the seccond.
+    // when the component sees a new card though it's id - it forced a render by swiping back a card - which will render as a new card
+    // - this could be a bit glitchy and needs quite a lot of testing as this is supposed to be achieved with 
+    // - new cardIndex being passed into the swiper forcing a re-render to that card (and then we would just build up a card stack)
+    // in order for this to work, we have to specify two cards
     return (
       <Swiper
         ref={(swiper) => { this.swiper = swiper; }}
-        infinite
-        cards={['', '', '', '']}
+        cards={['', '']}
+        showSecondCard={false}
         backgroundColor='transparent'
         cardStyle={styles.cardOuter}
         renderCard={(card, index) => this.renderCard(card, index)}
@@ -236,9 +245,6 @@ export default class HomeScreen extends React.Component<Props, State> {
           }
         }}
         cardIndex={0}
-        stackSize={3}
-        showSecondCard
-        stackSeparation={15}
         horizontalThreshold={horizontalThreshold}
         verticalThreshold={verticalThreshold}
         overlayLabels={{}/* {
