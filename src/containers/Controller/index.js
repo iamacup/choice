@@ -2,7 +2,14 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
+import { StyleSheet, View, Image } from 'react-native';
+
+import {
+  Text,
+} from 'native-base';
+
 import HomeScreen from './screens';
+import AttendedUniversityQuestion from '../../components/cards/AttendUniversityQuestion';
 
 // SETUP TYPES FOR FLOW
 
@@ -29,8 +36,9 @@ const questions = [
         text: 'No',
       },
     },
+    card: AttendedUniversityQuestion,
   },
-  {
+  /* {
     id: '1',
     questionText: 'Q2?',
     options: {
@@ -44,6 +52,7 @@ const questions = [
         text: 'No',
       },
     },
+    card: CardTwo,
   },
   {
     id: '2',
@@ -53,6 +62,7 @@ const questions = [
         text: 'Don\'t know',
       },
     },
+    card: CardThree,
   },
   {
     id: '3',
@@ -65,27 +75,47 @@ const questions = [
         text: 'No',
       },
     },
-  }
+    card: CardFour,
+  } */
 ];
 
 export default class ControllerContainer extends React.Component<Props, State> {
   constructor(props) {
     super(props);
 
-    this.state = {drawData: questions[0]};
+    this.state = { drawData: questions[0] };
   }
 
-  handleSwiped(direction) {
+  getAnswer(direction, id) {
+    let result = null;
+
+    questions.forEach((value) => {
+      if (value.id === id) {
+        result = value.options[direction].text;
+      }
+    });
+
+    return result;
+  }
+
+  handleSwiped(direction, data) {
     const { id } = this.state.drawData;
 
-    if(id === '0') {
-      this.setState({drawData: questions[1]});
-    } else if(id === '1') {
-      this.setState({drawData: questions[2]});
-    } else if(id === '2') {
-      this.setState({drawData: questions[3]});
-    } else if(id === '3') {
-      this.setState({drawData: questions[0]});
+    const answer = {
+      data,
+      answer: this.getAnswer(direction, id),
+    };
+
+    console.log(answer);
+
+    if (id === '0') {
+      this.setState({ drawData: questions[1] });
+    } else if (id === '1') {
+      this.setState({ drawData: questions[2] });
+    } else if (id === '2') {
+      this.setState({ drawData: questions[3] });
+    } else if (id === '3') {
+      this.setState({ drawData: questions[0] });
     }
   }
 
@@ -93,7 +123,7 @@ export default class ControllerContainer extends React.Component<Props, State> {
     return (
       <HomeScreen
         navigation={this.props.navigation}
-        swipedCallback={(direction) => {this.handleSwiped(direction);}}
+        swipedCallback={(direction, data) => { this.handleSwiped(direction, data); }}
         drawData={this.state.drawData}
       />
     );

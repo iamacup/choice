@@ -4,24 +4,20 @@ import * as React from 'react';
 import { StyleSheet, View, Image } from 'react-native';
 import PropTypes from 'prop-types';
 
-
 import {
   Container,
   Header,
   Title,
-  Content,
   Text,
   Button,
   Icon,
   Left,
   Body,
   Right,
-  List,
-  ListItem,
   Badge
 } from 'native-base';
 
-import Swiper from './swiper';
+import Swiper from '../../../components/swiper';
 
 import styles from './styles';
 
@@ -37,7 +33,6 @@ export interface State {}
 // navigation, swipedCallback, drawData
 
 export default class HomeScreen extends React.Component<Props, State> {
-  
   constructor(props) {
     super(props);
 
@@ -51,9 +46,9 @@ export default class HomeScreen extends React.Component<Props, State> {
   }
 
   directionIsAllowed(direction) {
-    const {options} = this.props.drawData;
+    const { options } = this.props.drawData;
 
-    if(options[direction]) {
+    if (options[direction]) {
       return true;
     }
 
@@ -61,26 +56,24 @@ export default class HomeScreen extends React.Component<Props, State> {
   }
 
   handleClearDirection() {
-    this.setState({direction: null});
-  }
-
-  handleSwiped(direction) {
-    this.props.swipedCallback(direction);
+    this.setState({ direction: null });
   }
 
   render() {
     let tooltip = null;
-    const {direction} = this.state;
+    const { direction } = this.state;
 
-    if(direction !== null && this.directionIsAllowed(direction)) {
+    if (direction !== null && this.directionIsAllowed(direction)) {
       let tooltipText = null;
-      const {options} = this.props.drawData;
+      const { options } = this.props.drawData;
 
       tooltipText = options[direction].text;
 
       tooltip = (
         <Badge primary>
-          <Text style={styles.directionBadgeText}>{tooltipText}</Text>
+          <Text style={styles.directionBadgeText}>
+            {tooltipText}
+          </Text>
         </Badge>
       );
     }
@@ -107,9 +100,7 @@ export default class HomeScreen extends React.Component<Props, State> {
         </Header>
 
         <View style={styles.contentView}>
-          <View style={styles.swiperTopTopView}>
-
-          </View>
+          <View style={styles.swiperTopTopView} />
           <View style={styles.swiperTopView}>
             {tooltip}
           </View>
@@ -117,15 +108,15 @@ export default class HomeScreen extends React.Component<Props, State> {
             <View style={styles.swiperLeftRightView} />
             <View style={styles.swiperInnerView}>
               <Swiper
-                swipedCallback={(swipeDirection) => { this.handleSwiped(swipeDirection); }}
+                swipedCallback={(swipeDirection, data) => { this.props.swipedCallback(swipeDirection, data); }}
                 drawData={this.props.drawData}
                 swipingCallback={(swipeDirection) => { this.handleSwiping(swipeDirection); }}
-                clearDirectionCallback={() => {this.handleClearDirection();}}
+                clearDirectionCallback={() => { this.handleClearDirection(); }}
               />
             </View>
             <View style={styles.swiperLeftRightView} />
           </View>
-          <View style={styles.swiperBottomView}/>
+          <View style={styles.swiperBottomView} />
         </View>
 
       </Container>

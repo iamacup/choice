@@ -5,28 +5,11 @@ import { StyleSheet, View, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import Swiper from 'react-native-deck-swiper';
 
-import {
-  Container,
-  Header,
-  Title,
-  Content,
-  Text,
-  Button,
-  Icon,
-  Left,
-  Body,
-  Right,
-  List,
-  ListItem
-} from 'native-base';
-
 import styles from './styles';
 
 // SETUP TYPES FOR FLOW
 
-export interface Props {
-  navigation: any,
-}
+export interface Props {}
 export interface State {}
 
 
@@ -34,7 +17,6 @@ export interface State {}
 
 const horizontalThreshold = 30;
 const verticalThreshold = 30;
-
 
 export default class HomeScreen extends React.Component<Props, State> {
   constructor(props) {
@@ -54,36 +36,19 @@ export default class HomeScreen extends React.Component<Props, State> {
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.drawData.id != prevProps.drawData.id) {
-      this.swiper.swipeBack(() => {this.swiper.jumpToCardIndex(0);});
+    if (this.props.drawData.id != prevProps.drawData.id) {
+      this.swiper.swipeBack(() => { this.swiper.jumpToCardIndex(0); });
     }
   }
 
-  renderCard(card, index) {
-    const { questionText, options } = this.props.drawData;
+  renderCard(cardIgnored, index) {
+    const {
+      questionText, options, card, id
+    } = this.props.drawData;
 
     // if this is the top card, we worry about arrows
     if (index === 0) {
-    // we pull this out of the layout for easy access - the layout is quite verbose!!
-      const cardContent = (
-        <View style={styles.cardContent}>
-
-          <View style={{ flex: 2, justifyContent: 'center' }}>
-            <Text style={styles.titleText}>
-              {questionText}
-            </Text>
-          </View>
-
-          <View style={{ flex: 3, justifyContent: 'center' }}>
-            <Image
-              style={styles.iconImage}
-              source={require('../../../theme/images/CourseCards/MortarboardIcon.png')}
-              resizeMode='contain'
-            />
-          </View>
-
-        </View>
-      );
+      const CardContent = card;
 
       // we create a 3 x 3 grid, and place indicators in the (row x column) 1x2, 2x1, 2x3 and 3x2 based on what swipe directions are available
       return (
@@ -96,7 +61,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                   ? (
                     <Image
                       style={styles.chevImage}
-                      source={require('../../../theme/images/CourseCards/chevup.png')}
+                      source={require('../../theme/images/CourseCards/chevup.png')}
                       resizeMode='contain'
                     />
                   ) : null}
@@ -111,14 +76,18 @@ export default class HomeScreen extends React.Component<Props, State> {
                   ? (
                     <Image
                       style={styles.chevImage}
-                      source={require('../../../theme/images/CourseCards/chevleft.png')}
+                      source={require('../../theme/images/CourseCards/chevleft.png')}
                       resizeMode='contain'
                     />
                   ) : null}
               </View>
             </View>
             <View style={styles.cardColContent}>
-              {cardContent}
+              <CardContent
+                ref={(element) => { this.card = element; }}
+                key={id}
+                questionText={questionText}
+              />
             </View>
             <View style={styles.cardColLeftRight}>
               <View style={styles.cardVerticalIndicator}>
@@ -126,7 +95,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                   ? (
                     <Image
                       style={styles.chevImage}
-                      source={require('../../../theme/images/CourseCards/chevright.png')}
+                      source={require('../../theme/images/CourseCards/chevright.png')}
                       resizeMode='contain'
                     />
                   ) : null}
@@ -141,7 +110,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                   ? (
                     <Image
                       style={styles.chevImage}
-                      source={require('../../../theme/images/CourseCards/chevdown.png')}
+                      source={require('../../theme/images/CourseCards/chevdown.png')}
                       resizeMode='contain'
                     />
                   ) : null}
@@ -161,9 +130,9 @@ export default class HomeScreen extends React.Component<Props, State> {
   }
 
   directionIsAllowed(direction) {
-    const {options} = this.props.drawData;
+    const { options } = this.props.drawData;
 
-    if(options[direction]) {
+    if (options[direction]) {
       return true;
     }
 
@@ -171,10 +140,10 @@ export default class HomeScreen extends React.Component<Props, State> {
   }
 
   render() {
-    //we 'trick' the swiper here - basically we have two cards, we then render the current drawData onto the first
+    // we 'trick' the swiper here - basically we have two cards, we then render the current drawData onto the first
     // and an empty card onto the seccond.
     // when the component sees a new card though it's id - it forced a render by swiping back a card - which will render as a new card
-    // - this could be a bit glitchy and needs quite a lot of testing as this is supposed to be achieved with 
+    // - this could be a bit glitchy and needs quite a lot of testing as this is supposed to be achieved with
     // - new cardIndex being passed into the swiper forcing a re-render to that card (and then we would just build up a card stack)
     // in order for this to work, we have to specify two cards
     return (
@@ -186,62 +155,62 @@ export default class HomeScreen extends React.Component<Props, State> {
         cardStyle={styles.cardOuter}
         renderCard={(card, index) => this.renderCard(card, index)}
         onSwipedAborted={() => { this.props.clearDirectionCallback(); }}
-        onSwiped={(index) => { 
-          const {direction} = this.state;
+        onSwiped={(index) => {
+          const { direction } = this.state;
 
-          //what we do here is - if we are looking at the first card
-          //and the direction is not allowed, swipe the card back ontop
-          //and then once that has done (And importantly) an onSwiped event is called
-          //(hence filter index to 0 only) with index 1 - but card showing is 0
-          //so we use the callback of swipeBack to set the index to 0 again
-          if(index === 0) {
-            if(this.directionIsAllowed(direction) === false) {
-              this.swiper.swipeBack(() => {this.swiper.jumpToCardIndex(0);});
+          // what we do here is - if we are looking at the first card
+          // and the direction is not allowed, swipe the card back ontop
+          // and then once that has done (And importantly) an onSwiped event is called
+          // (hence filter index to 0 only) with index 1 - but card showing is 0
+          // so we use the callback of swipeBack to set the index to 0 again
+          if (index === 0) {
+            if (this.directionIsAllowed(direction) === false) {
+              this.swiper.swipeBack(() => { this.swiper.jumpToCardIndex(0); });
               this.props.clearDirectionCallback();
             } else {
-              this.props.swipedCallback(direction); 
+              this.props.swipedCallback(direction, this.card.getData());
               this.props.clearDirectionCallback();
             }
           }
-        }} 
+        }}
         onSwiping={(x,y) => {
-          // we replicate logic here from https://github.com/alexbrillant/react-native-deck-swiper/blob/master/Swiper.js 
+          // we replicate logic here from https://github.com/alexbrillant/react-native-deck-swiper/blob/master/Swiper.js
           // (getSwipeDirection method) to get a better accuracy
           let direction = null;
 
-          if(x >= 0 && y >= 0) {
-            //bottom right
-            if(Math.abs(x) > Math.abs(y)) {
+          if (x >= 0 && y >= 0) {
+            // bottom right
+            if (Math.abs(x) > Math.abs(y)) {
               direction = 'right';
             } else {
               direction = 'bottom';
             }
-          } else if(x < 0 && y >= 0) {
-            //bottom left
-            if(Math.abs(x) > Math.abs(y)) {
+          } else if (x < 0 && y >= 0) {
+            // bottom left
+            if (Math.abs(x) > Math.abs(y)) {
               direction = 'left';
             } else {
               direction = 'bottom';
             }
-          } else if(x >= 0 && y < 0) {
-            //top right
-            if(Math.abs(x) > Math.abs(y)) {
+          } else if (x >= 0 && y < 0) {
+            // top right
+            if (Math.abs(x) > Math.abs(y)) {
               direction = 'right';
             } else {
               direction = 'top';
             }
-          } else if(x < 0 && y < 0) {
-            //top left
-            if(Math.abs(x) > Math.abs(y)) {
+          } else if (x < 0 && y < 0) {
+            // top left
+            if (Math.abs(x) > Math.abs(y)) {
               direction = 'left';
             } else {
               direction = 'top';
             }
           }
 
-          if(direction != this.state.direction) {
+          if (direction != this.state.direction) {
             this.props.swipingCallback(direction);
-            this.setState({direction});
+            this.setState({ direction });
           }
         }}
         cardIndex={0}
@@ -322,4 +291,4 @@ HomeScreen.defaultProps = {
   swipedCallback: () => {},
   swipingCallback: () => {},
   clearDirectionCallback: () => {},
-}
+};

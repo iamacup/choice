@@ -18,7 +18,7 @@ const infoColor = '#62B1F6'; // THIS NEEDS TO BE CHANGED FOR COLOR SCHEME!
 const successCollor = '#80b26f';
 const dangerColor = '#bf6258';
 
-//RESUME NORMAL OPERATIONS
+// RESUME NORMAL OPERATIONS
 
 export default {
   platformStyle,
@@ -114,10 +114,10 @@ export default {
   checkboxTickColor: '#fff',
 
   // Color
-  brandPrimary: primaryColor,//'#3F51B5',
-  brandInfo: infoColor,//'#62B1F6',
-  brandSuccess: successCollor,//'#5cb85c',
-  brandDanger: dangerColor,//'#d9534f',
+  brandPrimary: primaryColor,// '#3F51B5',
+  brandInfo: infoColor,// '#62B1F6',
+  brandSuccess: successCollor,// '#5cb85c',
+  brandDanger: dangerColor,// '#d9534f',
   brandWarning: '#f0ad4e',
   brandDark: '#000',
   brandLight: '#f4f4f4',
