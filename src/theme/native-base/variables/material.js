@@ -13,6 +13,13 @@ const isIphoneX =  platform === 'ios' && (deviceHeight === 812 || deviceWidth ==
 const headerBackground = '#1b1b1b';
 const headerBorder = color(headerBackground).darken(0.3).hex();
 
+const primaryColor = '#5ba7e8';
+const infoColor = '#62B1F6'; // THIS NEEDS TO BE CHANGED FOR COLOR SCHEME!
+const successCollor = '#80b26f';
+const dangerColor = '#bf6258';
+
+//RESUME NORMAL OPERATIONS
+
 export default {
   platformStyle,
   platform,
@@ -107,10 +114,10 @@ export default {
   checkboxTickColor: '#fff',
 
   // Color
-  brandPrimary: '#3F51B5',
-  brandInfo: '#62B1F6',
-  brandSuccess: '#5cb85c',
-  brandDanger: '#d9534f',
+  brandPrimary: primaryColor,//'#3F51B5',
+  brandInfo: infoColor,//'#62B1F6',
+  brandSuccess: successCollor,//'#5cb85c',
+  brandDanger: dangerColor,//'#d9534f',
   brandWarning: '#f0ad4e',
   brandDark: '#000',
   brandLight: '#f4f4f4',

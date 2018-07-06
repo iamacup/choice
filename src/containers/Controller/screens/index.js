@@ -17,7 +17,8 @@ import {
   Body,
   Right,
   List,
-  ListItem
+  ListItem,
+  Badge
 } from 'native-base';
 
 import Swiper from './swiper';
@@ -46,10 +47,7 @@ export default class HomeScreen extends React.Component<Props, State> {
   }
 
   handleSwiping(direction) {
-    //console.log(direction);
-    if(direction !== this.state.direction) {
-      this.setState({ direction });
-    }
+    this.setState({ direction });
   }
 
   directionIsAllowed(direction) {
@@ -62,12 +60,12 @@ export default class HomeScreen extends React.Component<Props, State> {
     return false;
   }
 
-  handleSwiped() {
-    //we have to check that the swiped value is valid, 
-    //if it is not we have to swipe the card back
-    //if we could stop the card deck from letting you swipe it would be better!
-    console.log('check valid swipe');
-    this.props.swipedCallback(this.state.direction);
+  handleClearDirection() {
+    this.setState({direction: null});
+  }
+
+  handleSwiped(direction) {
+    this.props.swipedCallback(direction);
   }
 
   render() {
@@ -81,7 +79,9 @@ export default class HomeScreen extends React.Component<Props, State> {
       tooltipText = options[direction].text;
 
       tooltip = (
-        <Text>{tooltipText}</Text>
+        <Badge primary>
+          <Text style={styles.directionBadgeText}>{tooltipText}</Text>
+        </Badge>
       );
     }
 
@@ -107,6 +107,9 @@ export default class HomeScreen extends React.Component<Props, State> {
         </Header>
 
         <View style={styles.contentView}>
+          <View style={styles.swiperTopTopView}>
+
+          </View>
           <View style={styles.swiperTopView}>
             {tooltip}
           </View>
@@ -114,14 +117,15 @@ export default class HomeScreen extends React.Component<Props, State> {
             <View style={styles.swiperLeftRightView} />
             <View style={styles.swiperInnerView}>
               <Swiper
-                swipedCallback={() => { this.handleSwiped(); }}
+                swipedCallback={(swipeDirection) => { this.handleSwiped(swipeDirection); }}
                 drawData={this.props.drawData}
-                swipingCallback={(direction) => { this.handleSwiping(direction); }}
+                swipingCallback={(swipeDirection) => { this.handleSwiping(swipeDirection); }}
+                clearDirectionCallback={() => {this.handleClearDirection();}}
               />
             </View>
             <View style={styles.swiperLeftRightView} />
           </View>
-          <View style={styles.swiperBottomView} />
+          <View style={styles.swiperBottomView}/>
         </View>
 
       </Container>

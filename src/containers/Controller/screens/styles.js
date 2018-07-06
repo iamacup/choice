@@ -18,8 +18,12 @@ const styles: any = StyleSheet.create({
   },
 
   // setup swipers VERTICAL spacing
+  swiperTopTopView: {
+    flex: 0.5,
+  },
   swiperTopView: {
     flex: 2,
+    alignSelf: 'center',
   },
   swiperOuterView: {
     flexDirection: 'row',
@@ -27,7 +31,9 @@ const styles: any = StyleSheet.create({
     justifyContent: 'center',
   },
   swiperBottomView: {
-    flex: 2.5,
+    flex: 1.5,
+    justifyContent: 'center',
+    alignSelf: 'center',
   },
 
   // setup swipers HORIZONTAL spacing
@@ -43,6 +49,9 @@ const styles: any = StyleSheet.create({
   titleText: {
     fontSize: 28,
     textAlign: 'center',
+  },
+  directionBadgeText: {
+    fontSize: 20,
   },
 
   // we style the card content
