@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Sidebar from './screens';
 
 export interface Props {
-	navigation: any,
+  navigation: any,
 }
 export interface State {}
 

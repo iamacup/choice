@@ -26,7 +26,7 @@ export interface Props {
 
 export interface State {}
 
-export default SidebarScreen = ({ navigation }) => (
+const SidebarScreen = ({ navigation }) => (
   <Container>
     <Content>
       <List
@@ -50,3 +50,5 @@ export default SidebarScreen = ({ navigation }) => (
 SidebarScreen.propTypes = {
   navigation: PropTypes.any.isRequired,
 };
+
+export default SidebarScreen;

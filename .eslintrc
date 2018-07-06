@@ -249,5 +249,6 @@
     "class-methods-use-this": 1,
     "react/no-array-index-key": 1,
     "prefer-destructuring": 1,
+    "react/forbid-prop-types": 0,
   }
 }

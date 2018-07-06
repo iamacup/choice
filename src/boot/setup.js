@@ -4,7 +4,7 @@ import { StyleProvider } from 'native-base';
 import { Provider } from 'react-redux';
 
 import configureStore from '../redux/configureStore';
-import Navigation from './navigation.js';
+import Navigation from './navigation';
 import getTheme from '../theme/native-base/components';
 import variables from '../theme/native-base/variables/material';
 
@@ -34,7 +34,7 @@ export default class Setup extends React.Component<Props, State> {
     await Expo.Font.loadAsync({
       Roboto: require('native-base/Fonts/Roboto.ttf'),
       Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
-      Ionicons: require('@expo/vector-icons/fonts/Ionicons.ttf'),
+      // Ionicons: require('@expo/vector-icons/fonts/Ionicons.ttf'),
     });
 
     this.setState({ isReady: true });

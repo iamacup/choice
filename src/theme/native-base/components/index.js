@@ -1,3 +1,6 @@
+
+/* eslint-disable no-param-reassign */
+
 import _ from 'lodash';
 import bodyTheme from './Body';
 import leftTheme from './Left';

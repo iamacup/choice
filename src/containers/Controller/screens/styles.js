@@ -10,48 +10,48 @@ const mainTextColor = '#3e434c';
 const seperatorColor = '#7dc0ed';
 
 const styles: any = StyleSheet.create({
-  
-  //main layout stuff
+
+  // main layout stuff
   contentView: {
     flex: 1,
     backgroundColor: contentBackground,
   },
 
-  //setup swipers VERTICAL spacing
+  // setup swipers VERTICAL spacing
   swiperTopView: {
     flex: 2,
   },
   swiperOuterView: {
     flexDirection: 'row',
-    flex: 6, 
+    flex: 6,
     justifyContent: 'center',
   },
   swiperBottomView: {
     flex: 2.5,
   },
 
-  //setup swipers HORIZONTAL spacing
+  // setup swipers HORIZONTAL spacing
   swiperInnerView: {
-    flex: 14, 
+    flex: 14,
     justifyContent: 'center'
   },
   swiperLeftRightView: {
     flex: 1,
   },
 
-  //other bits
+  // other bits
   titleText: {
     fontSize: 28,
     textAlign: 'center',
   },
 
-  //we style the card content
+  // we style the card content
   cardContent: {
-    flex: 1, 
+    flex: 1,
     justifyContent: 'space-around'
   },
 
-  //we style the cards
+  // we style the cards
   cardInner: {
     flex: 1,
   },
@@ -64,18 +64,18 @@ const styles: any = StyleSheet.create({
     height: 'auto',
     backgroundColor: cardBackground,
     borderRadius: 8,
-    //borderColor: color(cardBackground).darken(0.03).hex(),
-    //borderWidth: 2,
+    // borderColor: color(cardBackground).darken(0.03).hex(),
+    // borderWidth: 2,
     shadowColor: '#000',
-    shadowOffset: { 
-      width: 0, 
-      height: 2 
+    shadowOffset: {
+      width: 0,
+      height: 2
     },
     shadowOpacity: 0.2,
     shadowRadius: 1.2,
   },
 
-  //all the card layout jiggery pokery to get the direction arrows sorted
+  // all the card layout jiggery pokery to get the direction arrows sorted
   cardRowTopBottom: {
     flex: 1,
     flexDirection: 'row',
@@ -100,7 +100,7 @@ const styles: any = StyleSheet.create({
     flex: 1,
   },
 
-  //image style
+  // image style
   chevImage: {
     flex:1,
     height: undefined,
@@ -115,7 +115,7 @@ const styles: any = StyleSheet.create({
     marginRight: '10%',
   },
 
-  //text styles
+  // text styles
   titleText: {
     color: titleTextColor,
     textAlign: 'center',
@@ -123,7 +123,7 @@ const styles: any = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  //seperator
+  // seperator
   seperator: {
     borderBottomColor: seperatorColor,
     borderBottomWidth: 1,

@@ -7,7 +7,7 @@ import HomeScreen from './screens';
 // SETUP TYPES FOR FLOW
 
 export interface Props {
-	navigation: any,
+  navigation: any,
 }
 
 export interface State {}
@@ -15,8 +15,40 @@ export interface State {}
 // PRIMARY CLASS
 
 export default class ControllerContainer extends React.Component<Props, State> {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      drawData: {
+        id: '1',
+        questionText: 'Do you want to go to University?',
+        options: {
+          top: {
+            text: 'Don\'t know',
+          },
+          right: {
+            text: 'Yes',
+          },
+          left: {
+            text: 'No',
+          },
+        },
+      },
+    };
+  }
+
   render() {
-    return <HomeScreen navigation={this.props.navigation} />;
+    // console.log(this.state);
+
+    return (
+      <HomeScreen
+        navigation={this.props.navigation}
+        swipedCallback={(direction) => {
+          console.log('swiped (controller): ', direction);
+        }}
+        drawData={this.state.drawData}
+      />
+    );
   }
 }
 
