@@ -42,9 +42,7 @@ export default class HomeScreen extends React.Component<Props, State> {
   }
 
   renderCard(cardIgnored, index) {
-    const {
-      questionText, options, card, id
-    } = this.props.drawData;
+    const { options, card, id } = this.props.drawData;
 
     // if this is the top card, we worry about arrows
     if (index === 0) {
@@ -86,7 +84,6 @@ export default class HomeScreen extends React.Component<Props, State> {
               <CardContent
                 ref={(element) => { this.card = element; }}
                 key={id}
-                questionText={questionText}
               />
             </View>
             <View style={styles.cardColLeftRight}>

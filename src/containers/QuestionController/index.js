@@ -3,13 +3,11 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import { StyleSheet, View, Image } from 'react-native';
-
-import {
-  Text,
-} from 'native-base';
+import { Text } from 'native-base';
 
 import HomeScreen from './screens';
 import AttendedUniversityQuestion from '../../components/cards/AttendUniversityQuestion';
+import WhyAttendedUniversityQuestion from '../../components/cards/WhyAttendUniversityQuestion';
 
 // SETUP TYPES FOR FLOW
 
@@ -24,7 +22,7 @@ export interface State {}
 const questions = [
   {
     id: '0',
-    questionText: 'Do you want to go to University?',
+    size: 'standard',
     options: {
       top: {
         text: 'Don\'t know',
@@ -38,45 +36,16 @@ const questions = [
     },
     card: AttendedUniversityQuestion,
   },
-  /* {
-    id: '1',
-    questionText: 'Q2?',
-    options: {
-      top: {
-        text: 'Don\'t know',
-      },
-      right: {
-        text: 'Yes',
-      },
-      left: {
-        text: 'No',
-      },
-    },
-    card: CardTwo,
-  },
   {
     id: '2',
-    questionText: 'Q3?',
+    size: 'large',
     options: {
-      top: {
-        text: 'Don\'t know',
+      bottom: {
+        text: 'Done',
       },
     },
-    card: CardThree,
+    card: WhyAttendedUniversityQuestion,
   },
-  {
-    id: '3',
-    questionText: 'Q4?',
-    options: {
-      right: {
-        text: 'Yes',
-      },
-      left: {
-        text: 'No',
-      },
-    },
-    card: CardFour,
-  } */
 ];
 
 export default class ControllerContainer extends React.Component<Props, State> {
@@ -112,10 +81,6 @@ export default class ControllerContainer extends React.Component<Props, State> {
       this.setState({ drawData: questions[1] });
     } else if (id === '1') {
       this.setState({ drawData: questions[2] });
-    } else if (id === '2') {
-      this.setState({ drawData: questions[3] });
-    } else if (id === '3') {
-      this.setState({ drawData: questions[0] });
     }
   }
 

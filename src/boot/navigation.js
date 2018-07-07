@@ -18,16 +18,16 @@ import UniCards from './components/UniCards';
 
 import FilteredData from './components/FilteredData'; */
 
-import Controller from '../containers/Controller';
+import QuestionController from '../containers/QuestionController';
 import Sidebar from '../containers/Sidebar';
 
 const DrawerNavigation = createDrawerNavigator({
-  Controller: {
-    screen: Controller
+  QuestionController: {
+    screen: QuestionController
   },
 },
 {
-  initialRouteName: 'Controller',
+  initialRouteName: 'QuestionController',
   contentComponent: props => <Sidebar {...props} />,
 });
 

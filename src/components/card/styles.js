@@ -2,12 +2,7 @@
 import { StyleSheet } from 'react-native';
 import color from 'color';
 
-const contentBackground = '#2a2c33';
-const cardBackground = '#22252a';
-
-const titleTextColor = '#9ba1ae';
-const mainTextColor = '#3e434c';
-const seperatorColor = '#7dc0ed';
+import * as OurColors from '../../theme/colors';
 
 const styles: any = StyleSheet.create({
 
@@ -19,12 +14,15 @@ const styles: any = StyleSheet.create({
 
   // text styles
   titleText: {
-    color: titleTextColor,
+    color: OurColors.titleTextColor,
     textAlign: 'center',
     fontSize: 20,
     fontWeight: 'bold',
   },
-
+  mainTextColor: {
+    color: OurColors.mainTextColor,
+  },
+  
   // image styles
   iconImage: {
     flex:1,

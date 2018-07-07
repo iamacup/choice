@@ -21,8 +21,4 @@ export default class Card extends React.Component<Props, State> {
   getData() {
     return this.state.data;
   }
-
-  setData(data) {
-    this.setState({ data });
-  }
 }

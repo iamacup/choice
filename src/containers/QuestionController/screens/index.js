@@ -62,10 +62,10 @@ export default class HomeScreen extends React.Component<Props, State> {
   render() {
     let tooltip = null;
     const { direction } = this.state;
+    const { options, size } = this.props.drawData;
 
     if (direction !== null && this.directionIsAllowed(direction)) {
       let tooltipText = null;
-      const { options } = this.props.drawData;
 
       tooltipText = options[direction].text;
 
@@ -100,8 +100,8 @@ export default class HomeScreen extends React.Component<Props, State> {
         </Header>
 
         <View style={styles.contentView}>
-          <View style={styles.swiperTopTopView} />
-          <View style={styles.swiperTopView}>
+          <View style={size === 'large' ? styles.swiperTopTopViewLarge : styles.swiperTopTopViewStandard} />
+          <View style={size === 'large' ? styles.swiperTopViewLarge : styles.swiperTopViewStandard}>
             {tooltip}
           </View>
           <View style={styles.swiperOuterView}>
@@ -116,7 +116,7 @@ export default class HomeScreen extends React.Component<Props, State> {
             </View>
             <View style={styles.swiperLeftRightView} />
           </View>
-          <View style={styles.swiperBottomView} />
+          <View style={size === 'large' ? styles.swiperBottomViewLarge : styles.swiperBottomViewStandard} />
         </View>
 
       </Container>

@@ -2,38 +2,47 @@
 import { StyleSheet } from 'react-native';
 import color from 'color';
 
-const contentBackground = '#2a2c33';
-const cardBackground = '#22252a';
-
-const titleTextColor = '#9ba1ae';
-const mainTextColor = '#3e434c';
-const seperatorColor = '#7dc0ed';
+import * as OurColors from '../../../theme/colors';
 
 const styles: any = StyleSheet.create({
 
   // main layout stuff
   contentView: {
     flex: 1,
-    backgroundColor: contentBackground,
+    backgroundColor: OurColors.contentBackground,
   },
 
   // setup swipers VERTICAL spacing
-  swiperTopTopView: {
+  swiperTopTopViewStandard: {
     flex: 0.5,
   },
-  swiperTopView: {
+  swiperTopViewStandard: {
     flex: 2,
     alignSelf: 'center',
   },
+  swiperBottomViewStandard: {
+    flex: 1.5,
+    justifyContent: 'center',
+    alignSelf: 'center',
+  },
+
+  swiperTopTopViewLarge: {
+    flex: 0.3,
+  },
+  swiperTopViewLarge: {
+    flex: 0.5,
+    alignSelf: 'center',
+  },
+  swiperBottomViewLarge: {
+    flex: 0.4,
+    justifyContent: 'center',
+    alignSelf: 'center',
+  },
+
   swiperOuterView: {
     flexDirection: 'row',
     flex: 6,
     justifyContent: 'center',
-  },
-  swiperBottomView: {
-    flex: 1.5,
-    justifyContent: 'center',
-    alignSelf: 'center',
   },
 
   // setup swipers HORIZONTAL spacing

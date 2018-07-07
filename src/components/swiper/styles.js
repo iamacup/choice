@@ -2,12 +2,7 @@
 import { StyleSheet } from 'react-native';
 import color from 'color';
 
-const contentBackground = '#2a2c33';
-const cardBackground = '#22252a';
-
-const titleTextColor = '#9ba1ae';
-const mainTextColor = '#3e434c';
-const seperatorColor = '#7dc0ed';
+import * as OurColors from '../../theme/colors';
 
 const styles: any = StyleSheet.create({
 
@@ -22,7 +17,7 @@ const styles: any = StyleSheet.create({
     right: 0,
     width: 'auto',
     height: 'auto',
-    backgroundColor: cardBackground,
+    backgroundColor: OurColors.cardBackground,
     borderRadius: 8,
     // borderColor: color(cardBackground).darken(0.03).hex(),
     // borderWidth: 2,

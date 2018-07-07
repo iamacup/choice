@@ -3,10 +3,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import { StyleSheet, View, Image } from 'react-native';
-
-import {
-  Text,
-} from 'native-base';
+import { Text } from 'native-base';
 
 import Card from '../card';
 import styles from '../card/styles';
@@ -19,17 +16,13 @@ export interface State {}
 // PRIMARY CLASS
 
 export default class CardContent extends Card {
-  componentDidMount() {
-    this.setData({ question: '1' });
-  }
-
   render() {
     return (
       <View style={styles.cardContent}>
 
         <View style={{ flex: 2, justifyContent: 'center' }}>
           <Text style={styles.titleText}>
-            {this.props.questionText}
+            Do you want to go to University?
           </Text>
         </View>
 
@@ -45,7 +38,3 @@ export default class CardContent extends Card {
     );
   }
 }
-
-CardContent.propTypes = {
-  questionText: PropTypes.string.isRequired,
-};

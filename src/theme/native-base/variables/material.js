@@ -3,22 +3,14 @@ import color from 'color';
 
 import { Platform, Dimensions, PixelRatio } from 'react-native';
 
+//we inject our own colors into the template here
+import * as OurColors from '../../../theme/colors';
+
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 const platform = Platform.OS;
 const platformStyle = 'material';
 const isIphoneX =  platform === 'ios' && (deviceHeight === 812 || deviceWidth === 812);
-
-// STUFF I ADDED / EDITED IN THIS FILE DEFINED HERE
-const headerBackground = '#1b1b1b';
-const headerBorder = color(headerBackground).darken(0.3).hex();
-
-const primaryColor = '#5ba7e8';
-const infoColor = '#62B1F6'; // THIS NEEDS TO BE CHANGED FOR COLOR SCHEME!
-const successCollor = '#80b26f';
-const dangerColor = '#bf6258';
-
-// RESUME NORMAL OPERATIONS
 
 export default {
   platformStyle,
@@ -114,10 +106,10 @@ export default {
   checkboxTickColor: '#fff',
 
   // Color
-  brandPrimary: primaryColor,// '#3F51B5',
-  brandInfo: infoColor,// '#62B1F6',
-  brandSuccess: successCollor,// '#5cb85c',
-  brandDanger: dangerColor,// '#d9534f',
+  brandPrimary: OurColors.primaryColor,// '#3F51B5',
+  brandInfo: OurColors.infoColor,// '#62B1F6',
+  brandSuccess: OurColors.successCollor,// '#5cb85c',
+  brandDanger: OurColors.dangerColor,// '#d9534f',
   brandWarning: '#f0ad4e',
   brandDark: '#000',
   brandLight: '#f4f4f4',
@@ -155,14 +147,14 @@ export default {
 
   // Header
   toolbarBtnColor: '#fff',
-  toolbarDefaultBg: headerBackground,
+  toolbarDefaultBg: OurColors.headerBackground,
   toolbarHeight: 56,
   toolbarSearchIconSize: 23,
   toolbarInputColor: '#fff',
   searchBarHeight: platform === 'ios' ? 30 : 40,
   searchBarInputHeight: platform === 'ios' ? 40 : 50,
   toolbarBtnTextColor: '#fff',
-  toolbarDefaultBorder: headerBorder,
+  toolbarDefaultBorder: OurColors.headerBorder,
   iosStatusbar: 'light-content',
   get statusBarColor() {
     return color(this.toolbarDefaultBg)
