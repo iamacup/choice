@@ -18,7 +18,12 @@ export interface State {}
 // PRIMARY CLASS
 
 const options = [
-  'Passion', 'Job', 'Social', 'Other',
+  'Cost', 
+  'Don\'t see a benefit', 
+  'Am not clever enough', 
+  'Won\'t fit in', 
+  'Need special support', 
+  'Responsibilities at home',
 ];
 
 export default class CardContent extends Card {
@@ -56,13 +61,13 @@ export default class CardContent extends Card {
     return (
       <View style={styles.cardContent}>
 
-        <View style={{ flex: 1, justifyContent: 'center' }}>
+        <View style={{ flex: 1 }}>
           <Text style={styles.titleText}>
-            Why do you want to go to University?
+            Why not go to Uni?
           </Text>
         </View>
 
-        <View style={{ flex: 4, justifyContent: 'center' }}>
+        <View style={{ flex: 9, justifyContent: 'center' }}>
           {options.map((value, i) => {
             const style = {};
 

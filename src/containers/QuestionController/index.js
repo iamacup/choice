@@ -6,8 +6,10 @@ import { StyleSheet, View, Image } from 'react-native';
 import { Text } from 'native-base';
 
 import HomeScreen from './screens';
+
 import AttendedUniversityQuestion from '../../components/cards/AttendUniversityQuestion';
 import WhyAttendedUniversityQuestion from '../../components/cards/WhyAttendUniversityQuestion';
+import WhyDKorNUniversity from '../../components/cards/WhyDKorNUniversity';
 
 // SETUP TYPES FOR FLOW
 
@@ -37,7 +39,7 @@ const questions = [
     card: AttendedUniversityQuestion,
   },
   {
-    id: '2',
+    id: '1',
     size: 'large',
     options: {
       bottom: {
@@ -46,6 +48,30 @@ const questions = [
     },
     card: WhyAttendedUniversityQuestion,
   },
+  {
+    id: '2',
+    size: 'large',
+    options: {
+      bottom: {
+        text: 'Done',
+      },
+    },
+    card: WhyDKorNUniversity,
+  },
+];
+
+const tree = [
+  {
+    id: '0',
+    next: [{
+      id: '2',
+      withAnswer: ['Don\'t know', 'No'],
+    },
+    {
+      id: '1',
+      withAnswer: ['Yes'],
+    }]
+  }
 ];
 
 export default class ControllerContainer extends React.Component<Props, State> {
@@ -67,21 +93,51 @@ export default class ControllerContainer extends React.Component<Props, State> {
     return result;
   }
 
+  getIndexOfID(id) {
+    let index = null;
+
+    questions.forEach((value, i) => {
+      if(value.id === id) {
+        index = i;
+      }
+    });
+
+    return index;
+  }
+
+  //we loop through the tree to find what comes next
+  getNextQuestionID(answer) {
+    let result = null;
+
+    tree.forEach((value) => {
+      if(value.id === answer.id) {
+        value.next.forEach((next) => {
+          if(next.withAnswer.indexOf(answer.answer) > -1) {
+            result = next.id;
+          }
+        });
+      }
+    });
+
+    return result;
+  }
+
   handleSwiped(direction, data) {
     const { id } = this.state.drawData;
 
     const answer = {
+      id,
       data,
       answer: this.getAnswer(direction, id),
     };
 
+    //todo store this in redux state
     console.log(answer);
 
-    if (id === '0') {
-      this.setState({ drawData: questions[1] });
-    } else if (id === '1') {
-      this.setState({ drawData: questions[2] });
-    }
+    const nextID = this.getNextQuestionID(answer);
+    const nextQuestionIndex = this.getIndexOfID(nextID);
+
+    this.setState({ drawData: questions[nextQuestionIndex] });
   }
 
   render() {
