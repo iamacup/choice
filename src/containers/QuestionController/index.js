@@ -97,7 +97,7 @@ export default class ControllerContainer extends React.Component<Props, State> {
     let index = null;
 
     questions.forEach((value, i) => {
-      if(value.id === id) {
+      if (value.id === id) {
         index = i;
       }
     });
@@ -105,14 +105,14 @@ export default class ControllerContainer extends React.Component<Props, State> {
     return index;
   }
 
-  //we loop through the tree to find what comes next
+  // we loop through the tree to find what comes next
   getNextQuestionID(answer) {
     let result = null;
 
     tree.forEach((value) => {
-      if(value.id === answer.id) {
+      if (value.id === answer.id) {
         value.next.forEach((next) => {
-          if(next.withAnswer.indexOf(answer.answer) > -1) {
+          if (next.withAnswer.indexOf(answer.answer) > -1) {
             result = next.id;
           }
         });
@@ -131,7 +131,7 @@ export default class ControllerContainer extends React.Component<Props, State> {
       answer: this.getAnswer(direction, id),
     };
 
-    //todo store this in redux state
+    // todo store this in redux state
     console.log(answer);
 
     const nextID = this.getNextQuestionID(answer);

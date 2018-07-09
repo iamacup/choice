@@ -22,7 +22,7 @@ const styles: any = StyleSheet.create({
   mainTextColor: {
     color: OurColors.mainTextColor,
   },
-  
+
   // image styles
   iconImage: {
     flex:1,

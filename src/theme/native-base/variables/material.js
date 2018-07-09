@@ -3,8 +3,8 @@ import color from 'color';
 
 import { Platform, Dimensions, PixelRatio } from 'react-native';
 
-//we inject our own colors into the template here
-import * as OurColors from '../../../theme/colors';
+// we inject our own colors into the template here
+import * as OurColors from '../../colors';
 
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;

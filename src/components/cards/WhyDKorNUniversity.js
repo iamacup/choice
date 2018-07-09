@@ -3,7 +3,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import { StyleSheet, View, Image } from 'react-native';
-import { ListItem, CheckBox, Text, Body } from 'native-base';
+import {
+  ListItem, CheckBox, Text, Body
+} from 'native-base';
 
 import Card from '../card';
 import styles from '../card/styles';
@@ -18,17 +20,16 @@ export interface State {}
 // PRIMARY CLASS
 
 const options = [
-  'Cost', 
-  'Don\'t see a benefit', 
-  'Am not clever enough', 
-  'Won\'t fit in', 
-  'Need special support', 
+  'Cost',
+  'Don\'t see a benefit',
+  'Am not clever enough',
+  'Won\'t fit in',
+  'Need special support',
   'Responsibilities at home',
 ];
 
 export default class CardContent extends Card {
-  
-  //setup the state to have the values falsy
+  // setup the state to have the values falsy
   constructor(props) {
     super(props);
 
@@ -44,19 +45,19 @@ export default class CardContent extends Card {
   }
 
   handleClick(value) {
-    const {data} = this.state;
-    
-    if(data[value] && data[value] === true) {
+    const { data } = this.state;
+
+    if (data[value] && data[value] === true) {
       data[value] = false;
     } else {
       data[value] = true;
     }
 
-    this.setState({data});
+    this.setState({ data });
   }
 
   render() {
-    const {data} = this.state;
+    const { data } = this.state;
 
     return (
       <View style={styles.cardContent}>
@@ -71,15 +72,15 @@ export default class CardContent extends Card {
           {options.map((value, i) => {
             const style = {};
 
-            if(i === options.length-1) {
+            if (i === options.length - 1) {
               style.borderBottomWidth = 0;
             }
 
             return (
-              <ListItem key={i} onPress={()=>{this.handleClick(value);}} style={style}>
-                <CheckBox checked={data[value]} color={OurColors.primaryColor}/>
+              <ListItem key={i} onPress={() => { this.handleClick(value); }} style={style}>
+                <CheckBox checked={data[value]} color={OurColors.primaryColor} />
                 <Body>
-                  <Text style={styles.mainTextColor} >
+                  <Text style={styles.mainTextColor}>
                     {value}
                   </Text>
                 </Body>
