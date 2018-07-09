@@ -46,9 +46,16 @@ export default class HomeScreen extends React.Component<Props, State> {
 
     if (options[direction]) {
       return true;
+    } else if(Object.keys(options).length === 0) {
+      //any direction is valid because, if no direction is specified, we assume this is being invoked throug the done callback
+      return true;
     }
 
     return false;
+  }
+
+  doneCallback() {
+    this.swiper.swipeBottom();
   }
 
   renderCard(cardIgnored, index) {
@@ -101,6 +108,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                 ref={(element) => { this.card = element; }}
                 key={id}
                 direction={this.state.direction}
+                doneCallback={() => {this.doneCallback();}}
                 {...cardProps}
               />
             </View>
@@ -145,6 +153,21 @@ export default class HomeScreen extends React.Component<Props, State> {
   }
 
   render() {
+    let verticalSwipe = true;
+    let horizontalSwipe = true;
+
+    if (this.props.drawData.disabled) {
+      const { disabled } = this.props.drawData;
+
+      if (disabled.vertical && disabled.vertical === true) {
+        verticalSwipe = false;
+      }
+
+      if (disabled.horizontal && disabled.horizontal === true) {
+        horizontalSwipe = false;
+      }
+    }
+
     // we 'trick' the swiper here - basically we have two cards, we then render the current drawData onto the first
     // and an empty card onto the seccond.
     // when the component sees a new card though it's id - it forced a render by swiping back a card - which will render as a new card
@@ -153,6 +176,8 @@ export default class HomeScreen extends React.Component<Props, State> {
     // in order for this to work, we have to specify two cards
     return (
       <Swiper
+        verticalSwipe={verticalSwipe}
+        horizontalSwipe={horizontalSwipe}
         ref={(swiper) => { this.swiper = swiper; }}
         cards={['', '']}
         showSecondCard={false}
@@ -221,65 +246,6 @@ export default class HomeScreen extends React.Component<Props, State> {
         cardIndex={0}
         horizontalThreshold={horizontalThreshold}
         verticalThreshold={verticalThreshold}
-        overlayLabels={{}/* {
-              left: {
-                title: 'No',
-                style: {
-                  label: {
-                    backgroundColor: 'black',
-                    borderColor: 'black',
-                    color: 'white',
-                    borderWidth: 1,
-                    fontSize: 30,
-                  },
-                  wrapper: {
-                    flexDirection: 'column',
-                    alignItems: 'flex-end',
-                    justifyContent: 'flex-start',
-                    marginTop: -40,
-                    marginLeft: 0
-                  }
-                }
-              },
-              right: {
-                title: 'Yes',
-                style: {
-                  label: {
-                    backgroundColor: 'black',
-                    borderColor: 'black',
-                    color: 'white',
-                    borderWidth: 1,
-                    fontSize: 30,
-                  },
-                  wrapper: {
-                    flexDirection: 'column',
-                    alignItems: 'flex-start',
-                    justifyContent: 'flex-start',
-                    marginTop: -40,
-                    marginLeft: 0
-                  }
-                }
-              },
-              top: {
-                title: "Don't Know",
-                style: {
-                  label: {
-                    backgroundColor: 'black',
-                    borderColor: 'black',
-                    color: 'white',
-                    borderWidth: 1,
-                    fontSize: 30,
-                  },
-                  wrapper: {
-                    flexDirection: 'column',
-                    alignItems: 'flex-start',
-                    justifyContent: 'flex-start',
-                    marginTop: -40,
-                    marginLeft: 0
-                  }
-                }
-              },
-            } */}
       />
     );
   }
@@ -290,10 +256,12 @@ HomeScreen.propTypes = {
   swipingCallback: PropTypes.func,
   clearDirectionCallback: PropTypes.func,
   drawData: PropTypes.object.isRequired,
+  doneCallback: PropTypes.func,
 };
 
 HomeScreen.defaultProps = {
   swipedCallback: () => {},
   swipingCallback: () => {},
   clearDirectionCallback: () => {},
+  doneCallback: () => {},
 };

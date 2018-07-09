@@ -71,6 +71,15 @@ const styles: any = StyleSheet.create({
     marginRight: '4%',
   },
 
+  // toast
+  toastButtonStyle: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderLeftColor: OurColors.seperatorColor,
+    borderLeftWidth: 1,
+    marginLeft: 4,
+  },
+
 });
 
 export default styles;

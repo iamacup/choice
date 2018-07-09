@@ -14,6 +14,7 @@ import {
   Left,
   Body,
   Right,
+  Toast,
 } from 'native-base';
 
 import Swiper from '../../../components/swiper';
@@ -40,6 +41,18 @@ export default class HomeScreen extends React.Component<Props, State> {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.drawData.id !== this.props.drawData.id && this.props.initialWording !== null) {
+      Toast.show({
+        text: this.props.initialWording,
+        buttonText: 'Okay',
+        duration: 6000,
+        position: 'top',
+        buttonStyle: styles.toastButtonStyle,
+      });
+    }
+  }
+
   handleSwiping(direction) {
     this.setState({ direction });
   }
@@ -63,15 +76,13 @@ export default class HomeScreen extends React.Component<Props, State> {
     const { direction } = this.state;
     const { options, size } = this.props.drawData;
 
+    const pre = 'some text here explaining the card below';
+
     if (direction !== null && this.directionIsAllowed(direction)) {
-      let tooltipText = null;
-
-      tooltipText = options[direction].text;
-
       tooltip = (
         <View style={styles.directionBadge}>
           <Text style={styles.directionBadgeText}>
-            {tooltipText}
+            {options[direction].text}
           </Text>
         </View>
       );
@@ -127,4 +138,9 @@ HomeScreen.propTypes = {
   navigation: PropTypes.any.isRequired,
   swipedCallback: PropTypes.func.isRequired,
   drawData: PropTypes.object.isRequired,
+  initialWording: PropTypes.any,
+};
+
+HomeScreen.defaultProps = {
+  initialWording: null,
 };

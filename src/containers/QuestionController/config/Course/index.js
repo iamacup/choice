@@ -34,10 +34,12 @@ const questions = [
   {
     id: 'course-2',
     size: 'large',
+    disabled: {
+      vertical: true,
+      horizontal: true,
+    },
     options: {
-      bottom: {
-        text: 'Done',
-      },
+
     },
     card: WhichCourseAreasQuestion,
   },
@@ -64,7 +66,6 @@ const questions = [
         bottom: 3,
       },
     }
-
   },
   {
     id: 'course-4',

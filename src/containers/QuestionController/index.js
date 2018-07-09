@@ -18,6 +18,7 @@ export interface State {}
 // PRIMARY CLASS
 
 const startSection = 'preliminary';
+//const startSection = 'course';
 
 const sections = [
   {
@@ -57,11 +58,28 @@ const getCardByID = (section, id) => {
 };
 
 const getAnswer = (section, direction, id) => {
-  let result = null;
+  let result = {};
 
   section.data.questions.forEach((value) => {
     if (value.id === id) {
-      result = value.options[direction].text;
+      //it is possible to have no option and for the direction to be null so we check that we are catering for that
+      //this case occurs when we have a no direction card that just has a button to progress
+      if(value.options[direction] && value.options[direction].text) {
+        result = value.options[direction].text;
+      }
+    }
+  });
+
+  return result;
+};
+
+
+const getInitialWording = (section, direction, id) => {
+  let result = null;
+
+  section.data.questions.forEach((value) => {
+    if (value.id === id && value.options[direction] && value.options[direction].initialWording) {
+      result = value.options[direction].initialWording;
     }
   });
 
@@ -127,9 +145,12 @@ export default class ControllerContainer extends React.Component<Props, State> {
       card = getCardByID(section.data.questions, nextID);
     }
 
+    const initialWording = getInitialWording(section, direction, id);
+
     this.setState({
       drawData: card,
       sectionID,
+      initialWording,
     });
   }
 
@@ -139,6 +160,7 @@ export default class ControllerContainer extends React.Component<Props, State> {
         navigation={this.props.navigation}
         swipedCallback={(direction, data) => { this.handleSwiped(direction, data); }}
         drawData={this.state.drawData}
+        initialWording={this.state.initialWording}
       />
     );
   }

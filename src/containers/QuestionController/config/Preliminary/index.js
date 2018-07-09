@@ -13,12 +13,14 @@ const questions = [
     options: {
       top: {
         text: 'Don\'t know',
+        initialWording: 'That\'s great, Here are a few questions to help work things out',
       },
       right: {
         text: 'Yes',
       },
       left: {
         text: 'No',
+        initialWording: 'You\'re not alone! Here are a few questions to help show you some options',
       },
     },
     card: SingleSelectWithPictureCard,
