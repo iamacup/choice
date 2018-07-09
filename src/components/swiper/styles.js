@@ -60,7 +60,7 @@ const styles: any = StyleSheet.create({
     flex:1,
     height: undefined,
     width: undefined,
-    opacity: 0.2,
+    opacity: OurColors.chevronOpacity,
   },
 
 });

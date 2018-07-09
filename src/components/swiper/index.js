@@ -44,6 +44,12 @@ export default class HomeScreen extends React.Component<Props, State> {
   renderCard(cardIgnored, index) {
     const { options, card, id } = this.props.drawData;
 
+    let cardProps = {};
+
+    if (this.props.drawData.cardProps) {
+      cardProps = this.props.drawData.cardProps;
+    }
+
     // if this is the top card, we worry about arrows
     if (index === 0) {
       const CardContent = card;
@@ -59,7 +65,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                   ? (
                     <Image
                       style={styles.chevImage}
-                      source={require('../../theme/images/CourseCards/chevup.png')}
+                      source={require('../../theme/images/CourseCards/General/chevup.png')}
                       resizeMode='contain'
                     />
                   ) : null}
@@ -74,7 +80,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                   ? (
                     <Image
                       style={styles.chevImage}
-                      source={require('../../theme/images/CourseCards/chevleft.png')}
+                      source={require('../../theme/images/CourseCards/General/chevleft.png')}
                       resizeMode='contain'
                     />
                   ) : null}
@@ -84,6 +90,8 @@ export default class HomeScreen extends React.Component<Props, State> {
               <CardContent
                 ref={(element) => { this.card = element; }}
                 key={id}
+                direction={this.state.direction}
+                {...cardProps}
               />
             </View>
             <View style={styles.cardColLeftRight}>
@@ -92,7 +100,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                   ? (
                     <Image
                       style={styles.chevImage}
-                      source={require('../../theme/images/CourseCards/chevright.png')}
+                      source={require('../../theme/images/CourseCards/General/chevright.png')}
                       resizeMode='contain'
                     />
                   ) : null}
@@ -107,7 +115,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                   ? (
                     <Image
                       style={styles.chevImage}
-                      source={require('../../theme/images/CourseCards/chevdown.png')}
+                      source={require('../../theme/images/CourseCards/General/chevdown.png')}
                       resizeMode='contain'
                     />
                   ) : null}

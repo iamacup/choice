@@ -7,10 +7,10 @@ import {
   ListItem, CheckBox, Text, Body
 } from 'native-base';
 
-import Card from '../card';
-import styles from '../card/styles';
+import Card from '../../card';
+import styles from '../../card/styles';
 
-import * as OurColors from '../../theme/colors';
+import * as OurColors from '../../../theme/colors';
 
 // SETUP TYPES FOR FLOW
 
@@ -19,10 +19,6 @@ export interface State {}
 
 // PRIMARY CLASS
 
-const options = [
-  'Passion', 'Job', 'Social', 'Other',
-];
-
 export default class CardContent extends Card {
   // setup the state to have the values falsy
   constructor(props) {
@@ -30,7 +26,7 @@ export default class CardContent extends Card {
 
     const obj = {};
 
-    options.forEach((value) => {
+    this.props.options.forEach((value) => {
       obj[value] = false;
     });
 
@@ -53,17 +49,18 @@ export default class CardContent extends Card {
 
   render() {
     const { data } = this.state;
+    const { options, questionText, styleRatio } = this.props;
 
     return (
       <View style={styles.cardContent}>
 
-        <View style={{ flex: 1, justifyContent: 'center' }}>
+        <View style={{ flex: styleRatio.top }}>
           <Text style={styles.titleText}>
-            Why do you want to go to University?
+            {questionText}
           </Text>
         </View>
 
-        <View style={{ flex: 4, justifyContent: 'center' }}>
+        <View style={{ flex: styleRatio.bottom, justifyContent: 'center' }}>
           {options.map((value, i) => {
             const style = {};
 
