@@ -27,10 +27,10 @@ const styles: any = StyleSheet.create({
   },
 
   swiperTopTopViewLarge: {
-    flex: 0.3,
+    flex: 0.2,
   },
   swiperTopViewLarge: {
-    flex: 0.5,
+    flex: 0.6,
     alignSelf: 'center',
   },
   swiperBottomViewLarge: {
@@ -54,9 +54,19 @@ const styles: any = StyleSheet.create({
     flex: 1,
   },
 
-  // other bits
+  // badge bits
   directionBadgeText: {
     fontSize: 20,
+    color: OurColors.lightText,
+    textAlign: 'center',
+  },
+  directionBadge: {
+    backgroundColor: OurColors.primaryColor,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 6,
+    paddingBottom: 6,
+    borderRadius: 10,
   },
 
 });

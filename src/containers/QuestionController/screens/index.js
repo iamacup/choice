@@ -70,11 +70,11 @@ export default class HomeScreen extends React.Component<Props, State> {
       tooltipText = options[direction].text;
 
       tooltip = (
-        <Badge primary>
+        <View style={styles.directionBadge}>
           <Text style={styles.directionBadgeText}>
             {tooltipText}
           </Text>
-        </Badge>
+        </View>
       );
     }
 

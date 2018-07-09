@@ -17,3 +17,4 @@ export const successCollor = '#80b26f';
 export const dangerColor = '#bf6258';
 
 export const chevronOpacity = 0.1;
+export const lightText = '#fff';
