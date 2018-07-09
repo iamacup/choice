@@ -2,7 +2,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import { StyleSheet, View, Image } from 'react-native';
+import { View, Image } from 'react-native';
 import { Text } from 'native-base';
 
 import Card from '../../card';
@@ -15,10 +15,8 @@ export interface State {}
 
 // PRIMARY CLASS
 
-export default class CardContent extends Card {
+export default class SingleSelectWithPicture extends Card {
   render() {
-    console.log(this.props);
-
     const { questionText, picture, styleRatio } = this.props;
 
     return (
@@ -42,3 +40,9 @@ export default class CardContent extends Card {
     );
   }
 }
+
+SingleSelectWithPicture.propTypes = {
+  questionText: PropTypes.string.isRequired,
+  picture: PropTypes.any.isRequired,
+  styleRatio: PropTypes.object.isRequired,
+};

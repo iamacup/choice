@@ -1,8 +1,7 @@
 // @flow
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
-import { StyleSheet, View, Image } from 'react-native';
+import { View, Image } from 'react-native';
 import { Text } from 'native-base';
 
 import Card from '../../card';
@@ -21,7 +20,7 @@ export default class CardContent extends Card {
       <View style={styles.cardContent}>
 
         <Text>
-Need to select course 'type' here
+          Need to select course 'type' here
         </Text>
 
         <View style={{ flex: 2, justifyContent: 'center' }}>

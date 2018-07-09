@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Root } from 'native-base';
-import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
+import { createDrawerNavigator } from 'react-navigation';
 
 /*
 import Home from './components/Home';

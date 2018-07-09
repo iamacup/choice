@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 
-import { StyleSheet, View, Image } from 'react-native';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import {
@@ -14,7 +14,6 @@ import {
   Left,
   Body,
   Right,
-  Badge
 } from 'native-base';
 
 import Swiper from '../../../components/swiper';
@@ -93,7 +92,7 @@ export default class HomeScreen extends React.Component<Props, State> {
           </Left>
           <Body>
             <Title>
-              Home
+              About You
             </Title>
           </Body>
           <Right />

@@ -243,7 +243,7 @@
     "react/sort-comp": 1,
     "react/no-access-state-in-setstate": 1,
     "react/no-unused-state": 1,
-    "react/no-unescaped-entities": 1,
+    "react/no-unescaped-entities": 0,
     "no-useless-escape": 1,
     "react/prefer-stateless-function": 1,
     "class-methods-use-this": 1,

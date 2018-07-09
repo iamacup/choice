@@ -1,0 +1,110 @@
+// @flow
+
+// Generic card containers that take props to render out specifics
+import MultiSelectCard from '../../../../components/cards/Generic/MultiSelect';
+import SingleSelectWithPictureCard from '../../../../components/cards/Generic/SingleSelectWithPicture';
+
+const startID = 'prelim-1';
+
+const questions = [
+  {
+    id: 'prelim-1',
+    size: 'standard',
+    options: {
+      top: {
+        text: 'Don\'t know',
+      },
+      right: {
+        text: 'Yes',
+      },
+      left: {
+        text: 'No',
+      },
+    },
+    card: SingleSelectWithPictureCard,
+    cardProps: {
+      questionText: 'Do you want to go to University?',
+      picture: require('../../../../theme/images/CourseCards/Preliminary/one.png'),
+      styleRatio: {
+        top: 1,
+        bottom: 3,
+      },
+    }
+  },
+  {
+    id: 'prelim-2',
+    size: 'large',
+    options: {
+      bottom: {
+        text: 'Done',
+      },
+    },
+    card: MultiSelectCard,
+    cardProps: {
+      options: [
+        'I want to study somethign that is my passion',
+        'I need a degree to get a job',
+        'I want to experience the social life',
+        'Other',
+      ],
+      questionText: 'Why do you want to go to University?',
+      styleRatio: {
+        top: 1,
+        bottom: 5,
+      },
+    },
+  },
+  {
+    id: 'prelim-3',
+    size: 'large',
+    options: {
+      bottom: {
+        text: 'Done',
+      },
+    },
+    card: MultiSelectCard,
+    cardProps: {
+      options: [
+        'Cost',
+        'Don\'t see a benefit',
+        'Am not clever enough',
+        'Won\'t fit in',
+        'Need special support',
+        'Responsibilities at home',
+      ],
+      'questionText': 'Why not go to Uni?',
+      'styleRatio': {
+        top: 1,
+        bottom: 9,
+      },
+    },
+  },
+];
+
+const tree = [
+  {
+    id: 'prelim-1',
+    next: [{
+      withAnswer: ['Don\'t know', 'No'],
+      id: 'prelim-3',
+    },
+    {
+      withAnswer: ['Yes'],
+      id: 'prelim-2',
+    }]
+  },
+  {
+    id: 'prelim-2',
+    next: 'NEXT-SECTION',
+  },
+  {
+    id: 'prelim-3',
+    next: 'NEXT-SECTION',
+  },
+];
+
+export default {
+  startID,
+  questions,
+  tree,
+};

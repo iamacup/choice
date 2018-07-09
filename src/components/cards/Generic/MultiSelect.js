@@ -1,8 +1,11 @@
 // @flow
+
+/* eslint-disable react/no-array-index-key */
+
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import { StyleSheet, View, Image } from 'react-native';
+import { View } from 'react-native';
 import {
   ListItem, CheckBox, Text, Body
 } from 'native-base';
@@ -19,7 +22,7 @@ export interface State {}
 
 // PRIMARY CLASS
 
-export default class CardContent extends Card {
+export default class MultiSelect extends Card {
   // setup the state to have the values falsy
   constructor(props) {
     super(props);
@@ -69,7 +72,11 @@ export default class CardContent extends Card {
             }
 
             return (
-              <ListItem key={i} onPress={() => { this.handleClick(value); }} style={style}>
+              <ListItem
+                key={i}
+                onPress={() => { this.handleClick(value); }}
+                style={style}
+              >
                 <CheckBox checked={data[value]} color={OurColors.primaryColor} />
                 <Body>
                   <Text style={styles.mainTextColor}>
@@ -85,3 +92,9 @@ export default class CardContent extends Card {
     );
   }
 }
+
+MultiSelect.propTypes = {
+  questionText: PropTypes.string.isRequired,
+  options: PropTypes.any.isRequired,
+  styleRatio: PropTypes.object.isRequired,
+};

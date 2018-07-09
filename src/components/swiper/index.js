@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 
-import { StyleSheet, View, Image } from 'react-native';
+import { View, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import Swiper from 'react-native-deck-swiper';
 
@@ -36,9 +36,19 @@ export default class HomeScreen extends React.Component<Props, State> {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.drawData.id != prevProps.drawData.id) {
+    if (this.props.drawData.id !== prevProps.drawData.id) {
       this.swiper.swipeBack(() => { this.swiper.jumpToCardIndex(0); });
     }
+  }
+
+  directionIsAllowed(direction) {
+    const { options } = this.props.drawData;
+
+    if (options[direction]) {
+      return true;
+    }
+
+    return false;
   }
 
   renderCard(cardIgnored, index) {
@@ -47,7 +57,7 @@ export default class HomeScreen extends React.Component<Props, State> {
     let cardProps = {};
 
     if (this.props.drawData.cardProps) {
-      cardProps = this.props.drawData.cardProps;
+      ({ cardProps } = this.props.drawData);
     }
 
     // if this is the top card, we worry about arrows
@@ -134,16 +144,6 @@ export default class HomeScreen extends React.Component<Props, State> {
     );
   }
 
-  directionIsAllowed(direction) {
-    const { options } = this.props.drawData;
-
-    if (options[direction]) {
-      return true;
-    }
-
-    return false;
-  }
-
   render() {
     // we 'trick' the swiper here - basically we have two cards, we then render the current drawData onto the first
     // and an empty card onto the seccond.
@@ -213,7 +213,7 @@ export default class HomeScreen extends React.Component<Props, State> {
             }
           }
 
-          if (direction != this.state.direction) {
+          if (direction !== this.state.direction) {
             this.props.swipingCallback(direction);
             this.setState({ direction });
           }

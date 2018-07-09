@@ -1,6 +1,6 @@
 
 import { StyleSheet } from 'react-native';
-import color from 'color';
+// import color from 'color';
 
 import * as OurColors from '../../../theme/colors';
 
@@ -21,7 +21,7 @@ const styles: any = StyleSheet.create({
     alignSelf: 'center',
   },
   swiperBottomViewStandard: {
-    flex: 1.5,
+    flex: 0.4,
     justifyContent: 'center',
     alignSelf: 'center',
   },
@@ -67,6 +67,8 @@ const styles: any = StyleSheet.create({
     paddingTop: 6,
     paddingBottom: 6,
     borderRadius: 10,
+    marginLeft: '4%',
+    marginRight: '4%',
   },
 
 });
