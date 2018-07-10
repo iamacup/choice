@@ -10,7 +10,7 @@ const questions = [
   {
     id: 'coursePreferences-0',
     size: 'standard',
-    flashArrows: true,
+    priorityCard: true,
     options: {
       right: {
         text: 'Let\'s get started!',

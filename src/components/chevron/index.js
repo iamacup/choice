@@ -83,16 +83,28 @@ export default class Chevron extends React.Component<Props, State> {
 
   render() {
     let source = null;
-    const {direction} = this.props;
+    const {direction, color} = this.props;
 
-    if(direction === 'left') {
-      source = require('../../theme/images/CourseCards/General/chevleft.png');
-    } else if(direction === 'right') {
-      source = require('../../theme/images/CourseCards/General/chevright.png');
-    } else if(direction === 'up') {
-      source = require('../../theme/images/CourseCards/General/chevup.png');
-    } else if(direction === 'down') {
-      source = require('../../theme/images/CourseCards/General/chevdown.png');
+    if(color === 'white') {
+      if(direction === 'left') {
+        source = require('../../theme/images/CourseCards/General/white-chevleft.png');
+      } else if(direction === 'right') {
+        source = require('../../theme/images/CourseCards/General/white-chevright.png');
+      } else if(direction === 'up') {
+        source = require('../../theme/images/CourseCards/General/white-chevup.png');
+      } else if(direction === 'down') {
+        source = require('../../theme/images/CourseCards/General/white-chevdown.png');
+      }
+    } else {
+      if(direction === 'left') {
+        source = require('../../theme/images/CourseCards/General/black-chevleft.png');
+      } else if(direction === 'right') {
+        source = require('../../theme/images/CourseCards/General/black-chevright.png');
+      } else if(direction === 'up') {
+        source = require('../../theme/images/CourseCards/General/black-chevup.png');
+      } else if(direction === 'down') {
+        source = require('../../theme/images/CourseCards/General/black-chevdown.png');
+      }
     }
 
     return (
@@ -108,5 +120,10 @@ export default class Chevron extends React.Component<Props, State> {
 Chevron.propTypes = {
   flashing: PropTypes.bool.isRequired,
   direction: PropTypes.string.isRequired,
+  color: PropTypes.string,
 };
+
+Chevron.defaultProps = {
+  color: 'black',
+}
 

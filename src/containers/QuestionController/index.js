@@ -25,7 +25,7 @@ export interface State {}
 // PRIMARY CLASS
 
 const startSection = 'guide';
-//const startSection = 'course';
+const afterQuestionsSteps = 'DataLanding';
 
 const sections = [
   {
@@ -56,7 +56,7 @@ const sections = [
   {
     id: 'courseChoices',
     data: courseChoicesConfig,
-    next: '',
+    next: null,
   },
 ];
 
@@ -163,22 +163,31 @@ export default class ControllerContainer extends React.Component<Props, State> {
 
     const nextID = getNextQuestionID(section.data.tree, answer);
     let card = null;
+    let doSetState = true;
 
     if (nextID === 'NEXT-SECTION') {
-      const nextSection = getSectionByID(section.next);
-      card = getCardByID(nextSection.data.questions, nextSection.data.startID);
-      sectionID = nextSection.id;
+      if(section.next === null) {
+        //we know there is no more questions so lets move to the next step
+        doSetState = false;
+        this.props.navigation.navigate(afterQuestionsSteps);
+      } else {
+        const nextSection = getSectionByID(section.next);
+        card = getCardByID(nextSection.data.questions, nextSection.data.startID);
+        sectionID = nextSection.id;
+      }
     } else {
       card = getCardByID(section.data.questions, nextID);
     }
 
     const initialWording = getInitialWording(section, direction, id);
 
-    this.setState({
-      drawData: card,
-      sectionID,
-      initialWording,
-    });
+    if(doSetState === true) {
+      this.setState({
+        drawData: card,
+        sectionID,
+        initialWording,
+      });
+    }
   }
 
   render() {

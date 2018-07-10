@@ -10,6 +10,7 @@ const questions = [
   {
     id: 'guide-1',
     size: 'standard',
+    priorityCard: true,
     flashArrows: true,
     options: {
       right: {
@@ -18,7 +19,7 @@ const questions = [
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: `Some questions to work out what you want
+      questionText: `We're going to ask some questions
 
 Swipe cards like this to answer`,
       picture: require('../../../../theme/images/rightArrow.png'),   
@@ -31,6 +32,7 @@ Swipe cards like this to answer`,
   {
     id: 'guide-2',
     size: 'standard',
+    priorityCard: true,
     flashArrows: true,
     options: {
       right: {

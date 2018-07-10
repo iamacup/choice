@@ -8,11 +8,11 @@ import {
 const navigationItems = [
   {
     location: 'Splash',
-    name: 'Restart',
+    name: 'Change my answers!',
   },
   {
     location: 'Todo',
-    name: 'Show Me The Data!',
+    name: 'Show me the data!',
   },
 ];
 

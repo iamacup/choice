@@ -19,6 +19,12 @@ const styles: any = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
+  titleTextPriority: {
+    color: OurColors.titleTextColorPriority,
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
   mainTextColor: {
     color: OurColors.mainTextColor,
   },

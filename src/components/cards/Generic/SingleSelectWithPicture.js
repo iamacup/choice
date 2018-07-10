@@ -17,13 +17,13 @@ export interface State {}
 
 export default class SingleSelectWithPicture extends Card {
   render() {
-    const { questionText, picture, styleRatio } = this.props;
+    const { questionText, picture, styleRatio, priorityCard } = this.props;
 
     return (
       <View style={styles.cardContent}>
 
         <View style={{ flex: styleRatio.top, alignSelf: 'center', marginTop: 4 }}>
-          <Text style={styles.titleText}>
+          <Text style={priorityCard === true ? styles.titleTextPriority : styles.titleText}>
             {questionText}
           </Text>
         </View>
@@ -45,4 +45,5 @@ SingleSelectWithPicture.propTypes = {
   questionText: PropTypes.string.isRequired,
   picture: PropTypes.any.isRequired,
   styleRatio: PropTypes.object.isRequired,
+  priorityCard: PropTypes.bool.isRequired,
 };

@@ -26,7 +26,7 @@ const questions = [
       questionText: 'Have any idea which university / universities you want to attend?',
       picture: require('../../../../theme/images/UC.png'),
       styleRatio: {
-        top: 1,
+        top: 2,
         bottom: 3,
       },
     },

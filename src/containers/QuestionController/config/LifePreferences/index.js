@@ -11,7 +11,7 @@ const questions = [
   {
     id: 'lifePreferences-0',
     size: 'standard',
-    flashArrows: true,
+    priorityCard: true,
     options: {
       right: {
         text: 'Let\'s get started!',
@@ -19,7 +19,7 @@ const questions = [
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: `Let's work out what city is best for you!`,
+      questionText: `Let's work out what university location experience is best for you!`,
       picture: require('../../../../theme/images/UC.png'),   
       styleRatio: {
         top: 2,

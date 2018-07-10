@@ -21,6 +21,7 @@ import FilteredData from './components/FilteredData'; */
 import QuestionController from '../containers/QuestionController';
 import Splash from '../containers/Splash';
 import Sidebar from '../containers/Sidebar';
+import DataLanding from '../containers/DataLanding';
 
 const DrawerNavigation = createDrawerNavigator({
   Splash: {
@@ -29,9 +30,12 @@ const DrawerNavigation = createDrawerNavigator({
   QuestionController: {
     screen: QuestionController
   },
+  DataLanding: {
+    screen: DataLanding
+  },
 },
 {
-  initialRouteName: 'QuestionController',
+  initialRouteName: 'Splash',
   contentComponent: props => <Sidebar {...props} />,
 });
 

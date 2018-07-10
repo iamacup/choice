@@ -97,4 +97,5 @@ MultiSelect.propTypes = {
   questionText: PropTypes.string.isRequired,
   options: PropTypes.any.isRequired,
   styleRatio: PropTypes.object.isRequired,
+  //priorityCard: PropTypes.bool.isRequired,
 };

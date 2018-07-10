@@ -17,13 +17,13 @@ export interface State {}
 
 export default class SingleSelect extends Card {
   render() {
-    const { questionText, picture, styleRatio } = this.props;
+    const { questionText, picture, styleRatio, priorityCard } = this.props;
 
     return (
       <View style={styles.cardContent}>
 
         <View style={{ flex: 1, alignSelf: 'center', justifyContent: 'center' }}>
-          <Text style={styles.titleText}>
+          <Text style={priorityCard === true ? styles.titleTextPriority : styles.titleText}>
             {questionText}
           </Text>
         </View>
@@ -37,4 +37,5 @@ export default class SingleSelect extends Card {
 SingleSelect.propTypes = {
   questionText: PropTypes.string.isRequired,
   picture: PropTypes.any.isRequired,
+  priorityCard: PropTypes.bool.isRequired,
 };

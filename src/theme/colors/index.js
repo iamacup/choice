@@ -3,8 +3,10 @@ import color from 'color';
 
 export const contentBackground = '#90A4AE';
 export const cardBackground = '#fff';
+export const cardBackgroundPriority = '#263238';
 
 export const titleTextColor = '#3e434c';
+export const titleTextColorPriority = '#fff';
 export const mainTextColor = '#9ba1ae';
 export const seperatorColor = '#7dc0ed';
 

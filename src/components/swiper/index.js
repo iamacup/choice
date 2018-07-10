@@ -74,13 +74,19 @@ export default class HomeScreen extends React.Component<Props, State> {
       flashing = true;
     }
 
+    let priorityCard = false;
+
+    if(this.props.drawData.priorityCard && this.props.drawData.priorityCard === true) {
+      priorityCard = true;
+    }
+
     // if this is the top card, we worry about arrows
     if (index === 0) {
       const CardContent = card;
 
       // we create a 3 x 3 grid, and place indicators in the (row x column) 1x2, 2x1, 2x3 and 3x2 based on what swipe directions are available
       return (
-        <View style={styles.cardInner}>
+        <View style={priorityCard === true ? styles.cardInnerPriority : styles.cardInner}>
           <View style={styles.cardRowTopBottom}>
             <View style={styles.cardColLeftRight} />
             <View style={styles.cardColContent}>
@@ -90,6 +96,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                     <Chevron
                       direction="up"
                       flashing={flashing}
+                      color={priorityCard === true ? 'white' : 'black'}
                     />
                   ) : null}
               </View>
@@ -104,6 +111,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                     <Chevron
                       direction="left"
                       flashing={flashing}
+                      color={priorityCard === true ? 'white' : 'black'}
                     />
                   ) : null}
               </View>
@@ -115,6 +123,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                 direction={this.state.direction}
                 doneCallback={() => {this.doneCallback();}}
                 {...cardProps}
+                priorityCard={priorityCard}
               />
             </View>
             <View style={styles.cardColLeftRight}>
@@ -124,6 +133,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                     <Chevron
                       direction="right"
                       flashing={flashing}
+                      color={priorityCard === true ? 'white' : 'black'}
                     />
                   ) : null}
               </View>
@@ -138,6 +148,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                     <Chevron
                       direction="down"
                       flashing={flashing}
+                      color={priorityCard === true ? 'white' : 'black'}
                     />
                   ) : null}
               </View>
@@ -150,6 +161,7 @@ export default class HomeScreen extends React.Component<Props, State> {
 
     // if its not the top card, return empty - we could put an icon or something here
     // but i am not sure what conditions need to be true for this to actually render? maybe a slow phone?
+    // we don't do any of the priority card styles on this either...
     return (
       <View style={styles.cardInner} />
     );
