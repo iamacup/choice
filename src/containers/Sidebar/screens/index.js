@@ -7,16 +7,12 @@ import {
 
 const navigationItems = [
   {
-    location: 'Todo 1',
-    name: 'Todo 1',
+    location: 'Splash',
+    name: 'Restart',
   },
   {
-    location: 'Todo 2',
-    name: 'Todo 2',
-  },
-  {
-    location: 'Todo 3',
-    name: 'Todo 3',
+    location: 'Todo',
+    name: 'Show Me The Data!',
   },
 ];
 

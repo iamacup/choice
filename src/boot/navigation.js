@@ -19,15 +19,19 @@ import UniCards from './components/UniCards';
 import FilteredData from './components/FilteredData'; */
 
 import QuestionController from '../containers/QuestionController';
+import Splash from '../containers/Splash';
 import Sidebar from '../containers/Sidebar';
 
 const DrawerNavigation = createDrawerNavigator({
+  Splash: {
+    screen: Splash
+  },
   QuestionController: {
     screen: QuestionController
   },
 },
 {
-  initialRouteName: 'QuestionController',
+  initialRouteName: 'Splash',
   contentComponent: props => <Sidebar {...props} />,
 });
 
