@@ -22,7 +22,7 @@ const questions = [
       questionText: `We're going to ask some questions
 
 Swipe cards like this to answer`,
-      picture: require('../../../../theme/images/rightArrow.png'),   
+      picture: require('../../../../theme/images/rightArrow.png'),
       styleRatio: {
         top: 4,
         bottom: 2,
@@ -57,7 +57,7 @@ Swipe cards like this to answer`,
       questionText: `Hold the card and move it around to see the different answers
 
 Arrows on the side will show you which way a card can be swiped`,
-      picture: require('../../../../theme/images/rightArrow.png'),   
+      picture: require('../../../../theme/images/rightArrow.png'),
     }
   },
 ];

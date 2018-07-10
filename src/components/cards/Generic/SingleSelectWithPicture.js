@@ -17,7 +17,9 @@ export interface State {}
 
 export default class SingleSelectWithPicture extends Card {
   render() {
-    const { questionText, picture, styleRatio, priorityCard } = this.props;
+    const {
+      questionText, picture, styleRatio, priorityCard
+    } = this.props;
 
     return (
       <View style={styles.cardContent}>

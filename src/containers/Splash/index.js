@@ -29,7 +29,7 @@ export default class ControllerContainer extends React.Component<Props, State> {
     this.state = {
       message: messages[0],
       currentIndex: 0,
-    }
+    };
   }
 
   componentDidMount() {
@@ -37,17 +37,17 @@ export default class ControllerContainer extends React.Component<Props, State> {
   }
 
   updateMessage() {
-    const {currentIndex} = this.state;
+    const { currentIndex } = this.state;
 
 
-    if(currentIndex+1 === messages.length) {
+    if (currentIndex + 1 === messages.length) {
       setTimeout(() => {
         this.props.navigation.navigate('QuestionController');
       }, timeout);
     }
     else {
       setTimeout(() => {
-        const newIndex = currentIndex+1;
+        const newIndex = currentIndex + 1;
 
         this.setState({
           message: messages[newIndex],

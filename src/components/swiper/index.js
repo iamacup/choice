@@ -1,12 +1,12 @@
 
 import * as React from 'react';
 
-import { View, Image } from 'react-native';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import Swiper from 'react-native-deck-swiper';
 
 import styles from './styles';
-import Chevron from '../../components/chevron';
+import Chevron from '../chevron';
 
 // SETUP TYPES FOR FLOW
 
@@ -47,8 +47,8 @@ export default class HomeScreen extends React.Component<Props, State> {
 
     if (options[direction]) {
       return true;
-    } else if(Object.keys(options).length === 0) {
-      //any direction is valid because, if no direction is specified, we assume this is being invoked throug the done callback
+    } else if (Object.keys(options).length === 0) {
+      // any direction is valid because, if no direction is specified, we assume this is being invoked throug the done callback
       return true;
     }
 
@@ -70,13 +70,13 @@ export default class HomeScreen extends React.Component<Props, State> {
 
     let flashing = false;
 
-    if(this.props.drawData.flashArrows && this.props.drawData.flashArrows === true) {
+    if (this.props.drawData.flashArrows && this.props.drawData.flashArrows === true) {
       flashing = true;
     }
 
     let priorityCard = false;
 
-    if(this.props.drawData.priorityCard && this.props.drawData.priorityCard === true) {
+    if (this.props.drawData.priorityCard && this.props.drawData.priorityCard === true) {
       priorityCard = true;
     }
 
@@ -94,7 +94,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                 {options.top
                   ? (
                     <Chevron
-                      direction="up"
+                      direction='up'
                       flashing={flashing}
                       color={priorityCard === true ? 'white' : 'black'}
                     />
@@ -109,7 +109,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                 {options.left
                   ? (
                     <Chevron
-                      direction="left"
+                      direction='left'
                       flashing={flashing}
                       color={priorityCard === true ? 'white' : 'black'}
                     />
@@ -121,7 +121,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                 ref={(element) => { this.card = element; }}
                 key={id}
                 direction={this.state.direction}
-                doneCallback={() => {this.doneCallback();}}
+                doneCallback={() => { this.doneCallback(); }}
                 {...cardProps}
                 priorityCard={priorityCard}
               />
@@ -131,7 +131,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                 {options.right
                   ? (
                     <Chevron
-                      direction="right"
+                      direction='right'
                       flashing={flashing}
                       color={priorityCard === true ? 'white' : 'black'}
                     />
@@ -146,7 +146,7 @@ export default class HomeScreen extends React.Component<Props, State> {
                 {options.bottom
                   ? (
                     <Chevron
-                      direction="down"
+                      direction='down'
                       flashing={flashing}
                       color={priorityCard === true ? 'white' : 'black'}
                     />

@@ -2,7 +2,6 @@
 
 // Generic card containers that take props to render out specifics
 import SingleSelectWithPictureCard from '../../../../components/cards/Generic/SingleSelectWithPicture';
-import WhichCourseAreasQuestion from '../../../../components/cards/Course/WhichCourseAreasQuestion';
 
 const startID = 'coursePreferences-0';
 
@@ -18,8 +17,8 @@ const questions = [
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: `Let's take a look at what university experience is best for you!`,
-      picture: require('../../../../theme/images/UC.png'),   
+      questionText: 'Let\'s take a look at what university experience is best for you!',
+      picture: require('../../../../theme/images/UC.png'),
       styleRatio: {
         top: 2,
         bottom: 3,

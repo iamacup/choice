@@ -29,19 +29,19 @@ export default class HomeScreen extends React.Component<Props, State> {
 
         <View style={styles.contentView}>
 
-          <View style={{flex: 6}}>
-            <View style={{flex: 3, marginTop: '20%'}}>
+          <View style={{ flex: 6 }}>
+            <View style={{ flex: 3, marginTop: '20%' }}>
               <Image
                 style={styles.logoImage}
                 source={require('../../../theme/images/logo.png')}
                 resizeMode='contain'
               />
             </View>
-            <View style={{flex: 1, alignItems: 'center'}}>
-              {/*Company / app name here?*/}
+            <View style={{ flex: 1, alignItems: 'center' }}>
+              {/* Company / app name here? */}
             </View>
           </View>
-          <View style={{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
+          <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
             <View style={styles.loadingBadge}>
               <Text style={styles.loadingBadgeText}>
                 {this.props.message}
@@ -49,7 +49,7 @@ export default class HomeScreen extends React.Component<Props, State> {
             </View>
           </View>
 
-            
+
         </View>
 
       </Container>

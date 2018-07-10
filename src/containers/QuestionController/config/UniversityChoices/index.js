@@ -39,7 +39,7 @@ const questions = [
       horizontal: true,
     },
     options: {
-      
+
     },
     card: WhichUniQuestion,
   },

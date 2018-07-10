@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 
-import { View, Image } from 'react-native';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import {
@@ -9,7 +9,7 @@ import {
   Text,
 } from 'native-base';
 
-import styles from './styles';
+// import styles from './styles';
 
 // SETUP TYPES FOR FLOW
 
@@ -27,9 +27,11 @@ export default class DataLandingScreen extends React.Component<Props, State> {
     return (
       <Container>
 
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
-          <Text>TODO...</Text>
+          <Text>
+TODO...
+          </Text>
 
         </View>
 

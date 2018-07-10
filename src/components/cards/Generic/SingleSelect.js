@@ -2,7 +2,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import { View, Image } from 'react-native';
+import { View } from 'react-native';
 import { Text } from 'native-base';
 
 import Card from '../../card';
@@ -17,7 +17,9 @@ export interface State {}
 
 export default class SingleSelect extends Card {
   render() {
-    const { questionText, picture, styleRatio, priorityCard } = this.props;
+    const {
+      questionText, priorityCard
+    } = this.props;
 
     return (
       <View style={styles.cardContent}>

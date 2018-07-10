@@ -17,7 +17,7 @@ import courseChoicesConfig from './config/CourseChoices';
 // SETUP TYPES FOR FLOW
 
 export interface Props {
-  navigation: any, 
+  navigation: any,
 }
 
 export interface State {}
@@ -89,9 +89,9 @@ const getAnswer = (section, direction, id) => {
 
   section.data.questions.forEach((value) => {
     if (value.id === id) {
-      //it is possible to have no option and for the direction to be null so we check that we are catering for that
-      //this case occurs when we have a no direction card that just has a button to progress
-      if(value.options[direction] && value.options[direction].text) {
+      // it is possible to have no option and for the direction to be null so we check that we are catering for that
+      // this case occurs when we have a no direction card that just has a button to progress
+      if (value.options[direction] && value.options[direction].text) {
         result = value.options[direction].text;
       }
     }
@@ -166,8 +166,8 @@ export default class ControllerContainer extends React.Component<Props, State> {
     let doSetState = true;
 
     if (nextID === 'NEXT-SECTION') {
-      if(section.next === null) {
-        //we know there is no more questions so lets move to the next step
+      if (section.next === null) {
+        // we know there is no more questions so lets move to the next step
         doSetState = false;
         this.props.navigation.navigate(afterQuestionsSteps);
       } else {
@@ -181,7 +181,7 @@ export default class ControllerContainer extends React.Component<Props, State> {
 
     const initialWording = getInitialWording(section, direction, id);
 
-    if(doSetState === true) {
+    if (doSetState === true) {
       this.setState({
         drawData: card,
         sectionID,

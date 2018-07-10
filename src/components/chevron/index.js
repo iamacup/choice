@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 
-import { View, Image, StyleSheet } from 'react-native';
+import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
 import * as OurColors from '../../theme/colors';
@@ -30,50 +30,48 @@ export default class Chevron extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    //check to see if we start by flashing
-    if(this.props.flashing === true) {
+    // check to see if we start by flashing
+    if (this.props.flashing === true) {
       this.flashing();
     }
   }
 
   componentDidUpdate(prevProps) {
-    //check to see if we need to start flashing
-    if(prevProps.flashing === false && this.props.flashing === true) {
+    // check to see if we need to start flashing
+    if (prevProps.flashing === false && this.props.flashing === true) {
       this.flashing();
     }
-    //check to see if we need to stop flashing
-    if(prevProps.flashing === true && this.props.flashing === false) {
-      //reset the opacity to default
+    // check to see if we need to stop flashing
+    if (prevProps.flashing === true && this.props.flashing === false) {
+      // reset the opacity to default
       this.setState({
         opacity: OurColors.chevronOpacity,
-      }); 
+      });
     }
   }
 
-  //we remove the timout so that when the thing is not mounted, it does not try to set state
+  // we remove the timout so that when the thing is not mounted, it does not try to set state
   componentWillUnmount() {
     clearTimeout(timeout);
   }
 
   flashing() {
-    if(this.props.flashing === true) {
-
-      const {opacity} = this.state;
-      let {opacityDirection} = this.state;
+    if (this.props.flashing === true) {
+      const { opacity } = this.state;
+      const { opacityDirection } = this.state;
 
       timeout = setTimeout(() => {
-        
-        if(opacityDirection === 'up' && opacity < 1.0) {
-          this.setState({opacity: opacity+opacityIncrement});
-        } else if(opacityDirection === 'up') {
-          this.setState({opacityDirection: 'down'});
+        if (opacityDirection === 'up' && opacity < 1.0) {
+          this.setState({ opacity: opacity + opacityIncrement });
+        } else if (opacityDirection === 'up') {
+          this.setState({ opacityDirection: 'down' });
         }
 
 
         if (opacityDirection === 'down' && opacity > OurColors.chevronOpacity) {
-          this.setState({opacity: opacity-opacityIncrement});
-        } else if(opacityDirection === 'down') {
-          this.setState({opacityDirection: 'up'});
+          this.setState({ opacity: opacity - opacityIncrement });
+        } else if (opacityDirection === 'down') {
+          this.setState({ opacityDirection: 'up' });
         }
 
         this.flashing();
@@ -83,33 +81,33 @@ export default class Chevron extends React.Component<Props, State> {
 
   render() {
     let source = null;
-    const {direction, color} = this.props;
+    const { direction, color } = this.props;
 
-    if(color === 'white') {
-      if(direction === 'left') {
+    if (color === 'white') {
+      if (direction === 'left') {
         source = require('../../theme/images/CourseCards/General/white-chevleft.png');
-      } else if(direction === 'right') {
+      } else if (direction === 'right') {
         source = require('../../theme/images/CourseCards/General/white-chevright.png');
-      } else if(direction === 'up') {
+      } else if (direction === 'up') {
         source = require('../../theme/images/CourseCards/General/white-chevup.png');
-      } else if(direction === 'down') {
+      } else if (direction === 'down') {
         source = require('../../theme/images/CourseCards/General/white-chevdown.png');
       }
     } else {
-      if(direction === 'left') {
+      if (direction === 'left') {
         source = require('../../theme/images/CourseCards/General/black-chevleft.png');
-      } else if(direction === 'right') {
+      } else if (direction === 'right') {
         source = require('../../theme/images/CourseCards/General/black-chevright.png');
-      } else if(direction === 'up') {
+      } else if (direction === 'up') {
         source = require('../../theme/images/CourseCards/General/black-chevup.png');
-      } else if(direction === 'down') {
+      } else if (direction === 'down') {
         source = require('../../theme/images/CourseCards/General/black-chevdown.png');
       }
     }
 
     return (
       <Image
-        style={[styles.chevImage, {opacity: this.state.opacity}]}
+        style={[styles.chevImage, { opacity: this.state.opacity }]}
         source={source}
         resizeMode='contain'
       />
@@ -125,5 +123,4 @@ Chevron.propTypes = {
 
 Chevron.defaultProps = {
   color: 'black',
-}
-
+};

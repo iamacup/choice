@@ -43,7 +43,6 @@ const styles: any = StyleSheet.create({
   },
 
 
-
 });
 
 export default styles;

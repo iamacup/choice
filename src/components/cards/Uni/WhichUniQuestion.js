@@ -1,9 +1,12 @@
 // @flow
+
+/* eslint-disable react/no-array-index-key */
+
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  View, Image, FlatList, Button
+  View, FlatList, Button
 } from 'react-native';
 import { Text, Badge, Button as NBButton  } from 'native-base';
 
@@ -41,7 +44,7 @@ export default class CardContent extends Card {
     if (!(data.indexOf(item) > -1)) {
       data.push(item);
       this.setState({ data });
-    } 
+    }
   }
 
   handleUnpick(item) {
@@ -49,7 +52,7 @@ export default class CardContent extends Card {
 
     data.splice(data.indexOf(item), 1);
 
-    this.setState({data});
+    this.setState({ data });
   }
 
   render() {
@@ -82,7 +85,7 @@ export default class CardContent extends Card {
           <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
             {this.state.data.map((value, i) => (
               <Badge key={i} onPress={() => { this.handleUnpick(value); }} style={{ margin: 2 }} primary>
-                <Text onPress={() => { this.handleUnpick(value); }} >
+                <Text onPress={() => { this.handleUnpick(value); }}>
                   {value}
                 </Text>
               </Badge>
@@ -94,7 +97,7 @@ export default class CardContent extends Card {
           flex: 2, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'
         }}
         >
-          <NBButton onPress={() => {this.props.doneCallback();}} primary>
+          <NBButton onPress={() => { this.props.doneCallback(); }} primary>
             <Text>
               Done
             </Text>
