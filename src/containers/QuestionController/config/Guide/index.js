@@ -4,7 +4,6 @@
 import SingleSelectWithPictureCard from '../../../../components/cards/Generic/SingleSelectWithPicture';
 import SingleSelectCard from '../../../../components/cards/Generic/SingleSelect';
 
-
 const startID = 'guide-1';
 
 const questions = [
@@ -19,9 +18,9 @@ const questions = [
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: `Here are some questions to work out what you like.
+      questionText: `Some questions to work out what you want
 
-Swipe cards like this to answer.`,
+Swipe cards like this to answer`,
       picture: require('../../../../theme/images/rightArrow.png'),   
       styleRatio: {
         top: 4,
@@ -36,16 +35,19 @@ Swipe cards like this to answer.`,
     options: {
       right: {
         text: 'Right on! 😃',
-        initialWording: 'Now the questions, you can chance your answers any time using the menu button above.',
+        initialWording: 'Now the questions, you can change your answers any time using the menu button above.',
       },
       left: {
         text: 'To the left, to the left 🎵🎵🎵',
+        initialWording: 'Now the questions, you can change your answers any time using the menu button above.',
       },
       bottom: {
         text: '👇👇👇',
+        initialWording: 'Now the questions, you can change your answers any time using the menu button above.',
       },
       top: {
         text: '🆙🆙🆙',
+        initialWording: 'Now the questions, you can change your answers any time using the menu button above.',
       },
     },
     card: SingleSelectCard,

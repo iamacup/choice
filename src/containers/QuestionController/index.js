@@ -6,12 +6,18 @@ import HomeScreen from './screens';
 
 import guideConfig from './config/Guide';
 import preliminaryConfig from './config/Preliminary';
-import courseConfig from './config/Course';
+
+import lifePreferencesConfig from './config/LifePreferences';
+import coursePreferencesConfig from './config/CoursePreferences';
+
+import uniChoicesConfig from './config/UniversityChoices';
+import courseChoicesConfig from './config/CourseChoices';
+
 
 // SETUP TYPES FOR FLOW
 
 export interface Props {
-  navigation: any,
+  navigation: any, 
 }
 
 export interface State {}
@@ -30,11 +36,26 @@ const sections = [
   {
     id: 'preliminary',
     data: preliminaryConfig,
-    next: 'course',
+    next: 'lifePreferences',
   },
   {
-    id: 'course',
-    data: courseConfig,
+    id: 'lifePreferences',
+    data: lifePreferencesConfig,
+    next: 'coursePreferences',
+  },
+  {
+    id: 'coursePreferences',
+    data: coursePreferencesConfig,
+    next: 'uniChoices',
+  },
+  {
+    id: 'uniChoices',
+    data: uniChoicesConfig,
+    next: 'courseChoices',
+  },
+  {
+    id: 'courseChoices',
+    data: courseChoicesConfig,
     next: '',
   },
 ];

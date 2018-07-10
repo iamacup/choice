@@ -4,63 +4,43 @@
 import SingleSelectWithPictureCard from '../../../../components/cards/Generic/SingleSelectWithPicture';
 import WhichCourseAreasQuestion from '../../../../components/cards/Course/WhichCourseAreasQuestion';
 
-const startID = 'course-1';
+const startID = 'coursePreferences-0';
 
 const questions = [
   {
-    id: 'course-1',
+    id: 'coursePreferences-0',
     size: 'standard',
+    flashArrows: true,
     options: {
-      top: {
-        text: 'Don\'t know',
-      },
       right: {
-        text: 'Yes',
-      },
-      left: {
-        text: 'No',
+        text: 'Let\'s get started!',
       },
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'Do you know what course you want to study?',
-      picture: require('../../../../theme/images/CourseCards/Course/one.png'),
+      questionText: `Let's take a look at what university experience is best for you!`,
+      picture: require('../../../../theme/images/UC.png'),   
       styleRatio: {
-        top: 1,
+        top: 2,
         bottom: 3,
       },
-    },
+    }
   },
   {
-    id: 'course-2',
-    size: 'large',
-    disabled: {
-      vertical: true,
-      horizontal: true,
-    },
-    options: {
-
-    },
-    card: WhichCourseAreasQuestion,
-  },
-  {
-    id: 'course-3',
+    id: 'coursePreferences-1',
     size: 'standard',
     options: {
-      top: {
-        text: 'I want to save money if i can',
-      },
       right: {
-        text: 'I don\'t mind, it\'s a loan after all',
+        text: 'Exams',
       },
       left: {
-        text: 'I really want the cheapest option',
+        text: 'Coursework',
       },
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'How much are you willing to pay for your course?',
-      picture: require('../../../../theme/images/CourseCards/Course/two.png'),
+      questionText: 'Do you prefer coursework or exams?',
+      picture: require('../../../../theme/images/CourseCards/Course/five.png'),
       styleRatio: {
         top: 1,
         bottom: 3,
@@ -68,7 +48,7 @@ const questions = [
     }
   },
   {
-    id: 'course-4',
+    id: 'coursePreferences-2',
     size: 'standard',
     options: {
       top: {
@@ -92,7 +72,7 @@ const questions = [
     }
   },
   {
-    id: 'course-5',
+    id: 'coursePreferences-3',
     size: 'standard',
     options: {
       right: {
@@ -113,28 +93,7 @@ const questions = [
     }
   },
   {
-    id: 'course-6',
-    size: 'standard',
-    options: {
-      right: {
-        text: 'Exams',
-      },
-      left: {
-        text: 'Coursework',
-      },
-    },
-    card: SingleSelectWithPictureCard,
-    cardProps: {
-      questionText: 'Do you prefer coursework or exams?',
-      picture: require('../../../../theme/images/CourseCards/Course/five.png'),
-      styleRatio: {
-        top: 1,
-        bottom: 3,
-      },
-    }
-  },
-  {
-    id: 'course-7',
+    id: 'coursePreferences-4',
     size: 'standard',
     options: {
       top: {
@@ -149,10 +108,34 @@ const questions = [
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'How important is the research reputation of the department?',
+      questionText: 'How important is the research reputation of the university?',
       picture: require('../../../../theme/images/CourseCards/Course/six.png'),
       styleRatio: {
         top: 2,
+        bottom: 3,
+      },
+    }
+  },
+  {
+    id: 'coursePreferences-5',
+    size: 'standard',
+    options: {
+      top: {
+        text: 'I want to save money if i can',
+      },
+      right: {
+        text: 'I don\'t mind, it\'s a loan after all',
+      },
+      left: {
+        text: 'I really want the cheapest option',
+      },
+    },
+    card: SingleSelectWithPictureCard,
+    cardProps: {
+      questionText: 'How much are you willing to pay for your course?',
+      picture: require('../../../../theme/images/CourseCards/Course/two.png'),
+      styleRatio: {
+        top: 1,
         bottom: 3,
       },
     }
@@ -161,38 +144,27 @@ const questions = [
 
 const tree = [
   {
-    id: 'course-1',
-    next: [{
-      withAnswer: ['Don\'t know', 'No'],
-      id: 'course-3',
-    },
-    {
-      withAnswer: ['Yes'],
-      id: 'course-2',
-    }]
+    id: 'coursePreferences-0',
+    next: 'coursePreferences-1',
   },
   {
-    id: 'course-2',
-    next: 'course-3',
+    id: 'coursePreferences-1',
+    next: 'coursePreferences-2',
   },
   {
-    id: 'course-3',
-    next: 'course-4',
+    id: 'coursePreferences-2',
+    next: 'coursePreferences-3',
   },
   {
-    id: 'course-4',
-    next: 'course-5',
+    id: 'coursePreferences-3',
+    next: 'coursePreferences-4',
   },
   {
-    id: 'course-5',
-    next: 'course-6',
+    id: 'coursePreferences-4',
+    next: 'coursePreferences-5',
   },
   {
-    id: 'course-6',
-    next: 'course-7',
-  },
-  {
-    id: 'course-7',
+    id: 'coursePreferences-5',
     next: 'NEXT-SECTION',
   },
 ];
