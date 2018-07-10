@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Swiper from 'react-native-deck-swiper';
 
 import styles from './styles';
+import Chevron from '../../components/chevron';
 
 // SETUP TYPES FOR FLOW
 
@@ -67,6 +68,12 @@ export default class HomeScreen extends React.Component<Props, State> {
       ({ cardProps } = this.props.drawData);
     }
 
+    let flashing = false;
+
+    if(this.props.drawData.flashArrows && this.props.drawData.flashArrows === true) {
+      flashing = true;
+    }
+
     // if this is the top card, we worry about arrows
     if (index === 0) {
       const CardContent = card;
@@ -80,10 +87,9 @@ export default class HomeScreen extends React.Component<Props, State> {
               <View style={styles.cardHorizontalIndicator}>
                 {options.top
                   ? (
-                    <Image
-                      style={styles.chevImage}
-                      source={require('../../theme/images/CourseCards/General/chevup.png')}
-                      resizeMode='contain'
+                    <Chevron
+                      direction="up"
+                      flashing={flashing}
                     />
                   ) : null}
               </View>
@@ -95,10 +101,9 @@ export default class HomeScreen extends React.Component<Props, State> {
               <View style={styles.cardVerticalIndicator}>
                 {options.left
                   ? (
-                    <Image
-                      style={styles.chevImage}
-                      source={require('../../theme/images/CourseCards/General/chevleft.png')}
-                      resizeMode='contain'
+                    <Chevron
+                      direction="left"
+                      flashing={flashing}
                     />
                   ) : null}
               </View>
@@ -116,10 +121,9 @@ export default class HomeScreen extends React.Component<Props, State> {
               <View style={styles.cardVerticalIndicator}>
                 {options.right
                   ? (
-                    <Image
-                      style={styles.chevImage}
-                      source={require('../../theme/images/CourseCards/General/chevright.png')}
-                      resizeMode='contain'
+                    <Chevron
+                      direction="right"
+                      flashing={flashing}
                     />
                   ) : null}
               </View>
@@ -131,10 +135,9 @@ export default class HomeScreen extends React.Component<Props, State> {
               <View style={styles.cardHorizontalIndicator}>
                 {options.bottom
                   ? (
-                    <Image
-                      style={styles.chevImage}
-                      source={require('../../theme/images/CourseCards/General/chevdown.png')}
-                      resizeMode='contain'
+                    <Chevron
+                      direction="down"
+                      flashing={flashing}
                     />
                   ) : null}
               </View>

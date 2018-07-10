@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import HomeScreen from './screens';
 
+import guideConfig from './config/Guide';
 import preliminaryConfig from './config/Preliminary';
 import courseConfig from './config/Course';
 
@@ -17,10 +18,15 @@ export interface State {}
 
 // PRIMARY CLASS
 
-const startSection = 'preliminary';
+const startSection = 'guide';
 //const startSection = 'course';
 
 const sections = [
+  {
+    id: 'guide',
+    data: guideConfig,
+    next: 'preliminary',
+  },
   {
     id: 'preliminary',
     data: preliminaryConfig,

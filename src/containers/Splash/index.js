@@ -16,8 +16,8 @@ export interface State {}
 
 const messages = [
   'Loading salary data...',
-  'Sorting by gender paygap...',
-  'Calculating if you will ever pay back your student loan...',
+  'Organising by gender...',
+  'Calculating loan payments...',
 ];
 
 const timeout = 2000;
