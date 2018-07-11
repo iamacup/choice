@@ -74,30 +74,6 @@ const questions = [
     },
   },
   {
-    id: 'lifePreferences-2',
-    size: 'standard',
-    options: {
-      top: {
-        text: 'In a coffee shop',
-      },
-      right: {
-        text: 'Out doing something crazy',
-      },
-      left: {
-        text: 'Watching YouTube or TV',
-      },
-    },
-    card: SingleSelectWithPictureCard,
-    cardProps: {
-      questionText: 'During the day when not working, you are most likely...',
-      picture: require('../../../../theme/images/UC.png'),
-      styleRatio: {
-        top: 1,
-        bottom: 3,
-      },
-    },
-  },
-  {
     id: 'lifePreferences-3',
     size: 'standard',
     options: {
@@ -202,10 +178,6 @@ const tree = [
   },
   {
     id: 'lifePreferences-1',
-    next: 'lifePreferences-2',
-  },
-  {
-    id: 'lifePreferences-2',
     next: 'lifePreferences-3',
   },
   {
