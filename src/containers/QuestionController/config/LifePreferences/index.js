@@ -18,7 +18,7 @@ const questions = [
     card: SingleSelectWithPictureCard,
     cardProps: {
       questionText: 'Let\'s work out what university location experience is best for you!',
-      picture: require('../../../../theme/images/UC.png'),
+      picture: require('../../../../theme/images/CourseCards/Life/one.png'),
       styleRatio: {
         top: 2,
         bottom: 3,
@@ -42,31 +42,7 @@ const questions = [
     card: SingleSelectWithPictureCard,
     cardProps: {
       questionText: 'What does nightlife need to look like for you?',
-      picture: require('../../../../theme/images/UC.png'),
-      styleRatio: {
-        top: 1,
-        bottom: 3,
-      },
-    },
-  },
-  {
-    id: 'lifePreferences-1',
-    size: 'standard',
-    options: {
-      top: {
-        text: 'Weekends only!',
-      },
-      right: {
-        text: 'I am a party animal 🎉🎉🎉',
-      },
-      left: {
-        text: 'Netflix is the best',
-      },
-    },
-    card: SingleSelectWithPictureCard,
-    cardProps: {
-      questionText: 'What does nightlife need to look like for you?',
-      picture: require('../../../../theme/images/UC.png'),
+      picture: require('../../../../theme/images/CourseCards/Life/two.png'),    
       styleRatio: {
         top: 1,
         bottom: 3,
@@ -90,7 +66,7 @@ const questions = [
     card: SingleSelectWithPictureCard,
     cardProps: {
       questionText: 'Where do you want to live?',
-      picture: require('../../../../theme/images/UC.png'),
+      picture: require('../../../../theme/images/CourseCards/Life/three.png'),  
       styleRatio: {
         top: 1,
         bottom: 3,
@@ -114,7 +90,7 @@ const questions = [
     card: SingleSelectWithPictureCard,
     cardProps: {
       questionText: 'Sport?',
-      picture: require('../../../../theme/images/UC.png'),
+      picture: require('../../../../theme/images/CourseCards/Life/four.png'),  
       styleRatio: {
         top: 1,
         bottom: 3,
@@ -138,7 +114,7 @@ const questions = [
     card: SingleSelectWithPictureCard,
     cardProps: {
       questionText: 'Music?',
-      picture: require('../../../../theme/images/UC.png'),
+      picture: require('../../../../theme/images/CourseCards/Life/five.png'),  
       styleRatio: {
         top: 1,
         bottom: 3,
@@ -162,7 +138,7 @@ const questions = [
     card: SingleSelectWithPictureCard,
     cardProps: {
       questionText: 'Money?',
-      picture: require('../../../../theme/images/UC.png'),
+      picture: require('../../../../theme/images/CourseCards/Life/six.png'),  
       styleRatio: {
         top: 1,
         bottom: 3,
