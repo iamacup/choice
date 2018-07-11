@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn start
+  /usr/local/bin/node /usr/local/bin/yarn lint
 
 PATH: 
-  /Users/sliips 1/gcloud/n/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+  /usr/local/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/Users/sliips 1/Desktop/sliips/choice/node_modules/.bin:/Applications/Sourcetree.app/Contents/Resources/git_local/libexec/git-core:/Applications/Sourcetree.app/Contents/Resources/bin:/Applications/Sourcetree.app/Contents/Resources/git_local/bin:/Applications/Sourcetree.app/Contents/Resources/git_local/gitflow:/Applications/Sourcetree.app/Contents/Resources/git_local/git-lfs:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local
 
 Yarn version: 
   1.5.1
@@ -47,6 +47,7 @@ npm manifest:
     ],
     "main": "node_modules/react-native-scripts/build/bin/crna-entry.js",
     "scripts": {
+      "precommit": "yarn lint",
       "start": "react-native-scripts start",
       "eject": "react-native-scripts eject",
       "android": "react-native-scripts android",
@@ -8688,9 +8689,9 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 127
+  Exit code: 1
   Command: sh
-  Arguments: -c react-native-scripts start
+  Arguments: -c yarn eslint --fix ./src
   Directory: /Users/sliips 1/Desktop/sliips/choice
   Output:
   
