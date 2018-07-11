@@ -20,8 +20,6 @@ export interface State {}
 
 // PRIMARY CLASS
 
-
-
 const subjects = [
   {key: 'Medicine & Dentistry'},
   {key: 'Subjects Allied to Medicine (excluding Nursing)'},
