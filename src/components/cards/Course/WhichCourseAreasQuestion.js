@@ -21,12 +21,29 @@ export interface State {}
 // PRIMARY CLASS
 
 const subjects = [
-  { key: 'English' },
-  { key: 'Physics' },
-  { key: 'Biology' },
-  { key: 'Chemistry' },
-  { key: 'History' },
-  { key: 'Mathematics' }
+  { key: 'Medicine & Dentistry' },
+  { key: 'Subjects Allied to Medicine (excluding Nursing)' },
+  { key: 'Nursing' },
+  { key: 'Biological Sciences (excluding Psychology)' },
+  { key: 'Psychology' },
+  { key: 'Veterinary Science' },
+  { key: 'Agriculture & Related Subjects' },
+  { key: 'Physical Sciences' },
+  { key: 'Mathematical Sciences' },
+  { key: 'Computer Science' },
+  { key: 'Engineering & Technology' },
+  { key: 'Architecture, Building & Planning' },
+  { key: 'Social Studies (excluding Economics)' },
+  { key: 'Economics' },
+  { key: 'Law' },
+  { key: 'Business & Administrative Studies' },
+  { key: 'Mass Communications & Documentation' },
+  { key: 'Languages (excluding English Studies)' },
+  { key: 'English Studies' },
+  { key: 'Historical & Philosophical Studies' },
+  { key: 'Creative Arts & Design' },
+  { key: 'Education' },
+  { key: 'Combined' },
 ];
 
 export default class CardContent extends Card {
