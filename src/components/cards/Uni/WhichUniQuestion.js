@@ -8,7 +8,9 @@ import PropTypes from 'prop-types';
 import {
   View, FlatList, Button
 } from 'react-native';
-import { Text, Badge, Button as NBButton  } from 'native-base';
+import {
+  Text, Badge, Button as NBButton, Input, Item, Icon
+} from 'native-base';
 
 import Card from '../../card';
 import styles from '../../card/styles';
@@ -35,6 +37,7 @@ export default class CardContent extends Card {
 
     this.state = {
       data: [],
+      filteredData: [],
     };
   }
 
@@ -55,23 +58,34 @@ export default class CardContent extends Card {
     this.setState({ data });
   }
 
+  handleChange(text) {
+    const filteredData = subjects.filter((item) => {
+      if (item.key.toLowerCase().includes(text.toLowerCase())) return item;
+      else return null;
+    });
+
+    this.setState({ filteredData });
+  }
+
+
   render() {
+    let filteredData = subjects;
+    if (this.state.filteredData.length > 0)  filteredData = this.state.filteredData;
+
     return (
       <View style={styles.cardContent}>
-
         <View style={{ flex: 3, alignSelf: 'center', marginTop: 4 }}>
           <Text style={styles.titleText}>
             Select as many subjects as you are interested in
           </Text>
         </View>
-
         <View style={{ flex: 6, justifyContent: 'center' }}>
           <View style={{
-            height: '100%', backgroundColor: '#909090', width: '100%', alignSelf: 'center', borderRadius: 10
+            height: '50%', backgroundColor: '#909090', width: '100%', alignSelf: 'center', borderRadius: 10
           }}
           >
             <FlatList
-              data={subjects}
+              data={filteredData}
               renderItem={({ item }) => (
                 <View>
                   <Button onPress={() => this.handlePick(item.key)} title={item.key} color='white' />
@@ -79,6 +93,10 @@ export default class CardContent extends Card {
               )}
             />
           </View>
+          <Item>
+            <Icon name='ios-search' />
+            <Input placeholder='Search' onChangeText={text => this.handleChange(text)} />
+          </Item>
         </View>
 
         <View style={{ flex: 6, alignItems: 'center', justifyContent: 'center' }}>
@@ -103,7 +121,6 @@ export default class CardContent extends Card {
             </Text>
           </NBButton>
         </View>
-
       </View>
     );
   }
