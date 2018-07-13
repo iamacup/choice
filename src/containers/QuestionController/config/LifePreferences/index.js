@@ -30,18 +30,18 @@ const questions = [
     size: 'standard',
     options: {
       top: {
-        text: 'Weekends only!',
+        text: 'Don\'t Know / Maybe!',
       },
       right: {
-        text: 'I am a party animal 🎉🎉🎉',
+        text: 'Yes, I am a party animal 🎉🎉🎉',
       },
       left: {
-        text: 'Netflix is the best',
+        text: 'No, Netflix is the best 📺!',
       },
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'What does nightlife need to look like for you?',
+      questionText: 'Is nightlife important to you?',
       picture: require('../../../../theme/images/CourseCards/Life/two.png'),
       styleRatio: {
         top: 1,
@@ -54,18 +54,18 @@ const questions = [
     size: 'standard',
     options: {
       top: {
-        text: 'With a small group of people',
+        text: 'Don\'t Know / Maybe!',
       },
       right: {
-        text: 'Halls, with as many people as possible',
+        text: 'Yes please 🏢!',
       },
       left: {
-        text: 'I want my own space',
+        text: 'I want my own space 🏠',
       },
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'Where do you want to live?',
+      questionText: 'Want to stay in halls in your first year?',
       picture: require('../../../../theme/images/CourseCards/Life/three.png'),
       styleRatio: {
         top: 1,
@@ -78,18 +78,18 @@ const questions = [
     size: 'standard',
     options: {
       top: {
-        text: 'Casual and recreational sport for me!',
+        text: 'Don\'t Know / Maybe!',
       },
       right: {
-        text: 'I want to be on the first team',
+        text: 'I want to be on the first team!',
       },
       left: {
-        text: 'I don\'t play sport',
+        text: 'Probably not',
       },
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'Sport?',
+      questionText: 'Do you want to play sport at uni?',
       picture: require('../../../../theme/images/CourseCards/Life/four.png'),
       styleRatio: {
         top: 1,
@@ -102,18 +102,18 @@ const questions = [
     size: 'standard',
     options: {
       top: {
-        text: 'I play an instrument',
+        text: 'Don\'t Know / Maybe',
       },
       right: {
-        text: 'I want to be in a band / the orchestra',
+        text: '🎺🎺🎺 Yes please!',
       },
       left: {
-        text: 'I don\'t play an instrument',
+        text: 'You don\'t want to hear me',
       },
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'Music?',
+      questionText: 'Will you want to join a band or the orchestra?',
       picture: require('../../../../theme/images/CourseCards/Life/five.png'),
       styleRatio: {
         top: 1,
@@ -126,18 +126,18 @@ const questions = [
     size: 'standard',
     options: {
       top: {
-        text: 'I am happy to go wherever the best university/course is',
+        text: 'Don\'t Know / Maybe',
       },
       right: {
-        text: 'London rent and prices are fine',
+        text: 'Yes',
       },
       left: {
-        text: 'I want to save as much money as possible',
+        text: 'No',
       },
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'Money?',
+      questionText: 'Do you to go to a big city university?',
       picture: require('../../../../theme/images/CourseCards/Life/six.png'),
       styleRatio: {
         top: 1,

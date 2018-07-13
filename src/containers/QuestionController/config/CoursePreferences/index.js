@@ -29,16 +29,19 @@ const questions = [
     id: 'coursePreferences-1',
     size: 'standard',
     options: {
+      top: {
+        text: 'Don\'t know',
+      },
       right: {
-        text: 'Exams',
+        text: 'Coursework all the way!',
       },
       left: {
-        text: 'Coursework',
+        text: 'Exams are my jam',
       },
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'Do you prefer coursework or exams?',
+      questionText: 'Would you rather do coursework over exams?',
       picture: require('../../../../theme/images/CourseCards/Course/five.png'),
       styleRatio: {
         top: 1,
@@ -54,15 +57,15 @@ const questions = [
         text: 'Don\'t know',
       },
       right: {
-        text: '20-40 hours a week',
+        text: 'Yes, loads of lectures',
       },
       left: {
-        text: '10-20 hours a week',
+        text: 'Independant study works better for me',
       },
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'How much contact time are you expecting?',
+      questionText: 'Do you want more lectures than independant study?',
       picture: require('../../../../theme/images/CourseCards/Course/three.png'),
       styleRatio: {
         top: 1,
@@ -74,19 +77,22 @@ const questions = [
     id: 'coursePreferences-3',
     size: 'standard',
     options: {
+      top: {
+        text: 'Don\'t know',
+      },
       right: {
-        text: 'Lectures',
+        text: 'More lectures',
       },
       left: {
-        text: 'Labs / Practicals / Discussion Groups',
+        text: 'Labs / Practicals / Discussion Groups are the way to go!',
       },
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'Which way do you like to learn the most?',
+      questionText: 'Do you want more lectures than hands-on / practical time?',
       picture: require('../../../../theme/images/CourseCards/Course/four.png'),
       styleRatio: {
-        top: 1,
+        top: 2,
         bottom: 3,
       },
     }
@@ -96,10 +102,10 @@ const questions = [
     size: 'standard',
     options: {
       top: {
-        text: 'Don\'t know',
+        text: 'Don\'t know / Maybe',
       },
       right: {
-        text: 'Very important',
+        text: 'Yes, it\'s important',
       },
       left: {
         text: 'Not important at all',
@@ -107,7 +113,7 @@ const questions = [
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'How important is the research reputation of the university?',
+      questionText: 'Do you care about the research reputation of the university?',
       picture: require('../../../../theme/images/CourseCards/Course/six.png'),
       styleRatio: {
         top: 2,
@@ -120,21 +126,21 @@ const questions = [
     size: 'standard',
     options: {
       top: {
-        text: 'I want to save money if i can',
+        text: 'Don\'t know / maybe',
       },
       right: {
-        text: 'I don\'t mind, it\'s a loan after all',
+        text: 'Yes',
       },
       left: {
-        text: 'I really want the cheapest option',
+        text: 'No',
       },
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'How much are you willing to pay for your course?',
+      questionText: 'Would you choose a university course on price alone?',
       picture: require('../../../../theme/images/CourseCards/Course/two.png'),
       styleRatio: {
-        top: 1,
+        top: 2,
         bottom: 3,
       },
     }

@@ -17,12 +17,11 @@ const questions = [
         text: 'OK, Got it!',
       },
     },
-    card: SingleSelectWithPictureCard,
+    card: SingleSelectCard,
     cardProps: {
       questionText: `We're going to ask some questions
 
-Swipe cards like this to answer`,
-      picture: require('../../../../theme/images/rightArrow.png'),
+Swipe Right to answer 👉`,
       styleRatio: {
         top: 4,
         bottom: 2,
@@ -36,27 +35,28 @@ Swipe cards like this to answer`,
     flashArrows: true,
     options: {
       right: {
-        text: 'Right on! 😃',
+        text: 'Yes',
         initialWording: 'Now the questions, you can change your answers any time using the menu button above.',
       },
       left: {
-        text: 'To the left, to the left 🎵🎵🎵',
+        text: 'No',
         initialWording: 'Now the questions, you can change your answers any time using the menu button above.',
       },
       bottom: {
-        text: '👇👇👇',
+        text: 'Done',
         initialWording: 'Now the questions, you can change your answers any time using the menu button above.',
       },
       top: {
-        text: '🆙🆙🆙',
+        text: 'Don\'t know / maybe',
         initialWording: 'Now the questions, you can change your answers any time using the menu button above.',
       },
     },
     card: SingleSelectCard,
     cardProps: {
-      questionText: `Hold the card and move it around to see the different answers
-
-Arrows on the side will show you which way a card can be swiped`,
+      questionText: `Right: 👍
+Left: 👎
+Up: 🤷
+Down: Done`,
       picture: require('../../../../theme/images/rightArrow.png'),
     }
   },

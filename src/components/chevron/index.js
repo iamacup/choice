@@ -1,7 +1,8 @@
 
 import * as React from 'react';
 
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
+import {Text} from 'native-base';
 import PropTypes from 'prop-types';
 
 import * as OurColors from '../../theme/colors';
@@ -105,13 +106,27 @@ export default class Chevron extends React.Component<Props, State> {
       }
     }
 
+    /*return (
+      <View style={{flex: 1, flexDirection: 'row'}}>
+        <View style={{flex:1, justifyContent: 'center', zIndex: 9999}}>
+          <Text>👍</Text>
+        </View>
+        <View style={{flex:1}}>
+          <Image
+            style={[styles.chevImage, { opacity: this.state.opacity }]}
+            source={source}
+            resizeMode='contain'
+          />
+        </View>
+      </View>
+    );*/
     return (
-      <Image
-        style={[styles.chevImage, { opacity: this.state.opacity }]}
-        source={source}
-        resizeMode='contain'
-      />
-    );
+        <Image
+          style={[styles.chevImage, { opacity: this.state.opacity }]}
+          source={source}
+          resizeMode='contain'
+        />
+      );
   }
 }
 
