@@ -44,7 +44,7 @@ export default class SingleSelect extends Card {
           <View style={styles.cardColLeftRight}>
             <View style={styles.cardVerticalIndicator}>
 
-              <Chevron 
+              <Chevron
                 direction='left'
                 flashing={true}
                 color={priorityCard === true ? 'white' : 'black'}
