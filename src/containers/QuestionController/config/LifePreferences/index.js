@@ -17,11 +17,11 @@ const questions = [
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'Let\'s work out what university location experience is best for you!',
-      picture: require('../../../../theme/images/CourseCards/Life/one.png'),
+      questionText: 'Let\'s work out the fun stuff first!',
+      picture: require('../../../../theme/images/CourseCards/Life/zero.png'),
       styleRatio: {
         top: 2,
-        bottom: 3,
+        bottom: 5,
       },
     }
   },
@@ -44,8 +44,8 @@ const questions = [
       questionText: 'Is nightlife important to you?',
       picture: require('../../../../theme/images/CourseCards/Life/two.png'),
       styleRatio: {
-        top: 1,
-        bottom: 3,
+        top: 2,
+        bottom: 5,
       },
     },
   },
@@ -68,8 +68,8 @@ const questions = [
       questionText: 'Want to stay in halls in your first year?',
       picture: require('../../../../theme/images/CourseCards/Life/three.png'),
       styleRatio: {
-        top: 1,
-        bottom: 3,
+        top: 2,
+        bottom: 5,
       },
     },
   },
@@ -81,7 +81,7 @@ const questions = [
         text: 'Don\'t Know / Maybe!',
       },
       right: {
-        text: 'I want to be on the first team!',
+        text: 'For sure!',
       },
       left: {
         text: 'Probably not',
@@ -92,8 +92,8 @@ const questions = [
       questionText: 'Do you want to play sport at uni?',
       picture: require('../../../../theme/images/CourseCards/Life/four.png'),
       styleRatio: {
-        top: 1,
-        bottom: 3,
+        top: 2,
+        bottom: 5,
       },
     },
   },
@@ -116,8 +116,8 @@ const questions = [
       questionText: 'Will you want to join a band or the orchestra?',
       picture: require('../../../../theme/images/CourseCards/Life/five.png'),
       styleRatio: {
-        top: 1,
-        bottom: 3,
+        top: 2,
+        bottom: 5,
       },
     },
   },
@@ -140,8 +140,8 @@ const questions = [
       questionText: 'Do you to go to a big city university?',
       picture: require('../../../../theme/images/CourseCards/Life/six.png'),
       styleRatio: {
-        top: 1,
-        bottom: 3,
+        top: 2,
+        bottom: 5,
       },
     },
   },

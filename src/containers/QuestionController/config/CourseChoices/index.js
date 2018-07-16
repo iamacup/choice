@@ -26,8 +26,8 @@ const questions = [
       questionText: 'Do you know what course you want to study?',
       picture: require('../../../../theme/images/CourseCards/Course/one.png'),
       styleRatio: {
-        top: 1,
-        bottom: 3,
+        top: 2,
+        bottom: 5,
       },
     },
   },

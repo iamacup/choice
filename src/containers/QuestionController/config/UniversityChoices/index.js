@@ -27,7 +27,7 @@ const questions = [
       picture: require('../../../../theme/images/CourseCards/University/one.png'),
       styleRatio: {
         top: 2,
-        bottom: 3,
+        bottom: 5,
       },
     },
   },

@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { Image, View } from 'react-native';
-import {Text} from 'native-base';
+import { Text } from 'native-base';
 import PropTypes from 'prop-types';
 
 import * as OurColors from '../../theme/colors';
@@ -106,7 +106,7 @@ export default class Chevron extends React.Component<Props, State> {
       }
     }
 
-    /*return (
+    /* return (
       <View style={{flex: 1, flexDirection: 'row'}}>
         <View style={{flex:1, justifyContent: 'center', zIndex: 9999}}>
           <Text>👍</Text>
@@ -119,14 +119,14 @@ export default class Chevron extends React.Component<Props, State> {
           />
         </View>
       </View>
-    );*/
+    ); */
     return (
-        <Image
-          style={[styles.chevImage, { opacity: this.state.opacity }]}
-          source={source}
-          resizeMode='contain'
-        />
-      );
+      <Image
+        style={[styles.chevImage, { opacity: this.state.opacity }]}
+        source={source}
+        resizeMode='contain'
+      />
+    );
   }
 }
 

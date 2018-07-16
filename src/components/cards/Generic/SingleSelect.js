@@ -22,7 +22,7 @@ export default class SingleSelect extends Card {
     } = this.props;
 
     return (
-      <View style={styles.cardContent}>
+      <View style={priorityCard === true ? styles.cardContentPriority : styles.cardContent}>
 
         <View style={{ flex: 1, alignSelf: 'center', justifyContent: 'center' }}>
           <Text style={priorityCard === true ? styles.titleTextPriority : styles.titleText}>

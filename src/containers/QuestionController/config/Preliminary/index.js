@@ -28,18 +28,20 @@ const questions = [
       questionText: 'Do you want to go to University?',
       picture: require('../../../../theme/images/CourseCards/Preliminary/one.png'),
       styleRatio: {
-        top: 1,
-        bottom: 3,
+        top: 2,
+        bottom: 5,
       },
     }
   },
   {
     id: 'prelim-2',
     size: 'large',
+    disabled: {
+      vertical: true,
+      horizontal: true,
+    },
     options: {
-      bottom: {
-        text: 'Done',
-      },
+
     },
     card: MultiSelectCard,
     cardProps: {
@@ -59,10 +61,12 @@ const questions = [
   {
     id: 'prelim-3',
     size: 'large',
+    disabled: {
+      vertical: true,
+      horizontal: true,
+    },
     options: {
-      bottom: {
-        text: 'Done',
-      },
+
     },
     card: MultiSelectCard,
     cardProps: {
@@ -74,10 +78,10 @@ const questions = [
         'Need special support',
         'Responsibilities at home',
       ],
-      'questionText': 'Why not go to Uni?',
+      'questionText': 'Why don\'t you want to go to University?',
       'styleRatio': {
-        top: 1,
-        bottom: 9,
+        top: 3,
+        bottom: 10,
       },
     },
   },

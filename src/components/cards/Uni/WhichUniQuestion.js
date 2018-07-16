@@ -73,10 +73,10 @@ export default class CardContent extends Card {
     if (this.state.filteredData.length > 0)  filteredData = this.state.filteredData;
 
     return (
-      <View style={styles.cardContent}>
+      <View style={styles.cardContentTrans}>
         <View style={{ flex: 3, alignSelf: 'center', marginTop: 4 }}>
-          <Text style={styles.titleText}>
-            Select as many subjects as you are interested in
+          <Text style={styles.titleTextTrans}>
+            Select the universities you are interested in.
           </Text>
         </View>
         <View style={{ flex: 6, justifyContent: 'center' }}>

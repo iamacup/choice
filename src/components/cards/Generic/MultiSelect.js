@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 import { View } from 'react-native';
 import {
-  ListItem, CheckBox, Text, Body
+  ListItem, CheckBox, Text, Body, Button as NBButton
 } from 'native-base';
 
 import Card from '../../card';
@@ -55,10 +55,10 @@ export default class MultiSelect extends Card {
     const { options, questionText, styleRatio } = this.props;
 
     return (
-      <View style={styles.cardContent}>
+      <View style={styles.cardContentTrans}>
 
         <View style={{ flex: styleRatio.top }}>
-          <Text style={styles.titleText}>
+          <Text style={styles.titleTextTrans}>
             {questionText}
           </Text>
         </View>
@@ -86,6 +86,18 @@ export default class MultiSelect extends Card {
               </ListItem>
             );
           })}
+
+          <View style={{
+            justifyContent: 'center', alignItems: 'center', flexDirection: 'row', marginTop: 8
+          }}
+          >
+            <NBButton onPress={() => { this.props.doneCallback(); }} primary>
+              <Text>
+                Done
+              </Text>
+            </NBButton>
+          </View>
+
         </View>
 
       </View>
@@ -98,4 +110,5 @@ MultiSelect.propTypes = {
   options: PropTypes.any.isRequired,
   styleRatio: PropTypes.object.isRequired,
   // priorityCard: PropTypes.bool.isRequired,
+  doneCallback: PropTypes.func.isRequired,
 };

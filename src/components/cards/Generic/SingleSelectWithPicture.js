@@ -22,7 +22,36 @@ export default class SingleSelectWithPicture extends Card {
     } = this.props;
 
     return (
-      <View style={styles.cardContent}>
+      <View style={priorityCard === true ? styles.cardContentPriority : styles.cardContent}>
+
+        <View style={{ flex: styleRatio.top }}>
+          <View style={{
+            flex:1, justifyContent: 'center', alignItems: 'center', paddingLeft: '5%', paddingRight: '5%'
+          }}
+          >
+            <Text style={priorityCard === true ? styles.titleTextPriority : styles.titleText}>
+              {questionText}
+            </Text>
+          </View>
+        </View>
+
+        <View style={{ flex: styleRatio.bottom, justifyContent: 'flex-end', padding: '2%' }}>
+          <Image
+            style={{
+              flex:1,
+              height: undefined,
+              width: undefined,
+            }}
+            source={picture}
+            resizeMode='cover'
+          />
+        </View>
+
+      </View>
+    );
+
+
+    /* <View style={styles.cardContent}>
 
         <View style={{ flex: styleRatio.top, alignSelf: 'center', marginTop: 4 }}>
           <Text style={priorityCard === true ? styles.titleTextPriority : styles.titleText}>
@@ -38,8 +67,7 @@ export default class SingleSelectWithPicture extends Card {
           />
         </View>
 
-      </View>
-    );
+      </View> */
   }
 }
 

@@ -17,11 +17,11 @@ const questions = [
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'Let\'s take a look at what university experience is best for you!',
+      questionText: 'Now we need to talk about the actual learning thing!',
       picture: require('../../../../theme/images/CourseCards/Course/zero.png'),
       styleRatio: {
         top: 2,
-        bottom: 3,
+        bottom: 5,
       },
     }
   },
@@ -44,8 +44,8 @@ const questions = [
       questionText: 'Would you rather do coursework over exams?',
       picture: require('../../../../theme/images/CourseCards/Course/five.png'),
       styleRatio: {
-        top: 1,
-        bottom: 3,
+        top: 2,
+        bottom: 5,
       },
     }
   },
@@ -68,8 +68,8 @@ const questions = [
       questionText: 'Do you want more lectures than independant study?',
       picture: require('../../../../theme/images/CourseCards/Course/three.png'),
       styleRatio: {
-        top: 1,
-        bottom: 3,
+        top: 2,
+        bottom: 5,
       },
     }
   },
@@ -93,7 +93,7 @@ const questions = [
       picture: require('../../../../theme/images/CourseCards/Course/four.png'),
       styleRatio: {
         top: 2,
-        bottom: 3,
+        bottom: 5,
       },
     }
   },
@@ -117,7 +117,7 @@ const questions = [
       picture: require('../../../../theme/images/CourseCards/Course/six.png'),
       styleRatio: {
         top: 2,
-        bottom: 3,
+        bottom: 5,
       },
     }
   },
@@ -141,7 +141,7 @@ const questions = [
       picture: require('../../../../theme/images/CourseCards/Course/two.png'),
       styleRatio: {
         top: 2,
-        bottom: 3,
+        bottom: 5,
       },
     }
   },

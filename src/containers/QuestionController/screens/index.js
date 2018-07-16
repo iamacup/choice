@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 
-import { View } from 'react-native';
+import { View, ImageBackground, Image } from 'react-native';
 import PropTypes from 'prop-types';
 
 import {
@@ -108,23 +108,36 @@ export default class HomeScreen extends React.Component<Props, State> {
         </Header>
 
         <View style={styles.contentView}>
-          <View style={size === 'large' ? styles.swiperTopTopViewLarge : styles.swiperTopTopViewStandard} />
-          <View style={size === 'large' ? styles.swiperTopViewLarge : styles.swiperTopViewStandard}>
-            {tooltip}
-          </View>
-          <View style={styles.swiperOuterView}>
-            <View style={styles.swiperLeftRightView} />
-            <View style={styles.swiperInnerView}>
-              <Swiper
-                swipedCallback={(swipeDirection, data) => { this.props.swipedCallback(swipeDirection, data); }}
-                drawData={this.props.drawData}
-                swipingCallback={(swipeDirection) => { this.handleSwiping(swipeDirection); }}
-                clearDirectionCallback={() => { this.handleClearDirection(); }}
-              />
+
+          <ImageBackground
+            style={{
+              flex:1,
+              height: undefined,
+              width: undefined,
+            }}
+            source={require('../../../theme/images/bg3.png')}
+            resizeMode='cover'
+          >
+
+            <View style={size === 'large' ? styles.swiperTopTopViewLarge : styles.swiperTopTopViewStandard} />
+            <View style={size === 'large' ? styles.swiperTopViewLarge : styles.swiperTopViewStandard}>
+              {tooltip}
             </View>
-            <View style={styles.swiperLeftRightView} />
-          </View>
-          <View style={size === 'large' ? styles.swiperBottomViewLarge : styles.swiperBottomViewStandard} />
+            <View style={styles.swiperOuterView}>
+              <View style={styles.swiperLeftRightView} />
+              <View style={styles.swiperInnerView}>
+                <Swiper
+                  swipedCallback={(swipeDirection, data) => { this.props.swipedCallback(swipeDirection, data); }}
+                  drawData={this.props.drawData}
+                  swipingCallback={(swipeDirection) => { this.handleSwiping(swipeDirection); }}
+                  clearDirectionCallback={() => { this.handleClearDirection(); }}
+                />
+              </View>
+              <View style={styles.swiperLeftRightView} />
+            </View>
+            <View style={size === 'large' ? styles.swiperBottomViewLarge : styles.swiperBottomViewStandard} />
+
+          </ImageBackground>
         </View>
 
       </Container>

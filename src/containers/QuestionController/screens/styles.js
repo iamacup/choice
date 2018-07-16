@@ -27,10 +27,10 @@ const styles: any = StyleSheet.create({
   },
 
   swiperTopTopViewLarge: {
-    flex: 0.2,
+    flex: 0,
   },
   swiperTopViewLarge: {
-    flex: 0.6,
+    flex: 0.4,
     alignSelf: 'center',
   },
   swiperBottomViewLarge: {

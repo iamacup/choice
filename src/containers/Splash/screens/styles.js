@@ -18,30 +18,13 @@ const styles: any = StyleSheet.create({
     width: undefined,
   },
 
-  logoText: {
-    color: OurColors.titleTextColor,
-    textAlign: 'center',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-
   // badge bits
-  loadingBadgeText: {
+  loadingText: {
     fontSize: 20,
     color: OurColors.lightText,
     textAlign: 'center',
+    fontWeight: 'bold',
   },
-  loadingBadge: {
-    backgroundColor: OurColors.primaryColor,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 6,
-    paddingBottom: 6,
-    borderRadius: 10,
-    marginLeft: '4%',
-    marginRight: '4%',
-  },
-
 
 });
 

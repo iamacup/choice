@@ -3,6 +3,7 @@
 // Generic card containers that take props to render out specifics
 import SingleSelectWithPictureCard from '../../../../components/cards/Generic/SingleSelectWithPicture';
 import SingleSelectCard from '../../../../components/cards/Generic/SingleSelect';
+import SwipeDirecctionsCard from '../../../../components/cards/Guide/SwipeDirections';
 
 const startID = 'guide-1';
 
@@ -42,23 +43,12 @@ Swipe Right to answer 👉`,
         text: 'No',
         initialWording: 'Now the questions, you can change your answers any time using the menu button above.',
       },
-      bottom: {
-        text: 'Done',
-        initialWording: 'Now the questions, you can change your answers any time using the menu button above.',
-      },
       top: {
         text: 'Don\'t know / maybe',
         initialWording: 'Now the questions, you can change your answers any time using the menu button above.',
       },
     },
-    card: SingleSelectCard,
-    cardProps: {
-      questionText: `Right: 👍
-Left: 👎
-Up: 🤷
-Down: Done`,
-      picture: require('../../../../theme/images/rightArrow.png'),
-    }
+    card: SwipeDirecctionsCard,
   },
 ];
 

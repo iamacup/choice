@@ -1,12 +1,12 @@
 
 import * as React from 'react';
 
-import { View } from 'react-native';
+import { View, Image, ImageBackground } from 'react-native';
+import { Text } from 'native-base';
 import PropTypes from 'prop-types';
 import Swiper from 'react-native-deck-swiper';
 
 import styles from './styles';
-import Chevron from '../chevron';
 
 // SETUP TYPES FOR FLOW
 
@@ -84,78 +84,15 @@ export default class HomeScreen extends React.Component<Props, State> {
     if (index === 0) {
       const CardContent = card;
 
-      // we create a 3 x 3 grid, and place indicators in the (row x column) 1x2, 2x1, 2x3 and 3x2 based on what swipe directions are available
       return (
-        <View style={priorityCard === true ? styles.cardInnerPriority : styles.cardInner}>
-          <View style={styles.cardRowTopBottom}>
-            <View style={styles.cardColLeftRight} />
-            <View style={styles.cardColContent}>
-              <View style={styles.cardHorizontalIndicator}>
-                {options.top
-                  ? (
-                    <Chevron
-                      direction='up'
-                      flashing={flashing}
-                      color={priorityCard === true ? 'white' : 'black'}
-                    />
-                  ) : null}
-              </View>
-            </View>
-            <View style={styles.cardColLeftRight} />
-          </View>
-          <View style={styles.cardRowContent}>
-            <View style={styles.cardColLeftRight}>
-              <View style={styles.cardVerticalIndicator}>
-                {options.left
-                  ? (
-                    <Chevron
-                      direction='left'
-                      flashing={flashing}
-                      color={priorityCard === true ? 'white' : 'black'}
-                    />
-                  ) : null}
-              </View>
-            </View>
-            <View style={styles.cardColContent}>
-              <CardContent
-                ref={(element) => { this.card = element; }}
-                key={id}
-                direction={this.state.direction}
-                doneCallback={() => { this.doneCallback(); }}
-                {...cardProps}
-                priorityCard={priorityCard}
-              />
-            </View>
-            <View style={styles.cardColLeftRight}>
-              <View style={styles.cardVerticalIndicator}>
-                {options.right
-                  ? (
-                    <Chevron
-                      direction='right'
-                      flashing={flashing}
-                      color={priorityCard === true ? 'white' : 'black'}
-                    />
-                  ) : null}
-              </View>
-            </View>
-          </View>
-          <View style={styles.cardRowTopBottom}>
-            <View style={styles.cardColLeftRight} />
-            <View style={styles.cardColContent}>
-              <View style={styles.cardHorizontalIndicator}>
-                {options.bottom
-                  ? (
-                    <Chevron
-                      direction='down'
-                      flashing={flashing}
-                      color={priorityCard === true ? 'white' : 'black'}
-                    />
-                  ) : null}
-              </View>
-            </View>
-            <View style={styles.cardColLeftRight} />
-          </View>
-        </View>
+        <CardContent
+          ref={(element) => { this.card = element; }}
+          key={id}
+          direction={this.state.direction}
+          doneCallback={() => { this.doneCallback(); }}
+          {...cardProps}
+          priorityCard={priorityCard}
+        />
       );
     }
 
@@ -163,7 +100,7 @@ export default class HomeScreen extends React.Component<Props, State> {
     // but i am not sure what conditions need to be true for this to actually render? maybe a slow phone?
     // we don't do any of the priority card styles on this either...
     return (
-      <View style={styles.cardInner} />
+      <View style={{ flex: 1 }} />
     );
   }
 

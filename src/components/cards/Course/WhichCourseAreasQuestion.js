@@ -74,10 +74,10 @@ export default class CardContent extends Card {
 
   render() {
     return (
-      <View style={styles.cardContent}>
+      <View style={styles.cardContentTrans}>
 
         <View style={{ flex: 3, alignSelf: 'center', marginTop: 4 }}>
-          <Text style={styles.titleText}>
+          <Text style={styles.titleTextTrans}>
             Select as many subjects as you are interested in
           </Text>
         </View>

@@ -250,5 +250,6 @@
     "react/no-array-index-key": 1,
     "prefer-destructuring": 1,
     "react/forbid-prop-types": 0,
+    "jsx-a11y/accessible-emoji": 0,
   }
 }

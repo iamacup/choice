@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 
-import { View, Image } from 'react-native';
+import { View, Image, ImageBackground } from 'react-native';
 import PropTypes from 'prop-types';
 
 import {
@@ -29,26 +29,38 @@ export default class HomeScreen extends React.Component<Props, State> {
 
         <View style={styles.contentView}>
 
-          <View style={{ flex: 6 }}>
-            <View style={{ flex: 3, marginTop: '20%' }}>
-              <Image
-                style={styles.logoImage}
-                source={require('../../../theme/images/logo.png')}
-                resizeMode='contain'
-              />
+
+          <ImageBackground
+            style={{
+              flex:1,
+              height: undefined,
+              width: undefined,
+            }}
+            source={require('../../../theme/images/bg3.png')}
+            resizeMode='cover'
+          >
+
+            <View style={{ flex: 6 }}>
+              <View style={{ flex: 3, marginTop: '20%' }}>
+                <Image
+                  style={styles.logoImage}
+                  source={require('../../../theme/images/logo.png')}
+                  resizeMode='contain'
+                />
+              </View>
+              <View style={{ flex: 1, alignItems: 'center' }}>
+                {/* Company / app name here? */}
+              </View>
             </View>
-            <View style={{ flex: 1, alignItems: 'center' }}>
-              {/* Company / app name here? */}
-            </View>
-          </View>
-          <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-            <View style={styles.loadingBadge}>
-              <Text style={styles.loadingBadgeText}>
+            <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+
+              <Text style={styles.loadingText}>
                 {this.props.message}
               </Text>
-            </View>
-          </View>
 
+            </View>
+
+          </ImageBackground>
 
         </View>
 
