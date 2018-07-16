@@ -14,12 +14,12 @@ export const headerBorder = color(headerBackground).darken(0.3).hex();
 export const contentBackground = '#fff';
 
 // card backgrounds
-export const cardBackground = '#5144bb70';
-export const cardBackgroundPriority = '#fff';
+export const cardBackground = '#fff';
+export const cardBackgroundPriority = '#5144bb70';
 
 // different card title colors
-export const titleTextColor = '#fff';
-export const titleTextColorPriority = '#000';
+export const titleTextColor = '#000';
+export const titleTextColorPriority = '#fff';
 export const titleTextColorTrans = '#fff';
 
 // different card text colors

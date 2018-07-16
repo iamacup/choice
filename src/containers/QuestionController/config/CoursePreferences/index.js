@@ -18,7 +18,7 @@ const questions = [
     card: SingleSelectWithPictureCard,
     cardProps: {
       questionText: 'Now we need to talk about the actual learning thing!',
-      picture: require('../../../../theme/images/CourseCards/Course/zero.png'),
+      picture: require('../../../../theme/images/CourseCards/Segments/brain.png'),
       styleRatio: {
         top: 2,
         bottom: 5,
@@ -42,7 +42,7 @@ const questions = [
     card: SingleSelectWithPictureCard,
     cardProps: {
       questionText: 'Would you rather do coursework over exams?',
-      picture: require('../../../../theme/images/CourseCards/Course/five.png'),
+      picture: require('../../../../theme/images/CourseCards/Segments/book.png'),
       styleRatio: {
         top: 2,
         bottom: 5,
@@ -66,7 +66,7 @@ const questions = [
     card: SingleSelectWithPictureCard,
     cardProps: {
       questionText: 'Do you want more lectures than independant study?',
-      picture: require('../../../../theme/images/CourseCards/Course/three.png'),
+      picture: require('../../../../theme/images/CourseCards/Segments/podeum.png'),
       styleRatio: {
         top: 2,
         bottom: 5,
@@ -90,7 +90,7 @@ const questions = [
     card: SingleSelectWithPictureCard,
     cardProps: {
       questionText: 'Do you want more lectures than hands-on / practical time?',
-      picture: require('../../../../theme/images/CourseCards/Course/four.png'),
+      picture: require('../../../../theme/images/CourseCards/Segments/lightbulb.png'),
       styleRatio: {
         top: 2,
         bottom: 5,
@@ -114,7 +114,7 @@ const questions = [
     card: SingleSelectWithPictureCard,
     cardProps: {
       questionText: 'Do you care about the research reputation of the university?',
-      picture: require('../../../../theme/images/CourseCards/Course/six.png'),
+      picture: require('../../../../theme/images/CourseCards/Segments/testtubes.png'),
       styleRatio: {
         top: 2,
         bottom: 5,
@@ -138,7 +138,7 @@ const questions = [
     card: SingleSelectWithPictureCard,
     cardProps: {
       questionText: 'Would you choose a university course on price alone?',
-      picture: require('../../../../theme/images/CourseCards/Course/two.png'),
+      picture: require('../../../../theme/images/CourseCards/Segments/calculator.png'),
       styleRatio: {
         top: 2,
         bottom: 5,

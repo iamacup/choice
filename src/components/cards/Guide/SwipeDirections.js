@@ -23,18 +23,7 @@ export default class SingleSelect extends Card {
       questionText, priorityCard
     } = this.props;
 
-    /*
-                  <Text style={priorityCard === true ? styles.titleTextPriority : styles.titleText}>
-
-
-Right: 👍
-Left: 👎
-Up: 🤷
-                  </Text> */
-
-
     return (
-
       <View style={priorityCard === true ? cardStyles.cardContentPriority : cardStyles.cardContent}>
         <View style={styles.cardRowTopBottom}>
           <View style={styles.cardColLeftRight} />
@@ -55,7 +44,7 @@ Up: 🤷
           <View style={styles.cardColLeftRight}>
             <View style={styles.cardVerticalIndicator}>
 
-              <Chevron
+              <Chevron 
                 direction='left'
                 flashing={true}
                 color={priorityCard === true ? 'white' : 'black'}
@@ -119,8 +108,6 @@ Up: 🤷
           <View style={styles.cardColLeftRight} />
         </View>
       </View>
-
-
     );
   }
 }

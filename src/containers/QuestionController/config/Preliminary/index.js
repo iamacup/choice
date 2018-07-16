@@ -26,7 +26,7 @@ const questions = [
     card: SingleSelectWithPictureCard,
     cardProps: {
       questionText: 'Do you want to go to University?',
-      picture: require('../../../../theme/images/CourseCards/Preliminary/one.png'),
+      picture: require('../../../../theme/images/CourseCards/Segments/geometryset.png'),
       styleRatio: {
         top: 2,
         bottom: 5,
