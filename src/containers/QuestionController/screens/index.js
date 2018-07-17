@@ -76,7 +76,7 @@ export default class HomeScreen extends React.Component<Props, State> {
     const { direction } = this.state;
     const { options, size } = this.props.drawData;
 
-    if (direction !== null && this.directionIsAllowed(direction)) {
+    if (direction !== null && this.directionIsAllowed(direction) && options[direction].text) {
       tooltip = (
         <View style={styles.directionBadge}>
           <Text style={styles.directionBadgeText}>

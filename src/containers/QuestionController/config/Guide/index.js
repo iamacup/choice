@@ -17,6 +17,16 @@ const questions = [
       right: {
         text: 'OK, Got it!',
       },
+      // we let them swipe any direction, with no text prompt
+      left: {
+        
+      },
+      bottom: {
+        
+      },
+      top: {
+        
+      },
     },
     card: SingleSelectCard,
     cardProps: {
@@ -46,6 +56,9 @@ Swipe Right to answer 👉`,
       top: {
         text: 'Don\'t know / maybe',
         initialWording: 'Now the questions, you can change your answers any time using the menu button above.',
+      },
+      bottom: {
+        
       },
     },
     card: SwipeDirecctionsCard,

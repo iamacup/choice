@@ -30,7 +30,7 @@ export default class DataLandingScreen extends React.Component<Props, State> {
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
           <Text>
-TODO...
+LANDING 1
           </Text>
 
         </View>

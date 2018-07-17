@@ -14,6 +14,15 @@ const questions = [
       right: {
         text: 'Let\'s get started!',
       },
+      left: {
+        text: 'Let\'s get started!',
+      },
+      bottom: {
+        text: 'Let\'s get started!',
+      },
+      top: {
+        text: 'Let\'s get started!',
+      },
     },
     card: SingleSelectWithPictureCard,
     cardProps: {

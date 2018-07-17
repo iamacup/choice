@@ -2,26 +2,26 @@
 
 import React from 'react';
 import { Root } from 'native-base';
-import { createDrawerNavigator } from 'react-navigation';
+import { createDrawerNavigator, createMaterialTopTabNavigator } from 'react-navigation';
 
-/*
-import Home from './components/Home';
-import UniDecision from './components/UniDecision';
-
-import CourseChoice from './components/CourseChoice';
-import CourseSelection from './components/CourseSelection';
-import CourseCards from './components/CourseCards';
-
-import UniChoice from './components/UniChoice';
-import UniSelection from './components/UniSelector';
-import UniCards from './components/UniCards';
-
-import FilteredData from './components/FilteredData'; */
 
 import QuestionController from '../containers/QuestionController';
 import Splash from '../containers/Splash';
 import Sidebar from '../containers/Sidebar';
-import DataLanding from '../containers/DataLanding';
+import DataLanding1 from '../containers/DataLanding1';
+import DataLanding2 from '../containers/DataLanding2';
+
+const uniCourseNavigation = createMaterialTopTabNavigator({
+  landing1: {
+    screen: DataLanding1,
+  },
+  landing2: {
+    screen: DataLanding2,
+  }
+},
+{
+  initialRouteName: 'landing1',
+});
 
 const DrawerNavigation = createDrawerNavigator({
   Splash: {
@@ -31,67 +31,13 @@ const DrawerNavigation = createDrawerNavigator({
     screen: QuestionController
   },
   DataLanding: {
-    screen: DataLanding
+    screen: uniCourseNavigation
   },
 },
 {
-  initialRouteName: 'QuestionController',
+  initialRouteName: 'DataLanding',
   contentComponent: props => <Sidebar {...props} />,
 });
-
-/* const StackNavigator = createStackNavigator({
-  Controller: {
-    screen: Controller
-  },
-
-  Drawer: {
-    screen: DrawerNavigation,
-  }
-
-  Home: {
-    screen: Home
-  },
-
-  UniDecision: {
-    screen: UniDecision,
-    navigationOptions: { header: null }
-  },
-
-  CourseChoice: {
-    screen: CourseChoice,
-    navigationOptions: { header: null }
-  },
-  CourseSelection: {
-    screen: CourseSelection,
-    navigationOptions: { header: null }
-  },
-  CourseCards: {
-    screen: CourseCards,
-    navigationOptions: { header: null }
-  },
-
-  UniChoice: {
-    screen: UniChoice,
-    navigationOptions: { header: null }
-  },
-  UniSelection: {
-    screen: UniSelection,
-    navigationOptions: { header: null }
-  },
-  UniCards: {
-    screen: UniCards,
-    navigationOptions: { header: null }
-  },
-
-  FilteredData: {
-    screen: FilteredData,
-    navigationOptions: { header: null }
-  },
-},
-{
-  initialRouteName: 'Controller',
-  headerMode: 'none',
-}); */
 
 export default () => (
   <Root>
