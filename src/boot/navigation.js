@@ -8,7 +8,7 @@ import QuestionController from '../containers/QuestionController';
 import Splash from '../containers/Splash';
 import Sidebar from '../containers/Sidebar';
 import DataExplorer from '../containers/DataExplorer';
-  
+
 const DrawerNavigation = createDrawerNavigator({
   Splash: {
     screen: Splash

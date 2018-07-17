@@ -22,10 +22,10 @@ import {
   Tab,
 } from 'native-base';
 
-//import styles from './styles';
+// import styles from './styles';
 
-import UniversityTab from '../../../containers/UniversityTab';
-import CourseTab from '../../../containers/CourseTab';
+import UniversityTab from '../../UniversityTab';
+import CourseTab from '../../CourseTab';
 
 // SETUP TYPES FOR FLOW
 
@@ -61,11 +61,11 @@ export default class DataExplorerScreen extends React.Component<Props, State> {
           <Right />
         </Header>
 
-        <Tabs> 
-          <Tab heading="Universities">
+        <Tabs>
+          <Tab heading='Universities'>
             <UniversityTab />
           </Tab>
-          <Tab heading="Courses">
+          <Tab heading='Courses'>
             <CourseTab />
           </Tab>
         </Tabs>
