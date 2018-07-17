@@ -216,7 +216,7 @@ export default class CardContent extends Card {
     this.state = {
       data: [],
       filteredData: [],
-      display: "none",
+      display: 'none',
     };
   }
 
@@ -250,8 +250,8 @@ export default class CardContent extends Card {
   handleSearch() {
     let { display } = this.state;
 
-    if ( display === "none" ) display = "flex";
-    else display = "none";
+    if ( display === 'none' ) display = 'flex';
+    else display = 'none';
 
     this.setState({ display });
   }
@@ -274,26 +274,29 @@ export default class CardContent extends Card {
             height: '130%', backgroundColor: '#909090', width: '100%', alignSelf: 'center', borderRadius: 10,
           }}
           >
-          <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: '15%' }}>
-          <View style={{ width: '80%' }}>
-              <Input placeholderTextColor="white" placeholder='Search' onChangeText={text => this.handleChange(text)} style={{ display: this.state.display, }} />
-          </View>
-          <View>
-            <Text onPress={() => this.handleSearch()}>
-              <Icon name='ios-search' style={{ color: 'white' }} />
-            </Text>
-          </View>
-        </View>
-          <View style={{height: '85%'}}>
-            <FlatList
-              data={filteredData}
-              renderItem={({ item }) => (
-                <View>
-                  <Button onPress={() => this.handlePick(item.key)} title={item.key} color='white' />
-                </View>
-              )}
-            />
-          </View>
+            <View style={{
+              flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: '15%'
+            }}
+            >
+              <View style={{ width: '80%' }}>
+                <Input placeholderTextColor='white' placeholder='Search' onChangeText={text => this.handleChange(text)} style={{ display: this.state.display, }} />
+              </View>
+              <View>
+                <Text onPress={() => this.handleSearch()}>
+                  <Icon name='ios-search' style={{ color: 'white' }} />
+                </Text>
+              </View>
+            </View>
+            <View style={{ height: '85%' }}>
+              <FlatList
+                data={filteredData}
+                renderItem={({ item }) => (
+                  <View>
+                    <Button onPress={() => this.handlePick(item.key)} title={item.key} color='white' />
+                  </View>
+                )}
+              />
+            </View>
           </View>
         </View>
 
