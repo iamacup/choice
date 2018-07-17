@@ -22,7 +22,7 @@ export interface State {}
 
 // navigation, swipedCallback, drawData
 
-export default class DataLandingScreen extends React.Component<Props, State> {
+export default class UniversityTabScreen extends React.Component<Props, State> {
   render() {
     return (
       <Container>
@@ -30,7 +30,7 @@ export default class DataLandingScreen extends React.Component<Props, State> {
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
           <Text>
-LANDING 2
+            UniversityTab
           </Text>
 
         </View>
@@ -40,6 +40,6 @@ LANDING 2
   }
 }
 
-DataLandingScreen.propTypes = {
+UniversityTabScreen.propTypes = {
   navigation: PropTypes.any.isRequired,
 };

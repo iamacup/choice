@@ -2,7 +2,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import DataLandingScreen from './screens';
+import UniversityTabScreen from './screens';
 
 // SETUP TYPES FOR FLOW
 
@@ -14,17 +14,17 @@ export interface State {}
 
 // PRIMARY CLASS
 
-export default class ControllerContainer extends React.Component<Props, State> {
+export default class UniversityTabContainer extends React.Component<Props, State> {
   render() {
     return (
-      <DataLandingScreen
+      <UniversityTabScreen
         navigation={this.props.navigation}
       />
     );
   }
 }
 
-ControllerContainer.propTypes = {
+UniversityTabContainer.propTypes = {
   navigation: PropTypes.any.isRequired,
 };
 

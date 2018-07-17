@@ -11,7 +11,7 @@ const navigationItems = [
     name: 'Change my answers!',
   },
   {
-    location: 'DataLanding',
+    location: 'DataExplorer',
     name: 'Show me the data!',
   },
 ];
