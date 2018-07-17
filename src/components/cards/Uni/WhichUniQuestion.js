@@ -9,7 +9,7 @@ import {
   View, FlatList, Button
 } from 'react-native';
 import {
-  Text, Badge, Button as NBButton, Input, Item, Icon
+  Text, Badge, Button as NBButton, Input, Icon
 } from 'native-base';
 
 import Card from '../../card';
@@ -216,6 +216,7 @@ export default class CardContent extends Card {
     this.state = {
       data: [],
       filteredData: [],
+      display: "none",
     };
   }
 
@@ -246,6 +247,15 @@ export default class CardContent extends Card {
     this.setState({ filteredData });
   }
 
+  handleSearch() {
+    let { display } = this.state;
+
+    if ( display === "none" ) display = "flex";
+    else display = "none";
+
+    this.setState({ display });
+  }
+
 
   render() {
     let filteredData = subjects;
@@ -259,10 +269,22 @@ export default class CardContent extends Card {
           </Text>
         </View>
         <View style={{ flex: 6, justifyContent: 'center' }}>
+
           <View style={{
-            height: '50%', backgroundColor: '#909090', width: '100%', alignSelf: 'center', borderRadius: 10
+            height: '130%', backgroundColor: '#909090', width: '100%', alignSelf: 'center', borderRadius: 10,
           }}
           >
+          <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: '15%' }}>
+          <View style={{ width: '80%' }}>
+              <Input placeholderTextColor="white" placeholder='Search' onChangeText={text => this.handleChange(text)} style={{ display: this.state.display, }} />
+          </View>
+          <View>
+            <Text onPress={() => this.handleSearch()}>
+              <Icon name='ios-search' style={{ color: 'white' }} />
+            </Text>
+          </View>
+        </View>
+          <View style={{height: '85%'}}>
             <FlatList
               data={filteredData}
               renderItem={({ item }) => (
@@ -272,10 +294,7 @@ export default class CardContent extends Card {
               )}
             />
           </View>
-          <Item>
-            <Icon name='ios-search' />
-            <Input placeholder='Search' onChangeText={text => this.handleChange(text)} />
-          </Item>
+          </View>
         </View>
 
         <View style={{ flex: 6, alignItems: 'center', justifyContent: 'center' }}>
