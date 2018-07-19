@@ -7,7 +7,7 @@ import { Text } from 'native-base';
 
 import Card from '../../card';
 import styles from '../../card/styles';
-import Bottle from '../../../components/bottle';
+import Bottle from '../../bottle';
 
 // SETUP TYPES FOR FLOW
 
@@ -37,7 +37,7 @@ export default class SingleSelectWithPicture extends Card {
         </View>
 
         <View style={{ flex: styleRatio.bottom, justifyContent: 'flex-end', padding: '2%' }}>
-          <Bottle fillPercent={30}/>
+          <Bottle fillPercent={30} />
         </View>
 
       </View>

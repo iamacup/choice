@@ -50,15 +50,17 @@ export default class HomeScreen extends React.Component<Props, State> {
                 />
               </View>
               <View style={{ flex: 1, alignItems: 'center' }}>
-                <Text style={styles.logoText}>Add flavor to your university choices</Text>
+                <Text style={styles.logoText}>
+Add flavor to your university choices
+                </Text>
               </View>
             </View>
             <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
 
-              <Animatable.Text 
-                animation="pulse" 
-                easing="ease-out" 
-                iterationCount="infinite" 
+              <Animatable.Text
+                animation='pulse'
+                easing='ease-out'
+                iterationCount='infinite'
                 style={styles.loadingText}
               >
                 {this.props.message}

@@ -20,33 +20,29 @@ export default class Bottle extends React.Component {
       fillPercent
     } = this.props;
 
-    const topFlex = 100-fillPercent;
+    const topFlex = 100 - fillPercent;
     const bottomFlex = fillPercent;
 
     return (
-          <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
 
-            <Image
-              style={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                top: 0,
-                left: 0,
-                zIndex: 9099,
-              }}
-              source={require('../../theme/images/logo-hollow.png')}
-              resizeMode='cover'
-            />
+        <Image
+          style={{
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            top: 0,
+            left: 0,
+            zIndex: 9099,
+          }}
+          source={require('../../theme/images/logo-hollow.png')}
+          resizeMode='cover'
+        />
 
-            <View style={{flex: topFlex }}>
-              
-            </View>
+        <View style={{ flex: topFlex }} />
 
-            <View style={{flex: bottomFlex, backgroundColor: '#ee374b'}}>
-
-            </View>
-          </View>
+        <View style={{ flex: bottomFlex, backgroundColor: '#ee374b' }} />
+      </View>
     );
   }
 }
