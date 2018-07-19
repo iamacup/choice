@@ -26,7 +26,7 @@ const questions = [
     },
     card: SingleSelectWithPictureCard,
     cardProps: {
-      questionText: 'Let\'s work out the fun stuff first!',
+      questionText: 'Let\'s work out the saucy stuff that makes up your social side',
       picture: require('../../../../theme/images/CourseCards/Segments/chat.png'),
       styleRatio: {
         top: 2,

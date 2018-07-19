@@ -1,5 +1,6 @@
 
 import * as React from 'react';
+import * as Animatable from 'react-native-animatable';
 
 import { View, Image, ImageBackground } from 'react-native';
 import PropTypes from 'prop-types';
@@ -49,14 +50,19 @@ export default class HomeScreen extends React.Component<Props, State> {
                 />
               </View>
               <View style={{ flex: 1, alignItems: 'center' }}>
-                {/* Company / app name here? */}
+                <Text style={styles.logoText}>Add flavor to your university choices</Text>
               </View>
             </View>
             <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
 
-              <Text style={styles.loadingText}>
+              <Animatable.Text 
+                animation="pulse" 
+                easing="ease-out" 
+                iterationCount="infinite" 
+                style={styles.loadingText}
+              >
                 {this.props.message}
-              </Text>
+              </Animatable.Text>
 
             </View>
 

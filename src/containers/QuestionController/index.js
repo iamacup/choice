@@ -24,8 +24,8 @@ export interface State {}
 
 // PRIMARY CLASS
 
-const startSection = 'guide';
-const afterQuestionsSteps = 'DataLanding';
+const startSection = 'coursePreferences';
+const afterQuestionsSteps = 'DataExplorer';
 
 const sections = [
   {

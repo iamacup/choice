@@ -18,12 +18,19 @@ const styles: any = StyleSheet.create({
     width: undefined,
   },
 
-  // badge bits
+  // Logo text
+  logoText: {
+    fontSize: 28,
+    color: OurColors.lightText,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+
+  // loading text
   loadingText: {
     fontSize: 20,
     color: OurColors.lightText,
     textAlign: 'center',
-    fontWeight: 'bold',
   },
 
 });

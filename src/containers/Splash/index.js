@@ -15,9 +15,9 @@ export interface State {}
 // PRIMARY CLASS
 
 const messages = [
-  'Loading salary data...',
-  'Organising by gender...',
-  'Calculating loan payments...',
+  'Prepairing sauces...',
+  'Shaking bottle...',
+  'Mixing flavors...',
 ];
 
 const timeout = 2000;

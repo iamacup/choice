@@ -30,9 +30,11 @@ const questions = [
     },
     card: SingleSelectCard,
     cardProps: {
-      questionText: `We're going to ask some questions
+      questionText: `Let's work out your university flavor.
 
-Swipe Right to answer 👉`,
+Swipe cards to fill up the bottle.
+
+👉`,
       styleRatio: {
         top: 4,
         bottom: 2,
@@ -47,15 +49,15 @@ Swipe Right to answer 👉`,
     options: {
       right: {
         text: 'Yes',
-        initialWording: 'Now the questions, you can change your answers any time using the menu button above.',
+        initialWording: 'You can change your answers any time with menu above.',
       },
       left: {
         text: 'No',
-        initialWording: 'Now the questions, you can change your answers any time using the menu button above.',
+        initialWording: 'You can change your answers any time with menu above.',
       },
       top: {
         text: 'Don\'t know / maybe',
-        initialWording: 'Now the questions, you can change your answers any time using the menu button above.',
+        initialWording: 'You can change your answers any time with menu above.',
       },
       bottom: {
 
