@@ -1,9 +1,7 @@
 
 import * as React from 'react';
-
 import PropTypes from 'prop-types';
-
-//import FoldView from 'react-native-foldview';
+import FoldView from 'react-native-foldview';
 
 import {
   View,
@@ -150,10 +148,10 @@ class UniversityTabScreen extends React.Component<Props, State> {
 
           <View style={{ flex: 1 }}>
 
-            {/*<FoldView
+            <FoldView
               renderFrontface={this.renderBlankFace}
               renderBackface={this.renderInnerBackFace}
-            />*/}
+            />
 
           </View>
 

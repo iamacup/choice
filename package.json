@@ -57,6 +57,7 @@
     "react-native": "0.55.4",
     "react-native-animatable": "^1.3.0",
     "react-native-deck-swiper": "^1.5.17",
+    "react-native-foldview": "git+https://github.com/jmurzy/react-native-foldview.git",
     "react-navigation": "2.5.5",
     "react-redux": "5.0.7",
     "redux": "4.0.0",
