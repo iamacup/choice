@@ -2,6 +2,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
+import { ImageBackground } from 'react-native';
+
 import UniversityTabScreen from './screens';
 
 // SETUP TYPES FOR FLOW
@@ -17,9 +19,19 @@ export interface State {}
 export default class UniversityTabContainer extends React.Component<Props, State> {
   render() {
     return (
-      <UniversityTabScreen
-        navigation={this.props.navigation}
-      />
+      <ImageBackground
+        style={{
+          flex:1,
+          height: undefined,
+          width: undefined,
+        }}
+        source={require('../../theme/images/bg3.png')}
+        resizeMode='cover'
+      >
+        <UniversityTabScreen
+          navigation={this.props.navigation}
+        />
+      </ImageBackground>
     );
   }
 }
