@@ -1,8 +1,6 @@
 
 import * as React from 'react';
-
 import PropTypes from 'prop-types';
-
 import FoldView from 'react-native-foldview';
 
 import {
@@ -194,10 +192,6 @@ Location
           </View>
         </ScrollView> */
 }
-
-/* UniversityTabScreen.propTypes = {
-  navigation: PropTypes.any.isRequired,
-}; */
 
 export default UniversityTabScreen;
 

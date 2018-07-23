@@ -18,10 +18,10 @@ Choice
  * [Create React Native App](https://github.com/react-community/create-react-native-app) - For easy bootstrap and testing
  * And others - see package.json :)
 
-Get Started
+Get started
 -------
 
-### 1. System Requirements
+### 1. System requirements
 
  * Globally installed [node](https://nodejs.org/en/)
  * Globally installed [react-native CLI](https://facebook.github.io/react-native/docs/getting-started.html)
@@ -29,7 +29,7 @@ Get Started
  * OPTIONAL - xCode installed (iOS only - needed if you want to run iOS emulator locally)
  * OPTIONAL - Android Studio (Needed if you want to run Android emulator locally - other software may be needed depending on OS such as virtual box et al.)
 
-### 2. Mobile Requirements
+### 2. Mobile requirements
 
  * For testing - install the Expo app from the Play or App store.
 
@@ -71,7 +71,7 @@ yarn lint - lint the src folder
 Structure
 -------
 
-### File Structure
+### File structure
 
 ```
 ./src
@@ -94,10 +94,10 @@ Instead of leaving it for people to work out - the entry point is as follows:
 ./src/boot/navigation.js - Defines the various navigation structures
 ```
 
-Coding Style
+Coding style
 -------
 
-### Container Structure
+### Container structure
 
 It is assumed that a container is connected to the redux store, otherwise it should be a component. It is possible for a container to not define any reducers or actions but instead of the global reducers or actions that are located in ./src/redux
 
@@ -105,9 +105,30 @@ It is assumed that a container is connected to the redux store, otherwise it sho
  * It may define a **reducer** and **action** set, if it does, they should be located along side the containers's index.js file
  * It may define a specific **style file**, if it does, the index.js file should be in the same place as the container's index.js file in a folder called styles
 
-### Component Structure
+### Component structure
 
 * the same as a container but with no reducers and actions
+
+
+High level navigation structure
+-------
+
+* Navigation
+  * Splash ***leads to***
+  * QuestionController  ***leads to***
+  * DataController
+
+
+High level container structure with redux hooks
+-------
+
+***Note: This project uses two 'global' reducer and action sets to store, update and read flat information in Redux, the defenitions of these are in the redux directory***
+
+* **Splash** - Loading screen
+* **QuestionController** - Handles all swipeable cards - ``updates dataStoreMulti 'swipedAnswers'``
+* **DataExplorer** - Hooks into answers - ``reads dataStoreMulti 'swipedAnswers'``
+* **UniversityTab** - Hooks into filters - ``reads dataStoreSingle 'TBC'``
+* **CourseTab** - Hooks into filters - ``reads dataStoreSingle 'TBC'``
 
 Contact
 -------
