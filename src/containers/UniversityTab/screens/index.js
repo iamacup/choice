@@ -32,181 +32,64 @@ export interface Props {
 export interface State {}
 
 // PRIMARY CLASS
-
 // navigation, swipedCallback, drawData
 
-
 class UniversityTabScreen extends React.Component<Props, State> {
-  componentWillMount() {
-    // this.renderBackface = this.renderBackface.bind(this);
-    this.renderInnerBackFace = this.renderInnerBackFace.bind(this);
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      expanded: false,
+    }
   }
-
-  renderBlankFace() {
-    return (
-      <View
-        style={{
-          backgroundColor: '#ddd',
-          flex: 1,
-        }}
-      />
-    );
-  }
-
-  // renderBackface() {
-  //   const onPress = this.props.onPress;
-  //   return (
-  //     <View style={{ flex: 1 }}>
-
-  //       <FoldView
-  //         renderFrontface={this.renderBlankFace}
-  //         renderBackface={this.renderInnerBackFace}
-  //       >
-  //       </FoldView>
-
-  //     </View>
-  //   );
-  // }
-
-  renderInnerBackFace() {
-    return (
-      <View
-        style={{
-          backgroundColor: '#fff',
-          flex: 1,
-          borderTopWidth: 10,
-          borderTopColor: '#BDC2C9',
-          borderBottomLeftRadius: 2,
-          borderBottomRightRadius: 2,
-        }}
-      >
-        <View
-          style={{
-            backgroundColor: '#FFBD18',
-            flex: 1,
-            margin: 14,
-            borderRadius: 2,
-          }}
-        >
-          <Text>
-              PRESS ME
-          </Text>
-
-        </View>
-      </View>
-    );
-  }
-
-  render() {
-    // const onPress = this.props.onPress;
-
-    return (
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: '#fff',
-          flexDirection: 'column',
-        }}
-      >
-
-        <View style={{ flex: 1 }}>
-
-          <View
-            style={{
-              flex: 1,
-              paddingBottom: 10,
-              padding: 16,
-            }}
-          >
-
-
-            <View
-              style={{
-                marginTop: 10,
-                flexDirection: 'row',
-              }}
-            >
-
-
-              <View
-                style={{
-                  width: 40,
-                  height: 40,
-                  marginRight: 10,
-                  backgroundColor: '#BDC2C9',
-                }}
-              />
-
-              <View
-                style={{
-                  flex: 1,
-                  flexDirection: 'column',
-                }}
-              />
-
-            </View>
-
-          </View>
-
-          <View style={{ flex: 1 }}>
-
-            <FoldView
-              renderFrontface={this.renderBlankFace}
-              renderBackface={this.renderInnerBackFace}
-            />
-
-          </View>
-
-        </View>
-
-      </View>
-    );
-  }
-  //  onPress = () => {
-  //   console.log('********')
-  // }
-
-// constructor(props) {
-//   super(props);
-
-//   this.state = {
-//     expanded: false,
-//   }
-// }
 
   // componentWillMount() {
   //    this.flip = this.flip.bind(this);
   //  }
 
-  //  flip() {
-  //    this.setState({
-  //      expanded: !this.state.expanded,
-  //    });
-  //  }
+   flip() {
+     this.setState({
+       expanded: !this.state.expanded,
+     });
+   }
 
-  //  renderFrontface() {
-  //    return (
-  //      <View>
-  //        <Text>Front</Text>
-  //      </View>
-  //    );
-  //  }
+   onPress() {
+    console.log('************')
+   }
 
-  //  renderBackface() {
-  //    // *
-  //    //  * You can nest <FoldView>s here to achieve the folding effect shown in the GIF above.
-  //    //  * A reference implementation can be found in examples/Simple.
+  renderFrontface(elem, image) {
+    return (
+      <TouchableHighlight onPress={() => this.flip()} style={styles.card}>
+       <View>
+        <View style={{borderBottomColor: 'black', borderBottomWidth: 1, width: '100%'}}>
+          <Text>{elem.key}</Text>
+          {/*image*/}
+        </View>
+        <Text style={{ fontSize: 10 }}>{elem.data.location}</Text>
+        <Text style={{ fontSize: 10 }}>{elem.data.population} students in 2017</Text>
+        </View>
+      </TouchableHighlight>
+    );
+  }
 
-  //    return (
-  //      <View>
-  //        <Text>Back</Text>
-  //      </View>
-  //    );
-  //  }
+  renderBackface(elem, image) {
+    return (
+      <TouchableHighlight onPress={() => this.flip()} style={styles.card}>
+       <View>
+        <View style={{borderBottomColor: 'black', borderBottomWidth: 1, width: '100%'}}>
+          <Text>{elem.key}</Text>
+        </View>
+          {image}
+        </View>
+      </TouchableHighlight>
+    );
+  }
 
-  // render() {
 
-/*     <View style={{ backgroundColor: 'white', opacity: 0.2, height: '10%' }}>
+  render() {
+    return (
+      <View>
+      <View style={{ backgroundColor: 'white', opacity: 0.2, height: '10%' }}>
         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
 
         <TouchableHighlight onPress={this.onPress}>
@@ -232,7 +115,43 @@ class UniversityTabScreen extends React.Component<Props, State> {
 
         </View>
       </View>
-        <ScrollView>
+
+
+      <ScrollView>
+      <View style={{ flex: 1, marginTop: 10, marginBottom: 10, justifyContent: 'center'}}>
+      {uniList.map((elem, i) => {
+              let image = '';
+      
+              if (elem.data.TEF.length > 0) {
+                  if (elem.data.TEF === 'bronze') image = (<Image source={require('../../../theme/images/Medals/bronze.png')} style={{width: 50, height: 50}} />)
+                  if (elem.data.TEF === 'silver') image = (<Image source={require('../../../theme/images/Medals/silver.png')} style={{width: 50, height: 50}} />)
+                  if (elem.data.TEF === 'gold') image = (<Image source={require('../../../theme/images/Medals/gold.png')} style={{width: 50, height: 50}} />)
+                }
+      
+              return (
+          <View style={{ marginTop: 10 }} key={i}>
+            {/*<TouchableHighlight onPress={() => this.flip()} style={styles.card}>*/}
+                <FoldView
+                  expanded={this.state.expanded}
+                  renderFrontface={() => this.renderFrontface(elem, image)}
+                  renderBackface={() => this.renderBackface(elem, image)}
+                >
+              {/* I think there needs to be an onPress here? */}
+                </FoldView>
+
+            {/*</TouchableHighlight>*/}
+          </View>
+         )
+        })}
+        </View>
+      </ScrollView>
+
+      </View>
+    );
+  }
+
+
+/*     <ScrollView>
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 10, marginBottom: 10 }}>
             {uniList.map(elem => {
               let image = '';
@@ -255,24 +174,6 @@ class UniversityTabScreen extends React.Component<Props, State> {
               )})}
           </View>
         </ScrollView> */
-// console.log(this.state.expanded)
-
-  //   return (
-  //     <View>
-  //      {
-  //       <FoldView
-  //              expanded={this.state.expanded}
-  //              renderBackface={this.renderBackface}
-  //              renderFrontface={this.renderFrontface}
-  //            >
-  //      {
-  //      //         <Base />
-  //    }
-  //            </FoldView>
-  //    }
-  //     </View>
-  //   );
-  // }
 }
 
 /* UniversityTabScreen.propTypes = {
@@ -280,3 +181,13 @@ class UniversityTabScreen extends React.Component<Props, State> {
 }; */
 
 export default UniversityTabScreen;
+
+
+
+
+// TODO
+//
+// Fix the onPress thing so it works
+// Make sure the animation works too
+// add data to each card
+// get filters to work
