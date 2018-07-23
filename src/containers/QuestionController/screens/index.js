@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 
-import { View, ImageBackground, Image } from 'react-native';
+import { View, ImageBackground } from 'react-native';
 import PropTypes from 'prop-types';
 
 import {

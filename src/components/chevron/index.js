@@ -1,8 +1,6 @@
 
 import * as React from 'react';
-
-import { Image, View } from 'react-native';
-import { Text } from 'native-base';
+import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
 import * as OurColors from '../../theme/colors';
@@ -45,6 +43,7 @@ export default class Chevron extends React.Component<Props, State> {
     // check to see if we need to stop flashing
     if (prevProps.flashing === true && this.props.flashing === false) {
       // reset the opacity to default
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState({
         opacity: OurColors.chevronOpacity,
       });

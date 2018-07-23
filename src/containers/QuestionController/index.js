@@ -24,7 +24,7 @@ export interface State {}
 
 // PRIMARY CLASS
 
-const startSection = 'coursePreferences';
+const startSection = 'guide';
 const afterQuestionsSteps = 'DataExplorer';
 
 const sections = [

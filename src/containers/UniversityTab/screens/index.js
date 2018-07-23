@@ -36,7 +36,7 @@ export interface State {}
 // navigation, swipedCallback, drawData
 
 
-export default class UniversityTabScreen extends React.Component<Props, State> {
+class UniversityTabScreen extends React.Component<Props, State> {
   componentWillMount() {
     // this.renderBackface = this.renderBackface.bind(this);
     this.renderInnerBackFace = this.renderInnerBackFace.bind(this);
@@ -275,6 +275,8 @@ export default class UniversityTabScreen extends React.Component<Props, State> {
   // }
 }
 
-UniversityTabScreen.propTypes = {
+/* UniversityTabScreen.propTypes = {
   navigation: PropTypes.any.isRequired,
-};
+}; */
+
+export default UniversityTabScreen;

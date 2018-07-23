@@ -1,8 +1,7 @@
 
 import * as React from 'react';
 
-import { View, Image, ImageBackground } from 'react-native';
-import { Text } from 'native-base';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import Swiper from 'react-native-deck-swiper';
 
@@ -60,7 +59,7 @@ export default class HomeScreen extends React.Component<Props, State> {
   }
 
   renderCard(cardIgnored, index) {
-    const { options, card, id } = this.props.drawData;
+    const { card, id } = this.props.drawData;
 
     let cardProps = {};
 
@@ -68,11 +67,11 @@ export default class HomeScreen extends React.Component<Props, State> {
       ({ cardProps } = this.props.drawData);
     }
 
-    let flashing = false;
+    /* let flashing = false;
 
     if (this.props.drawData.flashArrows && this.props.drawData.flashArrows === true) {
       flashing = true;
-    }
+    } */
 
     let priorityCard = false;
 

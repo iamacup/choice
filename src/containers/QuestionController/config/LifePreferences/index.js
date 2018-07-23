@@ -2,6 +2,7 @@
 
 // Generic card containers that take props to render out specifics
 import SingleSelectWithPictureCard from '../../../../components/cards/Generic/SingleSelectWithPicture';
+import BottleUpdateCard from '../../../../components/cards/Generic/BottleUpdate';
 
 const startID = 'lifePreferences-0';
 
@@ -24,10 +25,10 @@ const questions = [
         text: 'Let\'s get started!',
       },
     },
-    card: SingleSelectWithPictureCard,
+    card: BottleUpdateCard,
     cardProps: {
+      fillPercentage: 30,
       questionText: 'Let\'s work out the saucy stuff that makes up your social side',
-      picture: require('../../../../theme/images/CourseCards/Segments/chat.png'),
       styleRatio: {
         top: 2,
         bottom: 5,

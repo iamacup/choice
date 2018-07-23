@@ -21,7 +21,7 @@ const DrawerNavigation = createDrawerNavigator({
   },
 },
 {
-  initialRouteName: 'QuestionController',
+  initialRouteName: 'Splash',
   contentComponent: props => <Sidebar {...props} />,
 });
 
