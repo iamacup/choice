@@ -32,7 +32,7 @@ export interface State {}
 
 // navigation, swipedCallback, drawData
 
-const DataExplorerScreen = ({ navigation }) => (
+const DataExplorerScreen = ({ navigation, swipedAnswers }) => (
   <Container>
 
     <Header hasTabs>
@@ -55,10 +55,14 @@ const DataExplorerScreen = ({ navigation }) => (
 
     <Tabs>
       <Tab heading='Universities'>
-        <UniversityTab />
+        <UniversityTab
+          swipedAnswers={swipedAnswers}
+        />
       </Tab>
       <Tab heading='Courses'>
-        <CourseTab />
+        <CourseTab
+          swipedAnswers={swipedAnswers}
+        />
       </Tab>
     </Tabs>
 
@@ -67,6 +71,7 @@ const DataExplorerScreen = ({ navigation }) => (
 
 DataExplorerScreen.propTypes = {
   navigation: PropTypes.any.isRequired,
+  swipedAnswers: PropTypes.object.isRequired,
 };
 
 export default DataExplorerScreen;

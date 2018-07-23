@@ -1,15 +1,17 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import * as storeAction from '../../redux/globals/DataStoreMulti/actions';
+import storeNames from '../../redux/globalNames';
 
 import HomeScreen from './screens';
 
 import guideConfig from './config/Guide';
 import preliminaryConfig from './config/Preliminary';
-
 import lifePreferencesConfig from './config/LifePreferences';
 import coursePreferencesConfig from './config/CoursePreferences';
-
 import uniChoicesConfig from './config/UniversityChoices';
 import courseChoicesConfig from './config/CourseChoices';
 
@@ -136,7 +138,7 @@ const getNextQuestionID = (tree, answer) => {
   return result;
 };
 
-export default class ControllerContainer extends React.Component<Props, State> {
+class ControllerContainer extends React.Component<Props, State> {
   constructor(props) {
     super(props);
 
@@ -160,6 +162,9 @@ export default class ControllerContainer extends React.Component<Props, State> {
       data,
       answer: getAnswer(section, direction, id),
     };
+
+    // we update the answer status here
+    this.props.reduxAction_doUpdate(id, answer);
 
     const nextID = getNextQuestionID(section.data.tree, answer);
     let card = null;
@@ -204,19 +209,17 @@ export default class ControllerContainer extends React.Component<Props, State> {
 
 ControllerContainer.propTypes = {
   navigation: PropTypes.any.isRequired,
+  reduxAction_doUpdate: PropTypes.func,
 };
 
-// REDUX STUFF
+ControllerContainer.defaultProps = {
+  reduxAction_doUpdate: () => {},
+};
 
-/* function bindAction(dispatch) {
-  return {
-    fetchList: url => dispatch(fetchList(url)),
-  };
-}
+const mapStateToProps = null;
 
-const mapStateToProps = state => ({
-  data: state.homeReducer.list,
-  isLoading: state.homeReducer.isLoading,
+const mapDispatchToProps = dispatch => ({
+  reduxAction_doUpdate: (subID, data) => dispatch(storeAction.doUpdate(storeNames.dataStoreMulti.swipedAnswers, subID, data)),
 });
 
-export default connect(mapStateToProps, bindAction)(HomeContainer); */
+export default connect(mapStateToProps, mapDispatchToProps)(ControllerContainer);

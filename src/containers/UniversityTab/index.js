@@ -16,29 +16,15 @@ export interface State {}
 
 export default class UniversityTabContainer extends React.Component<Props, State> {
   render() {
+    console.log('loading UniversityTabContainer with answers:');
+    console.log(this.props.swipedAnswers);
+
     return (
-      <UniversityTabScreen
-        navigation={this.props.navigation}
-      />
+      <UniversityTabScreen />
     );
   }
 }
 
 UniversityTabContainer.propTypes = {
-  navigation: PropTypes.any.isRequired,
+  swipedAnswers: PropTypes.object.isRequired,
 };
-
-// REDUX STUFF
-
-/* function bindAction(dispatch) {
-  return {
-    fetchList: url => dispatch(fetchList(url)),
-  };
-}
-
-const mapStateToProps = state => ({
-  data: state.homeReducer.list,
-  isLoading: state.homeReducer.isLoading,
-});
-
-export default connect(mapStateToProps, bindAction)(HomeContainer); */

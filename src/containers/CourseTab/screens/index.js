@@ -36,8 +36,4 @@ const CourseTabScreen = () => (
   </Container>
 );
 
-/* CourseTabScreen.propTypes = {
-  navigation: PropTypes.any.isRequired,
-}; */
-
 export default CourseTabScreen;
