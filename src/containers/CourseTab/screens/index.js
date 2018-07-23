@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { View } from 'react-native';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import {
   Container,
@@ -22,24 +22,22 @@ export interface State {}
 
 // navigation, swipedCallback, drawData
 
-export default class CourseTabScreen extends React.Component<Props, State> {
-  render() {
-    return (
-      <Container>
+const CourseTabScreen = () => (
+  <Container>
 
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
-          <Text>
+      <Text>
             CourseTab
-          </Text>
+      </Text>
 
-        </View>
+    </View>
 
-      </Container>
-    );
-  }
-}
+  </Container>
+);
 
-CourseTabScreen.propTypes = {
+/* CourseTabScreen.propTypes = {
   navigation: PropTypes.any.isRequired,
-};
+}; */
+
+export default CourseTabScreen;

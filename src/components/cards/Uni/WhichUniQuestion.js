@@ -259,7 +259,11 @@ export default class CardContent extends Card {
 
   render() {
     let filteredData = subjects;
-    if (this.state.filteredData.length > 0)  filteredData = this.state.filteredData;
+
+    if (this.state.filteredData.length > 0)
+    {
+      ({ filteredData } = this.state);
+    }
 
     return (
       <View style={styles.cardContentTrans}>

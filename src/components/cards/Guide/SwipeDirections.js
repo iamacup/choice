@@ -20,7 +20,7 @@ export interface State {}
 export default class SingleSelect extends Card {
   render() {
     const {
-      questionText, priorityCard
+      priorityCard
     } = this.props;
 
     return (
@@ -113,7 +113,6 @@ export default class SingleSelect extends Card {
 }
 
 SingleSelect.propTypes = {
-  questionText: PropTypes.string.isRequired,
   picture: PropTypes.any.isRequired,
   priorityCard: PropTypes.bool.isRequired,
 };

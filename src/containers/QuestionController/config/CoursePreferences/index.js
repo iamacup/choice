@@ -27,8 +27,8 @@ const questions = [
     },
     card: BottleUpdateCard,
     cardProps: {
-      questionText: 'Now to work out the flavor of your course!',
-      picture: require('../../../../theme/images/CourseCards/Segments/brain.png'),
+      fillPercentage: 60,
+      questionText: 'Now to add the flavor to your course!',
       styleRatio: {
         top: 2,
         bottom: 5,

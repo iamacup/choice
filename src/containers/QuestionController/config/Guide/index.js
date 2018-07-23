@@ -1,7 +1,6 @@
 // @flow
 
 // Generic card containers that take props to render out specifics
-import SingleSelectWithPictureCard from '../../../../components/cards/Generic/SingleSelectWithPicture';
 import SingleSelectCard from '../../../../components/cards/Generic/SingleSelect';
 import SwipeDirecctionsCard from '../../../../components/cards/Guide/SwipeDirections';
 
@@ -30,9 +29,9 @@ const questions = [
     },
     card: SingleSelectCard,
     cardProps: {
-      questionText: `Let's work out your university flavor.
+      questionText: `We need to ask some questions.
 
-Swipe cards to fill up the bottle.
+Swipe cards to pick your flavor!
 
 👉`,
       styleRatio: {
