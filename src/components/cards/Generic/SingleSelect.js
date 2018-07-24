@@ -38,6 +38,6 @@ export default class SingleSelect extends Card {
 
 SingleSelect.propTypes = {
   questionText: PropTypes.string.isRequired,
-  picture: PropTypes.any.isRequired,
+  picture: PropTypes.any,
   priorityCard: PropTypes.bool.isRequired,
 };

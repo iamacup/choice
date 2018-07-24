@@ -21,7 +21,7 @@ import {
 
 import styles from './styles';
 
-import uniList from '../../../scripts/data/uniList.js';
+import uniList from '../../../scripts/data/uniList';
 // SETUP TYPES FOR FLOW
 
 export interface Props {
