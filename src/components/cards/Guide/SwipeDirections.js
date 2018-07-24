@@ -113,6 +113,6 @@ export default class SingleSelect extends Card {
 }
 
 SingleSelect.propTypes = {
-  picture: PropTypes.any.isRequired,
+  picture: PropTypes.any,
   priorityCard: PropTypes.bool.isRequired,
 };

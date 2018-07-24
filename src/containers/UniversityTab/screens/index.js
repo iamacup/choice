@@ -166,7 +166,7 @@ Location
               if (this.state.index === i) expand = this.state.expanded;
 
               return (
-                <View key={i} style={{ flex: 1, marginTop: 20 }}>
+                <View key={elem.key} style={{ flex: 1, marginTop: 20 }}>
                   <FoldView
                     expanded={expand}
                     renderFrontface={() => this.renderFrontface(elem, image, i)}
