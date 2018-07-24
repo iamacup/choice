@@ -8,6 +8,7 @@ import QuestionController from '../containers/QuestionController';
 import Splash from '../containers/Splash';
 import Sidebar from '../containers/Sidebar';
 import DataExplorer from '../containers/DataExplorer';
+import LEOData from '../containers/LEOData';
 
 const DrawerNavigation = createDrawerNavigator({
   Splash: {
@@ -18,6 +19,9 @@ const DrawerNavigation = createDrawerNavigator({
   },
   DataExplorer: {
     screen: DataExplorer
+  },
+  LEOData: {
+    screen: LEOData
   },
 },
 {

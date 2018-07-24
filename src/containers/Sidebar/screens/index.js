@@ -14,6 +14,10 @@ const navigationItems = [
     location: 'DataExplorer',
     name: 'Show me the data!',
   },
+  {
+    location: 'LEOData',
+    name: 'LEO High and Lowlights!',
+  },
 ];
 
 export interface Props {
