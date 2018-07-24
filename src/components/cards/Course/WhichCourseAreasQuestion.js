@@ -58,7 +58,7 @@ export default class CardContent extends Card {
   handlePick(item) {
     const { data } = this.state;
 
-if (this.state.data.length < 3) {
+    if (this.state.data.length < 3) {
       if (!(data.indexOf(item) > -1)) {
         data.push(item);
         this.setState({ data });
