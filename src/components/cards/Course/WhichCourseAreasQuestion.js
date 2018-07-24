@@ -58,9 +58,11 @@ export default class CardContent extends Card {
   handlePick(item) {
     const { data } = this.state;
 
-    if (!(data.indexOf(item) > -1)) {
-      data.push(item);
-      this.setState({ data });
+if (this.state.data.length < 3) {
+      if (!(data.indexOf(item) > -1)) {
+        data.push(item);
+        this.setState({ data });
+      }
     }
   }
 
@@ -78,7 +80,7 @@ export default class CardContent extends Card {
 
         <View style={{ flex: 3, alignSelf: 'center', marginTop: 4 }}>
           <Text style={styles.titleTextTrans}>
-            Select as many subjects as you are interested in
+            Select up to 3 subjects you are interested in
           </Text>
         </View>
 
