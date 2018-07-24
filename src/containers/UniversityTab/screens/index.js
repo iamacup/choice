@@ -21,7 +21,7 @@ import {
 
 import styles from './styles';
 
-import uniList from './uniList';
+import uniList from '../../../scripts/data/uniList.js';
 // SETUP TYPES FOR FLOW
 
 export interface Props {
@@ -37,39 +37,41 @@ class UniversityTabScreen extends React.Component<Props, State> {
     super(props);
 
     this.state = {
+      data: uniList,
       expanded: false,
+      index: 0,
     };
   }
 
-  // componentWillMount() {
-  //    this.flip = this.flip.bind(this);
-  //  }
-
-  flip() {
+  flip(index) {
     this.setState({
+      index,
       expanded: !this.state.expanded,
     });
   }
 
-  onPress() {
-    console.log('************');
+  onPress(elem) {
+    console.log(elem);
   }
 
-  renderFrontface(elem, image) {
+  renderFrontface(elem, image, i) {
     return (
-      <TouchableHighlight onPress={() => this.flip()} style={styles.card}>
+      <TouchableHighlight style={styles.card} onPress={() => this.flip(i)}>
         <View>
           <View style={{ borderBottomColor: 'black', borderBottomWidth: 1, width: '100%' }}>
             <Text>
-              {elem.key}
+              {elem.name}
             </Text>
-            {/* image */}
           </View>
           <Text style={{ fontSize: 10 }}>
-            {elem.data.location}
+            <Icon name='ios-pin-outline' style={{ fontSize: 20 }} />
+            {' '}
+            {elem.location}
           </Text>
           <Text style={{ fontSize: 10 }}>
-            {elem.data.population}
+            <Icon name='ios-people-outline' style={{ fontSize: 20 }} />
+            {' '}
+            {elem.population}
             {' '}
 students in 2017
           </Text>
@@ -80,16 +82,28 @@ students in 2017
 
   renderBackface(elem, image) {
     return (
-      <TouchableHighlight onPress={() => this.flip()} style={styles.card}>
-        <View>
-          <View style={{ borderBottomColor: 'black', borderBottomWidth: 1, width: '100%' }}>
-            <Text>
-              {elem.key}
-            </Text>
-          </View>
-          {image}
+      <View style={styles.card}>
+
+        <View style={{ borderBottomColor: 'black', borderBottomWidth: 1 }}>
+          <Text>
+            {elem.name}
+          </Text>
         </View>
-      </TouchableHighlight>
+        <FoldView
+          renderFrontface={() => this.renderFrontface(elem, image)}
+          renderBackface={() => this.renderBackfaceTwo(elem, image)}
+        />
+      </View>
+    );
+  }
+
+  renderBackfaceTwo(elem, image) {
+    return (
+      <View>
+        <Text>
+Getting here!!!
+        </Text>
+      </View>
     );
   }
 
@@ -97,10 +111,13 @@ students in 2017
   render() {
     return (
       <View>
-        <View style={{ backgroundColor: 'white', opacity: 0.2, height: '10%' }}>
+        <View style={{
+          backgroundColor: 'white', opacity: 0.2, height: '9%', paddingTop: 5
+        }}
+        >
           <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
 
-            <TouchableHighlight onPress={this.onPress}>
+            <TouchableHighlight onPress={() => this.onPress('gender')}>
               <View>
                 <Icon name='md-transgender' style={{ alignSelf: 'center' }} />
                 <Text>
@@ -109,7 +126,7 @@ Gender
               </View>
             </TouchableHighlight>
 
-            <TouchableHighlight onPress={this.onPress}>
+            <TouchableHighlight onPress={() => this.onPress('costs')}>
               <View>
                 <Icon name='ios-cash' style={{ alignSelf: 'center' }} />
                 <Text>
@@ -118,7 +135,7 @@ Costs
               </View>
             </TouchableHighlight>
 
-            <TouchableHighlight onPress={this.onPress}>
+            <TouchableHighlight onPress={() => this.onPress('location')}>
               <View>
                 <Icon name='ios-pin' style={{ alignSelf: 'center' }} />
                 <Text>
@@ -136,27 +153,41 @@ Location
             flex: 1, marginTop: 10, marginBottom: 10, justifyContent: 'center'
           }}
           >
-            {uniList.map((elem, i) => {
+            {this.state.data.map((elem, i) => {
               let image = '';
 
-              if (elem.data.TEF.length > 0) {
-                if (elem.data.TEF === 'bronze') image = (<Image source={require('../../../theme/images/Medals/bronze.png')} style={{ width: 50, height: 50 }} />);
-                if (elem.data.TEF === 'silver') image = (<Image source={require('../../../theme/images/Medals/silver.png')} style={{ width: 50, height: 50 }} />);
-                if (elem.data.TEF === 'gold') image = (<Image source={require('../../../theme/images/Medals/gold.png')} style={{ width: 50, height: 50 }} />);
+              if (elem.TEF.length > 0) {
+                if (elem.TEF === 'bronze') image = (<Image source={require('../../../theme/images/Medals/bronze.png')} style={{ width: 50, height: 50 }} />);
+                if (elem.TEF === 'silver') image = (<Image source={require('../../../theme/images/Medals/silver.png')} style={{ width: 50, height: 50 }} />);
+                if (elem.TEF === 'gold') image = (<Image source={require('../../../theme/images/Medals/gold.png')} style={{ width: 50, height: 50 }} />);
               }
 
-              return (
-                <View style={{ marginTop: 10 }} key={i}>
-                  {/* <TouchableHighlight onPress={() => this.flip()} style={styles.card}> */}
-                  <FoldView
-                    expanded={this.state.expanded}
-                    renderFrontface={() => this.renderFrontface(elem, image)}
-                    renderBackface={() => this.renderBackface(elem, image)}
-                  >
-                    {/* I think there needs to be an onPress here? */}
-                  </FoldView>
+              let expand = false;
+              if (this.state.index === i) expand = this.state.expanded;
 
-                  {/* </TouchableHighlight> */}
+              return (
+                <View key={i} style={{ flex: 1, marginTop: 20 }}>
+                  <FoldView
+                    expanded={expand}
+                    renderFrontface={() => this.renderFrontface(elem, image, i)}
+                    renderBackface={() => this.renderBackface(elem, image, i)}
+                  >
+                    <View style={styles.card}>
+                      <View style={{ borderBottomColor: 'black', borderBottomWidth: 1, width: '100%' }}>
+                        <Text>
+                          {elem.name}
+                        </Text>
+                      </View>
+                      <Text style={{ fontSize: 10 }}>
+                        { elem.location}
+                      </Text>
+                      <Text style={{ fontSize: 10 }}>
+                        { elem.population}
+                        {' '}
+          students in 2017
+                      </Text>
+                    </View>
+                  </FoldView>
                 </View>
               );
             })}
@@ -166,39 +197,19 @@ Location
       </View>
     );
   }
-
-
-/*     <ScrollView>
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 10, marginBottom: 10 }}>
-            {uniList.map(elem => {
-              let image = '';
-              if (elem.data.TEF.length > 0) {
-                if (elem.data.TEF === 'bronze') image = (<Image source={require('../../../theme/images/Medals/bronze.png')} style={{width: 50, height: 50}} />)
-                if (elem.data.TEF === 'silver') image = (<Image source={require('../../../theme/images/Medals/silver.png')} style={{width: 50, height: 50}} />)
-                if (elem.data.TEF === 'gold') image = (<Image source={require('../../../theme/images/Medals/gold.png')} style={{width: 50, height: 50}} />)
-              }
-              return (
-                <TouchableHighlight onPress={this.onPress} style={styles.card}>
-                <View>
-                    <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between',borderBottomColor: 'black', borderBottomWidth: 1, width: '100%', alignItems: 'center' }}>
-                      <Text>{elem.key}</Text>
-                      {image}
-                    </View>
-                    <Icon name="ios-pin-outline" /><Text style={{ fontSize: 10 }}>{elem.data.location}</Text>
-                    <Icon name="ios-people-outline" /><Text style={{fontSize: 10 }}>{elem.data.population} students in 2017</Text>
-                    </View>
-                </TouchableHighlight>
-              )})}
-          </View>
-        </ScrollView> */
 }
+
+UniversityTabScreen.propTypes = {
+  swipedAnswers: PropTypes.any.isRequired,
+};
+
 
 export default UniversityTabScreen;
 
 
 // TODO
 //
-// Fix the onPress thing so it works
-// Make sure the animation works too
+// onPress all other cards should move down
 // add data to each card
+// redux
 // get filters to work

@@ -9,7 +9,6 @@ const styles: any = StyleSheet.create({
     backgroundColor: 'white',
     width: '80%',
     padding: 10,
-    marginBottom: 10,
     borderRadius: 5,
     alignSelf: 'center',
   }

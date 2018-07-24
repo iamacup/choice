@@ -31,7 +31,9 @@ export default class UniversityTabContainer extends React.Component<Props, State
         source={require('../../theme/images/bg3.png')}
         resizeMode='cover'
       >
-        <UniversityTabScreen />
+        <UniversityTabScreen
+          swipedAnswers={this.props.swipedAnswers}
+        />
       </ImageBackground>
     );
   }
