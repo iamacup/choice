@@ -2,6 +2,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
+import { ImageBackground } from 'react-native';
+
 import CourseTabScreen from './screens';
 
 // SETUP TYPES FOR FLOW
@@ -20,7 +22,17 @@ export default class CourseTabContainer extends React.Component<Props, State> {
     console.log(this.props.swipedAnswers);
 
     return (
+    	  <ImageBackground
+        style={{
+          flex:1,
+          height: undefined,
+          width: undefined,
+        }}
+        source={require('../../theme/images/bg3.png')}
+        resizeMode='cover'
+      >
       <CourseTabScreen />
+      </ImageBackground>
     );
   }
 }
