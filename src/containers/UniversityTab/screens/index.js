@@ -41,48 +41,55 @@ class UniversityTabScreen extends React.Component<Props, State> {
 
   render() {
     return (
-      <View style={{flex: 1}}>
-       {/* We use a background color with an alpha channel so that the OPACITY (specified as alpha channel) is only applied to the background color and not all child element */}
-        <View style={{backgroundColor: '#ffffff30', flex: 2}}>
-          <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center' }}>
+      <View style={{ flex: 1 }}>
+        {/* We use a background color with an alpha channel so that the OPACITY (specified as alpha channel) is only applied to the background color and not all child element */}
+        <View style={{ backgroundColor: '#ffffff30', flex: 2 }}>
+          <View style={{
+            flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'
+          }}
+          >
 
             <TouchableHighlight onPress={() => this.onPress('gender')}>
               <View>
                 <Icon name='md-transgender' style={{ alignSelf: 'center' }} />
-                <Text>Gender</Text>
+                <Text>
+Gender
+                </Text>
               </View>
             </TouchableHighlight>
 
             <TouchableHighlight onPress={() => this.onPress('costs')}>
               <View>
                 <Icon name='ios-cash' style={{ alignSelf: 'center' }} />
-                <Text>Costs</Text>
+                <Text>
+Costs
+                </Text>
               </View>
             </TouchableHighlight>
 
             <TouchableHighlight onPress={() => this.onPress('location')}>
               <View>
                 <Icon name='ios-pin' style={{ alignSelf: 'center' }} />
-                <Text>Location</Text>
+                <Text>
+Location
+                </Text>
               </View>
             </TouchableHighlight>
 
           </View>
         </View>
 
-        <View style={{flex: 7}}>
-            <ScrollView style={{flex: 1}}>
-              
-              {uniList.map((elem, i) => {
-                return (
-                    <UniCard 
-                      key={elem.key}
-                      {...uniList[i]}
-                    />
-                  );
-              })}
+        <View style={{ flex: 7 }}>
+          <ScrollView style={{ flex: 1 }}>
 
-            </ScrollView>
+            {uniList.map((elem, i) => (
+              <UniCard
+                key={elem.key}
+                {...uniList[i]}
+              />
+            ))}
+
+          </ScrollView>
         </View>
 
       </View>

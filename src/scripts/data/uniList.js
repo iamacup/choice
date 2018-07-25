@@ -547,7 +547,7 @@ const uniList = [
   },
   {
     'name':'goldsmiths, University of London','TEF':'bronze','population':0,'location':'England','key':'uniList-182'
-  }*/
+  } */
 ];
 
 export default uniList;
