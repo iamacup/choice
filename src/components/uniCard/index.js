@@ -21,12 +21,11 @@ import {
 
 import styles from './styles';
 
-const Frontface = (props) => { return null; };
-const Backface = (props) => { return null; };
-const Base = (props) => { return null; };
+const Frontface = props => null;
+const Backface = props => null;
+const Base = props => null;
 
 export default class UniCard extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -44,7 +43,9 @@ export default class UniCard extends React.Component {
   renderFrontface() {
     console.log('renderFrontFace');
 
-    const {TEF, location, name, population} = this.props;
+    const {
+      TEF, location, name, population
+    } = this.props;
 
     let image = null;
 
@@ -55,7 +56,7 @@ export default class UniCard extends React.Component {
     }
 
     return (
-      <TouchableHighlight style={styles.card} onPress={ () => { this.flip(); } }>
+      <TouchableHighlight style={styles.card} onPress={() => { this.flip(); }}>
         <View>
           <View style={{ borderBottomColor: 'black', borderBottomWidth: 1, width: '100%' }}>
             <Text>
@@ -82,17 +83,19 @@ export default class UniCard extends React.Component {
   renderBackface() {
     console.log('renderBackface');
 
-    const {TEF, location, name, population} = this.props;
+    const {
+      TEF, location, name, population
+    } = this.props;
 
     return (
-        <View style={styles.card}>
-          <View style={{ borderBottomColor: 'black', borderBottomWidth: 1 }}>
-            <Text>
-              {name}
-            </Text>
-          </View>
+      <View style={styles.card}>
+        <View style={{ borderBottomColor: 'black', borderBottomWidth: 1 }}>
+          <Text>
+            {name}
+          </Text>
         </View>
-      );
+      </View>
+    );
   }
 
   render() {
@@ -101,8 +104,8 @@ export default class UniCard extends React.Component {
     return (
       <FoldView
         expanded={this.state.expanded}
-        renderBackface={() => {return this.renderBackface(); }}
-        renderFrontface={() => {return this.renderFrontface(); }}
+        renderBackface={() => this.renderBackface()}
+        renderFrontface={() => this.renderFrontface()}
       >
         <Base />
       </FoldView>

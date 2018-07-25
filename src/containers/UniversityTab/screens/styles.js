@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native';
 // import * as OurColors from '../../../theme/colors';
 
 const styles: any = StyleSheet.create({
-  
+
 });
 
 export default styles;
