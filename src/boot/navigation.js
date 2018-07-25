@@ -25,7 +25,7 @@ const DrawerNavigation = createDrawerNavigator({
   }, */
 },
 {
-  initialRouteName: 'Splash',
+  initialRouteName: 'DataExplorer',
   contentComponent: props => <Sidebar {...props} />,
 });
 
