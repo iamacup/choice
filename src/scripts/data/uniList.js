@@ -1,7 +1,7 @@
 const uniList = [
   {
     'name':'Abertay University','TEF':'silver','population':0,'location':'Dundee, Scotland','key':'uniList-0'
-  },
+  },/*
   {
     'name':'Aberystwyth University','TEF':'','population':0,'location':'Wales','key':'uniList-1'
   },
@@ -547,7 +547,7 @@ const uniList = [
   },
   {
     'name':'goldsmiths, University of London','TEF':'bronze','population':0,'location':'England','key':'uniList-182'
-  }
+  }*/
 ];
 
 export default uniList;
