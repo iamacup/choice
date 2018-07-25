@@ -20,9 +20,9 @@ const DrawerNavigation = createDrawerNavigator({
   DataExplorer: {
     screen: DataExplorer
   },
-  /*LEOData: {
+  /* LEOData: {
     screen: LEOData
-  },*/
+  }, */
 },
 {
   initialRouteName: 'Splash',

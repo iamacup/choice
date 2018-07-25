@@ -22,7 +22,7 @@ export default class CourseTabContainer extends React.Component<Props, State> {
     console.log(this.props.swipedAnswers);
 
     return (
-    	  <ImageBackground
+      <ImageBackground
         style={{
           flex:1,
           height: undefined,
@@ -31,7 +31,7 @@ export default class CourseTabContainer extends React.Component<Props, State> {
         source={require('../../theme/images/bg3.png')}
         resizeMode='cover'
       >
-      <CourseTabScreen />
+        <CourseTabScreen />
       </ImageBackground>
     );
   }
