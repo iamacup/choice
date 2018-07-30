@@ -16,7 +16,10 @@ import {
 
 import styles from './styles';
 
-import CourseCard from '../../../components/courseCard';
+//this does not resolve in the version on git hub so have commented out
+//import CourseCard from '../../../components/courseCard';
+const CourseCard = null;
+
 import courseData from '../../../scripts/data/courseList';
 
 // SETUP TYPES FOR FLOW

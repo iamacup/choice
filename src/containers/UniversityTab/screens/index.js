@@ -1,7 +1,6 @@
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import FoldView from 'react-native-foldview';
 
 import {
   View,
